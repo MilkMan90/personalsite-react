@@ -1,0 +1,37 @@
+.profileImg{
+  border-radius: 200px;
+  height: 150px;
+  display: block;
+  margin-bottom: 20px;
+  margin-top: 30px;
+  border-style: none;
+}
+
+nav li{
+  margin: 30px;
+
+}
+nav li a{
+  font-family: "Dosis", sans-serif;color:#737373;
+  font-size: 40px;
+  color: white;
+  text-decoration: none;
+}
+
+#footerlinks a {
+  display:inline-block;
+  cursor: pointer;
+  margin: 8px;
+}
+
+#footerlinks a img {
+  height: 20px;
+}
+
+#footerlinks {
+  position: absolute;
+  width:100%;
+  text-align: center;
+  align-items: center;
+  bottom: 20px;
+}

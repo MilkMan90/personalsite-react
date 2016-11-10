@@ -1,0 +1,26 @@
+nav{
+  display: flex;
+  position: fixed;
+  flex-direction: column;
+  border-right: solid 1px;
+  align-items: center;
+  background-color: #05668D;
+  width: 23.5%;
+  float: left;
+  height: 100%;
+  z-index: 999;
+}
+
+.width-holder{
+  z-index: 0;
+  width: 23.5%;
+  float: left;
+  height: 100vh;
+}
+
+main{
+  z-index: 0;
+  background-color: white;
+  display: inline-block;
+  width: 76.4%;
+}
