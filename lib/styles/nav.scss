@@ -3,25 +3,60 @@
   height: 150px;
   display: block;
   margin-bottom: 20px;
-  margin-top: 30px;
   border-style: none;
 }
 
-nav li{
-  margin: 30px;
-
+nav ul{
+  width: 100%;
 }
-nav li a{
-  font-family: "Dosis", sans-serif;color:#737373;
-  font-size: 40px;
-  color: white;
-  text-decoration: none;
+
+@keyframes activeLink {
+  from {
+    margin-left: 0px;
+    color: white;
+  }
+  to {
+    margin-left: 10px;
+    color: $seafoamColor;
+  }
+}
+
+@keyframes inActiveLink {
+  from {
+    margin-left: 10px;
+    color: $seafoamColor;
+  }
+  to {
+    margin-left: 0px;
+    color: white;
+  }
+}
+
+nav li{
+  margin-bottom: 10px;
+  margin-left: 50px;
+  a {
+    font-family: "Dosis", sans-serif;
+    font-size: 25px;
+    color: white;
+    text-decoration: none;
+    animation-name: inActiveLink;
+    animation-duration: 1s;
+    margin-left: 0px;
+  }
+}
+
+.active {
+  animation-name: activeLink;
+  animation-duration: 1s;
+  margin-left: 10px;
+  color: $seafoamColor;
 }
 
 #footerlinks a {
-  display:inline-block;
+  display: inline-block;
   cursor: pointer;
-  margin: 8px;
+  margin: 5px;
 }
 
 #footerlinks a img {
@@ -30,8 +65,8 @@ nav li a{
 
 #footerlinks {
   position: absolute;
-  width:100%;
+  width:90%;
   text-align: center;
   align-items: center;
-  bottom: 20px;
+  bottom: 15px;
 }

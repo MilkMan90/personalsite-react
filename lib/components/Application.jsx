@@ -18,22 +18,11 @@ export default class Application extends Component {
 
   }
 
-  render() {
-    let body;
+  showHome(){
 
-    if (this.state.showHome) {
-      body = (
-        <article className="message">
-        <h1>Hello.</h1>
-        <h3>I'm Matt Kaufman</h3>
-        <h2>A computer software engineer and front-end developer</h2>
-        <h3>I love to make people happy by solving problems, creating memorable user experiences, and contributing to community.</h3>
-        <h3>I build web applications are inspired by the belief in the power of worldy connection. My creations push boundaries to spread love, open minds, ease suffering, and inspire social action.</h3>
-        <h3> Thank you for visiting.</h3>
-      </article>);
-    } else {
-      body = this.props.children;
-    }
+  }
+
+  render() {
     return (
       <div className="Application">
         <nav>
@@ -44,10 +33,8 @@ export default class Application extends Component {
               </NavLink>
             </div>
           <ul role="nav">
-            <li></li>
-            <li><NavLink to="/" onClick={() => this.setState({ showHome: true })}>About</NavLink></li>
-            <li><NavLink to="/code" onClick={() => this.setState({ showHome: false })}>Code</NavLink></li>
-            <li><NavLink to="/blog" onClick={() => this.setState({ showHome: false })}>Blog</NavLink></li>
+            <li><NavLink to="/code" >Code</NavLink></li>
+            <li><NavLink to="/blog" >Blog</NavLink></li>
           </ul>
 
           <div id='footerlinks'>
@@ -61,9 +48,9 @@ export default class Application extends Component {
 
         <div className="width-holder"></div>
         <main>
-          {body}
+          {this.props.children}
         </main>
       </div>
-    )
+    );
   }
 }

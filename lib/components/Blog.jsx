@@ -18,7 +18,7 @@ export default class Blog extends Component {
 
     return(
       <div>
-        Blog Page
+      
       </div>
     )
   }
