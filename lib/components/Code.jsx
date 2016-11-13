@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import Scroll from 'react-scroll'
 import {Projects} from '../Projects.js'
 import ProjectCard from './ProjectCard'
+import {Showcase} from './Showcase'
 // import ProjectGrid
 
 
@@ -23,36 +24,49 @@ export default class Code extends Component {
       displayShowcase: true,
       projectToDisplay: project,
     });
-    console.log('test');
+  }
+  hideShowcase() {
+    this.setState({
+      displayShowcase: false
+    })
   }
   render() {
+    let showcase;
     let currentProject;
-    console.log(Projects);
 
-    if(this.state.projectToDisplay){
+    let visibleClass;
+    if (this.state.displayShowcase) {
+      visibleClass = 'showcase-container';
+    } else {
+      visibleClass = 'showcase-container contract';
+    }
+    if (this.state.projectToDisplay) {
       currentProject = (
         <div>
-          {Projects[this.state.projectToDisplay].description}
+          <Showcase projectInfo={Projects[this.state.projectToDisplay]} handleHide={ this.hideShowcase.bind(this)}/>
         </div>
-      )
-    }
-    return(
-      <div>
-        <div className='showcase'>
+      );
+      showcase = (
+        <div className={visibleClass}>
             {currentProject}
         </div>
+      );
+    }
+    return (
+      <div className='project-main'>
+        {showcase}
         <div className='project-card-container'>
           <ProjectCard project={Projects.gameTime} handleClick={() => this.chooseProject('gameTime')}/>
           <ProjectCard project={Projects.netwerker} handleClick={() => this.chooseProject('netwerker')}/>
           <ProjectCard project={Projects.weatherMe} handleClick={() => this.chooseProject('weatherMe')}/>
           <ProjectCard project={Projects.shootTheBreeze} handleClick={() => this.chooseProject('shootTheBreeze')}/>
+          {/* <ProjectCard project={Projects.gameTime}/>
           <ProjectCard project={Projects.gameTime}/>
           <ProjectCard project={Projects.gameTime}/>
           <ProjectCard project={Projects.gameTime}/>
-          <ProjectCard project={Projects.gameTime}/>
-          <ProjectCard project={Projects.gameTime}/>
+          <ProjectCard project={Projects.gameTime}/> */}
         </div>
       </div>
-    )
+    );
   }
 }

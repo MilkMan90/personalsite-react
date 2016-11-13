@@ -1,0 +1,125 @@
+.project-main{
+    z-index:-1;
+}
+
+@keyframes expand {
+  from {
+    height: 0px;
+    opacity: 0;
+  }
+  to {
+    height: 230px;
+    opacity: 1;
+  }
+}
+
+.showcase-container {
+  position: relative;
+  z-index: 5;
+  animation-name: expand;
+  animation-timing-function: ease;
+  animation-duration: 1s;
+  border-bottom: 4px solid lightGrey;
+  height: 230px;
+  opacity: 1;
+  
+  .showcase {
+    margin: 15px;
+    padding-bottom: 10px;
+    z-index: 6;
+    height: 225px;
+
+    .showcase-title{
+      position: absolute;
+      bottom: 210px;
+    }
+
+    .showcase-img{
+      display: inline-block;
+      position: absolute;
+      width: 30%;
+      bottom: 25px;
+      right: 30px;
+      z-index: 1;
+    }
+
+    .showcase-description{
+      position: absolute;
+      bottom: 150px;
+      width: 60%;
+      font-family: "Dosis", sans-serif;
+      margin: 15px;
+    }
+
+    .showcase-tech{
+      position: absolute;
+      bottom: 30px;
+      font-family: "Dosis", sans-serif;
+      margin: 15px;
+
+    }
+    .showcase-tech-item{
+      margin: 5px;
+      list-style: square;
+    }
+    .showcase-github{
+      font-family: "Dosis", sans-serif;
+      position: absolute;
+      bottom: 10px;
+    }
+
+    .showcase-hide{
+      background-color: lightGrey;
+      color: white;
+      display: block;
+      position: absolute;
+      bottom: -20px;
+      left: 45%;
+      width: 100px;
+      border-radius: 0px 0px 20px 20px;
+      border-style: none;
+    }
+  }
+}
+
+@keyframes contract {
+  from {
+    height: 230px;
+    opacity: 1;
+  }
+  to {
+    height: 0px;
+    opacity: 0;
+  }
+}
+
+
+.contract {
+  animation-name: contract;
+  animation-timing-function: ease;
+  animation-duration: 1s;
+  animation-direction: forward;
+  animation-fill-mode: both;
+}
+
+
+.project-card-container {
+  position: relative;
+  justify-content: center;
+  display: flex;
+  flex-wrap: wrap;
+  background-color: white;
+  z-index: 99;
+  margin-top: 40px;
+}
+
+.project-card {
+  border: 1px solid black;
+  width: 150px;
+  height: 150px;
+  margin: 20px;
+}
+
+.project-card:hover{
+  cursor: pointer;
+}
