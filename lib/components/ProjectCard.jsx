@@ -22,7 +22,7 @@ export default class ProjectCard extends Component {
         {/* <a href={githubURL}>
           <img href={imgURL}/>
         </a> */}
-        <img href={imgURL}/>
+        <img className='thumbnail-img' src={imgURL}/>
       </div>
     )
   }

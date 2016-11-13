@@ -33,6 +33,7 @@ export default class Application extends Component {
               </NavLink>
             </div>
           <ul role="nav">
+            <li><NavLink to="/About" >About</NavLink></li>
             <li><NavLink to="/code" >Code</NavLink></li>
             <li><NavLink to="/blog" >Blog</NavLink></li>
           </ul>
