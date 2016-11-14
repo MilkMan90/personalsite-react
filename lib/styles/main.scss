@@ -9,25 +9,24 @@ body{
   height: 100vh;
 }
 
-h1{
+h2 {
   text-align: center;
   font-family: 'Cookie', cursive; color:#737373; text-shadow: 0px 2px 0px rgba(255, 255, 255, 1); font-weight:400;
   color: $seafoamColor;
-  font-size: 130px;
+  font-size: 150px;
   margin-top: 25px;
 }
 
-h2, h3, h4, h5, h6 {
+h1, h3, h4, h5, h6, p {
   /*font-family: "Dosis", sans-serif;color:#737373;*/
-  font-family: "Dosis", sans-serif;color:#05668D
-;
+  font-family: "Dosis", sans-serif;
+  color:#05668D;
   text-align: center;
 }
 
-h2{
+h1{
   font-size: 30px;
-  margin-top: 10px;
-  margin-bottom: 10px;
+  margin: 30px;
 }
 
 h3{
@@ -47,6 +46,10 @@ h6{
 }
 
 .message{
-  width: 75%;
+  width: 65%;
   margin: auto;
+  p{
+    font-size: 20px;
+    margin: 30px;
+  }
 }

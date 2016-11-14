@@ -20,7 +20,7 @@ export const Showcase = ({projectInfo, handleHide}) => {
       <ul className='showcase-tech'>Built with:
         {techList}
       </ul>
-      <a className='showcase-github' href={githubURL}>Github Repo</a>
+      <a className='showcase-github' href={githubURL}>View On Github</a>
       <button className='showcase-hide' onClick={() => handleHide()}>Hide</button>
     </div>
   );
