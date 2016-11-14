@@ -30,6 +30,8 @@ export default class Application extends Component {
             <div className='homeNav'>
               <NavLink to="/">
                 <img className='profileImg' src="./lib/imgs/headshot.jpg" alt="me!" />
+                <img className='hamburger-nav'
+                src="./lib/imgs/home3.svg"/>
               </NavLink>
             </div>
           <div className="nav">

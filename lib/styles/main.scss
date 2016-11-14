@@ -3,6 +3,7 @@
 @import 'layout.scss';
 @import 'nav.scss';
 @import 'projects.scss';
+@import 'timeline.scss';
 
 body{
   width: 100%;
@@ -10,23 +11,23 @@ body{
 }
 
 h2 {
-  text-align: center;
   font-family: 'Cookie', cursive; color:#737373; text-shadow: 0px 2px 0px rgba(255, 255, 255, 1); font-weight:400;
   color: $seafoamColor;
   font-size: 150px;
   margin-top: 25px;
+  text-align: center;
 }
 
 h1, h3, h4, h5, h6, p {
   /*font-family: "Dosis", sans-serif;color:#737373;*/
   font-family: "Dosis", sans-serif;
   color:#05668D;
-  text-align: center;
 }
 
-h1{
+h1 {
   font-size: 30px;
   margin: 30px;
+  text-align: center;
 }
 
 h3{
@@ -39,6 +40,9 @@ h4{
   margin: 50px;
 }
 
+h5{
+  margin: 5px;
+}
 h6{
   font-size: 20px;
   margin-bottom : 5px;
@@ -46,10 +50,12 @@ h6{
 }
 
 .message{
-  width: 65%;
+  width: 70%;
   margin: auto;
   p{
     font-size: 20px;
     margin: 30px;
   }
 }
+
+@import 'mobile.scss';

@@ -7,6 +7,9 @@
   border-style: none;
 }
 
+.hamburger-nav{
+  display: none;
+}
 
 @keyframes activeLink {
   from {
@@ -32,12 +35,13 @@
   a {
     display: block;
     font-family: "Dosis", sans-serif;
-    font-size: 25px;
+    font-size: 30px;
     color: white;
     text-decoration: none;
     animation-name: inActiveLink;
     animation-duration: 1s;
-    margin: 20px;
+    margin: 15px;
+    margin-top: 30px;
     margin-left: 0px;
   }
   .active {
@@ -47,8 +51,6 @@
   }
 }
 
-
-
 #footerlinks a {
   display: inline-block;
   cursor: pointer;
@@ -56,7 +58,7 @@
 }
 
 #footerlinks a img {
-  height: 20px;
+  height: 30px;
 }
 
 #footerlinks {
