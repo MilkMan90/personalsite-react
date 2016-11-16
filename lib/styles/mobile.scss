@@ -1,3 +1,25 @@
+@media screen and (max-width: $breakpoint1)  {
+
+  .timeline ul li {
+    margin: 0 auto;
+    margin-right: auto;
+    margin-left: 20%;
+  }
+
+  .timeline ul li:nth-child(even) div {
+    left: 35px;
+  }
+
+  .timeline ul li:nth-child(even) div::before {
+    left: -15px;
+    border-width: 8px 16px 8px 0;
+    border-color: transparent $cardColor transparent transparent;
+  }
+
+}
+
+
+
 @media screen and (max-width: $breakpoint)  {
 
   .width-holder {
@@ -67,8 +89,14 @@
     text-align: left;
   }
 
+  .timeline ul li {
+    margin: 0 auto;
+    margin-right: auto;
+    margin-left: 15%;
+  }
+
   .timeline ul li div {
-    width: 100px;
+    width: 250px;
   }
 
   .showcase-img{

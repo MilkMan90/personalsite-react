@@ -16,13 +16,13 @@
     color: white;
   }
   to {
-    color: $highlightColor;
+    color: $seafoamColor;
   }
 }
 
 @keyframes inActiveLink {
   from {
-    color: $highlightColor;
+    color: $seafoamColor;
   }
   to {
     color: white;
@@ -47,7 +47,7 @@
   .active {
     animation-name: activeLink;
     animation-duration: 1s;
-    color: $highlightColor;
+    color: $seafoamColor;
   }
 }
 
