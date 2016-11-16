@@ -2,66 +2,63 @@
   border-radius: 200px;
   height: 120px;
   display: block;
+  margin-top: 30px;
   margin-bottom: 20px;
   border-style: none;
 }
 
-
-nav ul{
-  width: 100%;
+.hamburger-nav{
+  display: none;
 }
 
 @keyframes activeLink {
   from {
-    margin-left: 0px;
     color: white;
   }
   to {
-    margin-left: 10px;
     color: $seafoamColor;
   }
 }
 
 @keyframes inActiveLink {
   from {
-    margin-left: 10px;
     color: $seafoamColor;
   }
   to {
-    margin-left: 0px;
     color: white;
   }
 }
 
-nav li{
-  margin-bottom: 30px;
-  margin-left: 30%;
+.nav {
+  margin-left: auto;
+  margin-right: auto;
   a {
+    display: block;
     font-family: "Dosis", sans-serif;
-    font-size: 25px;
+    font-size: 30px;
     color: white;
     text-decoration: none;
     animation-name: inActiveLink;
     animation-duration: 1s;
+    margin: 15px;
+    margin-top: 30px;
     margin-left: 0px;
   }
-}
-
-.active {
-  animation-name: activeLink;
-  animation-duration: 1s;
-  margin-left: 10px;
-  color: $seafoamColor;
+  .active {
+    animation-name: activeLink;
+    animation-duration: 1s;
+    color: $seafoamColor;
+  }
 }
 
 #footerlinks a {
   display: inline-block;
   cursor: pointer;
-  margin: 5px;
+  margin: 10px;
 }
 
 #footerlinks a img {
-  height: 20px;
+  height: 30px;
 }
 
 #footerlinks {

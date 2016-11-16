@@ -29473,38 +29473,28 @@
 	            _react2.default.createElement(
 	              _NavLink2.default,
 	              { to: '/' },
-	              _react2.default.createElement('img', { className: 'profileImg', src: './lib/imgs/headshot.jpg', alt: 'me!' })
+	              _react2.default.createElement('img', { className: 'profileImg', src: './lib/imgs/headshot.jpg', alt: 'me!' }),
+	              _react2.default.createElement('img', { className: 'hamburger-nav',
+	                src: './lib/imgs/home3.svg' })
 	            )
 	          ),
 	          _react2.default.createElement(
-	            'ul',
-	            { role: 'nav' },
+	            'div',
+	            { className: 'nav' },
 	            _react2.default.createElement(
-	              'li',
-	              null,
-	              _react2.default.createElement(
-	                _NavLink2.default,
-	                { to: '/About' },
-	                'About'
-	              )
+	              _NavLink2.default,
+	              { to: '/About' },
+	              'About'
 	            ),
 	            _react2.default.createElement(
-	              'li',
-	              null,
-	              _react2.default.createElement(
-	                _NavLink2.default,
-	                { to: '/code' },
-	                'Code'
-	              )
+	              _NavLink2.default,
+	              { to: '/code' },
+	              'Code'
 	            ),
 	            _react2.default.createElement(
-	              'li',
-	              null,
-	              _react2.default.createElement(
-	                _NavLink2.default,
-	                { to: '/blog' },
-	                'Blog'
-	              )
+	              _NavLink2.default,
+	              { to: '/blog' },
+	              'Blog'
 	            )
 	          ),
 	          _react2.default.createElement(
@@ -29512,27 +29502,22 @@
 	            { id: 'footerlinks' },
 	            _react2.default.createElement(
 	              'a',
-	              { href: 'mailto:matthew.leo.kaufman@gmail.com?Subject=IveBeenLookingForYou' },
+	              { href: 'mailto:matthew.leo.kaufman@gmail.com?Subject=IveBeenLookingForYou', target: '_blank' },
 	              _react2.default.createElement('img', { src: './lib/imgs/icons/mail.svg', alt: 'mail' })
 	            ),
 	            _react2.default.createElement(
 	              'a',
-	              { href: 'https://github.com/MilkMan90' },
+	              { href: 'https://github.com/MilkMan90', target: '_blank' },
 	              _react2.default.createElement('img', { src: './lib/imgs/icons/github.svg', alt: 'github' })
 	            ),
 	            _react2.default.createElement(
 	              'a',
-	              { href: 'https://www.facebook.com/matthewleokaufman' },
-	              _react2.default.createElement('img', { src: './lib/imgs/icons/facebook.svg', alt: 'facebook' })
-	            ),
-	            _react2.default.createElement(
-	              'a',
-	              { href: 'https://twitter.com/theKaufMan?lang=en' },
+	              { href: 'https://twitter.com/theKaufMan?lang=en', target: '_blank' },
 	              _react2.default.createElement('img', { src: './lib/imgs/icons/twitter.svg', alt: 'twitter' })
 	            ),
 	            _react2.default.createElement(
 	              'a',
-	              { href: 'https://www.linkedin.com/in/matthew-kaufman-6725b734' },
+	              { href: 'https://www.linkedin.com/in/matthew-kaufman-6725b734', target: '_blank' },
 	              _react2.default.createElement('img', { src: './lib/imgs/icons/linkedin2.png', alt: 'linkedin' })
 	            )
 	          )
@@ -34528,34 +34513,29 @@
 	        'article',
 	        { className: 'message' },
 	        _react2.default.createElement(
-	          'h1',
+	          'h2',
 	          null,
 	          'Hello.'
 	        ),
 	        _react2.default.createElement(
-	          'h3',
+	          'h1',
 	          null,
 	          'I\'m Matt Kaufman'
 	        ),
 	        _react2.default.createElement(
-	          'h2',
-	          null,
+	          'h1',
+	          { className: 'title' },
 	          'A computer software engineer and front-end developer'
 	        ),
 	        _react2.default.createElement(
-	          'h3',
+	          'p',
 	          null,
-	          'I love to make people happy by solving problems, creating memorable user experiences, and contributing to community.'
+	          'I love to spread joy by solving challenging problems, creating memorable user experiences, and giving back to community to shape a better world.'
 	        ),
 	        _react2.default.createElement(
-	          'h3',
+	          'p',
 	          null,
-	          'I build web applications are inspired by the belief in the power of worldy connection. My creations push boundaries to spread love, open minds, ease suffering, and inspire social action.'
-	        ),
-	        _react2.default.createElement(
-	          'h3',
-	          null,
-	          ' Thank you for visiting.'
+	          'Thank you for visiting.'
 	        )
 	      );
 	    }
@@ -34964,9 +34944,8 @@
 	    __containerElement = null;
 	    return;
 	  }
-	  if(!__containerElement) {
-		   __containerElement = document.getElementById(options.containerId);
-	  }
+	
+	  __containerElement = document.getElementById(options.containerId);
 	};
 	
 	var startAnimateTopScroll = function(y, options, to, target) {
@@ -35295,7 +35274,6 @@
 	        scrollOffset = target.offsetTop;
 	      } else {
 	        var coordinates = target.getBoundingClientRect();
-	        var bodyRect = document.body.getBoundingClientRect();
 	        scrollOffset = coordinates.top;
 	      }
 	
@@ -35309,7 +35287,9 @@
 	        if(containerId && containerElement) {
 	          containerElement.scrollTop = scrollOffset;
 	        } else {
-	          window.scrollTo(0, scrollOffset);
+	          // window.scrollTo accepts only absolute values so body rectangle needs to be subtracted
+	          var bodyRect = document.body.getBoundingClientRect();
+	          window.scrollTo(0, scrollOffset - bodyRect.top);
 	        }
 	
 	        if(events.registered['end']) {
@@ -35411,9 +35391,68 @@
 	    key: 'render',
 	    value: function render() {
 	      return _react2.default.createElement(
-	        'article',
-	        { className: 'timeline-container' },
-	        'Insert Timeline Here YO'
+	        'section',
+	        { className: 'timeline' },
+	        _react2.default.createElement(
+	          'ul',
+	          null,
+	          _react2.default.createElement(
+	            'li',
+	            null,
+	            _react2.default.createElement(
+	              'div',
+	              null,
+	              _react2.default.createElement(
+	                'time',
+	                null,
+	                '2016'
+	              ),
+	              'Turing School'
+	            )
+	          ),
+	          _react2.default.createElement(
+	            'li',
+	            null,
+	            _react2.default.createElement(
+	              'div',
+	              null,
+	              _react2.default.createElement(
+	                'time',
+	                null,
+	                '2016'
+	              ),
+	              'Turing School'
+	            )
+	          ),
+	          _react2.default.createElement(
+	            'li',
+	            null,
+	            _react2.default.createElement(
+	              'div',
+	              null,
+	              _react2.default.createElement(
+	                'time',
+	                null,
+	                '2016'
+	              ),
+	              'Turing School'
+	            )
+	          ),
+	          _react2.default.createElement(
+	            'li',
+	            null,
+	            _react2.default.createElement(
+	              'div',
+	              null,
+	              _react2.default.createElement(
+	                'time',
+	                null,
+	                '2016'
+	              ),
+	              'Turing School'
+	            )
+	          )
+	        )
 	      );
 	    }
 	  }]);
@@ -35483,6 +35522,7 @@
 	  }, {
 	    key: 'chooseProject',
 	    value: function chooseProject(project) {
+	      _reactScroll2.default.animateScroll.scrollToTop();
 	      this.setState({
 	        displayShowcase: true,
 	        projectToDisplay: project
@@ -35528,9 +35568,6 @@
 	        _react2.default.createElement(
 	          'div',
 	          { className: 'project-card-container' },
-	          _react2.default.createElement(_ProjectCard2.default, { project: _Projects.Projects.gameTime, handleClick: function handleClick() {
-	              return _this2.chooseProject('gameTime');
-	            } }),
 	          _react2.default.createElement(_ProjectCard2.default, { project: _Projects.Projects.netwerker, handleClick: function handleClick() {
 	              return _this2.chooseProject('netwerker');
 	            } }),
@@ -35539,6 +35576,12 @@
 	            } }),
 	          _react2.default.createElement(_ProjectCard2.default, { project: _Projects.Projects.shootTheBreeze, handleClick: function handleClick() {
 	              return _this2.chooseProject('shootTheBreeze');
+	            } }),
+	          _react2.default.createElement(_ProjectCard2.default, { project: _Projects.Projects.toDoBox, handleClick: function handleClick() {
+	              return _this2.chooseProject('toDoBox');
+	            } }),
+	          _react2.default.createElement(_ProjectCard2.default, { project: _Projects.Projects.gameTime, handleClick: function handleClick() {
+	              return _this2.chooseProject('gameTime');
 	            } })
 	        )
 	      );
@@ -35563,37 +35606,47 @@
 	
 	  gameTime: {
 	    imgURL: '/lib/imgs/phlying-phish.png',
+	    hostURL: '',
 	    title: 'Phlying Phish',
-	    description: 'a side scrolling helicopters clone with the goal of eating mushroom powerups and getting the high score',
+	    description: 'A side scrolling helicopters clone with the goal of eating mushroom powerups and getting the high score. Try to keep the jams going. Trey does not like to be interrupted.',
 	    tech: ['JavaScript', 'HTML5 Canvas'],
 	    githubURL: 'https://github.com/MilkMan90/game-time'
 	  },
 	
 	  netwerker: {
-	    imgURL: '/lib/imgs/numberguesser.png',
+	    imgURL: '/lib/imgs/netwerkerThumb.png',
+	    hostURL: 'https://netwerker-3d622.firebaseapp.com/',
 	    title: 'Netwerker',
-	    description: 'a responsive address book connected to Firebase',
+	    description: 'A responsive address book app connected to Firebase hosting. Each user logs in with their Google account and can save contacts to their own database which is automatically retrieved upon login',
 	    tech: ['JavaScript', 'React', 'Firebase'],
-	    githubURL: ''
+	    githubURL: 'https://github.com/MilkMan90/netwerker'
 	  },
 	
 	  weatherMe: {
-	    imgURL: '/lib/imgs/numberguesser.png',
+	    imgURL: '/lib/imgs/weatherMeThumb.png',
+	    hostURL: '',
 	    title: 'WeatherMe',
-	    description: 'a weather app utilizing the WundergroundAPI ',
+	    description: 'A weather app utilizing the WundergroundAPI - view alerts and 24 hour weather in any area supported by the API.',
 	    tech: ['JavaScript', 'React', 'Firebase'],
-	    githubURL: ''
+	    githubURL: 'https://github.com/MilkMan90/weathrly'
 	  },
 	
 	  shootTheBreeze: {
-	    imgURL: '/lib/imgs/numberguesser.png',
+	    imgURL: '/lib/imgs/shootTheBreezeThumb.png',
+	    hostURL: '',
 	    title: 'ShootTheBreeze',
-	    description: 'a real-time messaging app utilizing firebase storage and retrieval ',
+	    description: 'A real-time messaging app utilizing firebase storage and retrieval - a history of all messages/contributing users is kept in the database.',
 	    tech: ['JavaScript', 'React', 'Firebase'],
-	    githubURL: ''
+	    githubURL: 'https://github.com/MilkMan90/shoot-the-breeze'
 	  },
-	
-	  ideaBox: {}
+	  toDoBox: {
+	    imgURL: '/lib/imgs/2DoBox.png',
+	    hostURL: '',
+	    title: '2DoBox',
+	    description: 'A single page React app which stores To-Dos, allows for checking-off completion, sorting by importance, and limiting the number of tasks visible',
+	    tech: ['JavaScript', 'React'],
+	    githubURL: 'https://github.com/MilkMan90/2DoBox'
+	  }
 	};
 
 /***/ },
@@ -35725,8 +35778,8 @@
 	    ),
 	    React.createElement(
 	      'a',
-	      { className: 'showcase-github', href: githubURL },
-	      'Github Repo'
+	      { className: 'showcase-github', target: '_blank', href: githubURL },
+	      'View On Github'
 	    ),
 	    React.createElement(
 	      'button',
@@ -35829,7 +35882,7 @@
 	exports.push([module.id, "@import url(https://fonts.googleapis.com/css?family=Cookie|Dosis|Mogra);", ""]);
 	
 	// module
-	exports.push([module.id, "/* http://meyerweb.com/eric/tools/css/reset/\n   v2.0 | 20110126\n   License: none (public domain)\n*/\nhtml, body, div, span, applet, object, iframe,\nh1, h2, h3, h4, h5, h6, p, blockquote, pre,\na, abbr, acronym, address, big, cite, code,\ndel, dfn, em, img, ins, kbd, q, s, samp,\nsmall, strike, strong, sub, sup, tt, var,\nb, u, i, center,\ndl, dt, dd, ol, ul, li,\nfieldset, form, label, legend,\ntable, caption, tbody, tfoot, thead, tr, th, td,\narticle, aside, canvas, details, embed,\nfigure, figcaption, footer, header, hgroup,\nmenu, nav, output, ruby, section, summary,\ntime, mark, audio, video {\n  margin: 0;\n  padding: 0;\n  border: 0;\n  font-size: 100%;\n  font: inherit;\n  vertical-align: baseline; }\n\n/* HTML5 display-role reset for older browsers */\narticle, aside, details, figcaption, figure,\nfooter, header, hgroup, menu, nav, section {\n  display: block; }\n\nbody {\n  line-height: 1; }\n\nol, ul {\n  list-style: none; }\n\nblockquote, q {\n  quotes: none; }\n\nblockquote:before, blockquote:after,\nq:before, q:after {\n  content: '';\n  content: none; }\n\ntable {\n  border-collapse: collapse;\n  border-spacing: 0; }\n\nnav {\n  display: flex;\n  position: fixed;\n  flex-direction: column;\n  border-right: solid 1px;\n  align-items: center;\n  background-color: #05668D;\n  width: 23.5%;\n  float: left;\n  height: 100%;\n  z-index: 999; }\n\n.width-holder {\n  z-index: 0;\n  width: 23.5%;\n  float: left;\n  height: 100vh; }\n\nmain {\n  z-index: 0;\n  background-color: white;\n  display: inline-block;\n  width: 76.4%; }\n\n.profileImg {\n  border-radius: 200px;\n  height: 120px;\n  display: block;\n  margin-bottom: 20px;\n  border-style: none; }\n\nnav ul {\n  width: 100%; }\n\n@keyframes activeLink {\n  from {\n    margin-left: 0px;\n    color: white; }\n  to {\n    margin-left: 10px;\n    color: #00a896; } }\n\n@keyframes inActiveLink {\n  from {\n    margin-left: 10px;\n    color: #00a896; }\n  to {\n    margin-left: 0px;\n    color: white; } }\n\nnav li {\n  margin-bottom: 30px;\n  margin-left: 30%; }\n  nav li a {\n    font-family: \"Dosis\", sans-serif;\n    font-size: 25px;\n    color: white;\n    text-decoration: none;\n    animation-name: inActiveLink;\n    animation-duration: 1s;\n    margin-left: 0px; }\n\n.active {\n  animation-name: activeLink;\n  animation-duration: 1s;\n  margin-left: 10px;\n  color: #00a896; }\n\n#footerlinks a {\n  display: inline-block;\n  cursor: pointer;\n  margin: 5px; }\n\n#footerlinks a img {\n  height: 20px; }\n\n#footerlinks {\n  position: absolute;\n  width: 90%;\n  text-align: center;\n  align-items: center;\n  bottom: 15px; }\n\n.project-main {\n  z-index: -1; }\n\n@keyframes expand {\n  from {\n    height: 0px;\n    opacity: 0; }\n  to {\n    height: 230px;\n    opacity: 1; } }\n\n.showcase-container {\n  position: relative;\n  z-index: 5;\n  animation-name: expand;\n  animation-timing-function: ease;\n  animation-duration: 1s;\n  border-bottom: 4px solid lightGrey;\n  height: 230px;\n  opacity: 1; }\n  .showcase-container .showcase {\n    margin: 15px;\n    padding-bottom: 10px;\n    z-index: 6;\n    height: 225px; }\n    .showcase-container .showcase .showcase-title {\n      position: absolute;\n      bottom: 210px; }\n    .showcase-container .showcase .showcase-img {\n      display: inline-block;\n      position: absolute;\n      height: 90%;\n      bottom: 15px;\n      right: 30px;\n      z-index: 1; }\n    .showcase-container .showcase .showcase-description {\n      position: absolute;\n      bottom: 150px;\n      width: 60%;\n      font-family: \"Dosis\", sans-serif;\n      margin: 15px; }\n    .showcase-container .showcase .showcase-tech {\n      position: absolute;\n      bottom: 30px;\n      font-family: \"Dosis\", sans-serif;\n      margin: 15px; }\n    .showcase-container .showcase .showcase-tech-item {\n      margin: 5px;\n      list-style: square; }\n    .showcase-container .showcase .showcase-github {\n      font-family: \"Dosis\", sans-serif;\n      position: absolute;\n      bottom: 10px; }\n    .showcase-container .showcase .showcase-hide {\n      background-color: lightGrey;\n      color: white;\n      display: block;\n      position: absolute;\n      bottom: -20px;\n      left: 45%;\n      width: 100px;\n      border-radius: 0px 0px 20px 20px;\n      border-style: none; }\n\n@keyframes contract {\n  from {\n    height: 230px;\n    opacity: 1; }\n  to {\n    height: 0px;\n    opacity: 0; } }\n\n.contract {\n  animation-name: contract;\n  animation-timing-function: ease;\n  animation-duration: 1s;\n  animation-direction: forward;\n  animation-fill-mode: both; }\n\n.project-card-container {\n  width: 75%;\n  margin: auto;\n  position: relative;\n  justify-content: center;\n  display: flex;\n  flex-wrap: wrap;\n  background-color: white;\n  z-index: 99;\n  margin-top: 40px; }\n\n.project-card {\n  border: 1px solid black;\n  width: 200px;\n  height: 200px;\n  margin: 20px; }\n  .project-card h5 {\n    padding-bottom: 2px;\n    margin-bottom: 3px;\n    border-bottom: 1px solid lightGrey; }\n\n.thumbnail-img {\n  width: 100%;\n  height: 84%; }\n\n.project-card:hover {\n  cursor: pointer; }\n\nbody {\n  width: 100%;\n  height: 100vh; }\n\nh1 {\n  text-align: center;\n  font-family: 'Cookie', cursive;\n  color: #737373;\n  text-shadow: 0px 2px 0px white;\n  font-weight: 400;\n  color: #00a896;\n  font-size: 130px;\n  margin-top: 25px; }\n\nh2, h3, h4, h5, h6 {\n  /*font-family: \"Dosis\", sans-serif;color:#737373;*/\n  font-family: \"Dosis\", sans-serif;\n  color: #05668D;\n  text-align: center; }\n\nh2 {\n  font-size: 30px;\n  margin-top: 10px;\n  margin-bottom: 10px; }\n\nh3 {\n  font-size: 16px;\n  margin: 20px; }\n\nh4 {\n  font-size: 20px;\n  margin: 50px; }\n\nh6 {\n  font-size: 20px;\n  margin-bottom: 5px;\n  text-align: left; }\n\n.message {\n  width: 75%;\n  margin: auto; }\n", ""]);
+	exports.push([module.id, "/* http://meyerweb.com/eric/tools/css/reset/\n   v2.0 | 20110126\n   License: none (public domain)\n*/\nhtml, body, div, span, applet, object, iframe,\nh1, h2, h3, h4, h5, h6, p, blockquote, pre,\na, abbr, acronym, address, big, cite, code,\ndel, dfn, em, img, ins, kbd, q, s, samp,\nsmall, strike, strong, sub, sup, tt, var,\nb, u, i, center,\ndl, dt, dd, ol, ul, li,\nfieldset, form, label, legend,\ntable, caption, tbody, tfoot, thead, tr, th, td,\narticle, aside, canvas, details, embed,\nfigure, figcaption, footer, header, hgroup,\nmenu, nav, output, ruby, section, summary,\ntime, mark, audio, video {\n  margin: 0;\n  padding: 0;\n  border: 0;\n  font-size: 100%;\n  font: inherit;\n  vertical-align: baseline; }\n\n/* HTML5 display-role reset for older browsers */\narticle, aside, details, figcaption, figure,\nfooter, header, hgroup, menu, nav, section {\n  display: block; }\n\nbody {\n  line-height: 1; }\n\nol, ul {\n  list-style: none; }\n\nblockquote, q {\n  quotes: none; }\n\nblockquote:before, blockquote:after,\nq:before, q:after {\n  content: '';\n  content: none; }\n\ntable {\n  border-collapse: collapse;\n  border-spacing: 0; }\n\nnav {\n  display: flex;\n  position: fixed;\n  flex-direction: column;\n  border-right: solid 1px;\n  align-items: center;\n  background-color: #05668D;\n  width: 23.5%;\n  float: left;\n  height: 100%;\n  z-index: 999; }\n\n.width-holder {\n  z-index: 0;\n  width: 23.5%;\n  float: left;\n  height: 100vh; }\n\nmain {\n  z-index: 0;\n  background-color: white;\n  display: inline-block;\n  width: 76.4%; }\n\n.profileImg {\n  border-radius: 200px;\n  height: 120px;\n  display: block;\n  margin-top: 30px;\n  margin-bottom: 20px;\n  border-style: none; }\n\n.hamburger-nav {\n  display: none; }\n\n@keyframes activeLink {\n  from {\n    color: white; }\n  to {\n    color: #00a896; } }\n\n@keyframes inActiveLink {\n  from {\n    color: #00a896; }\n  to {\n    color: white; } }\n\n.nav {\n  margin-left: auto;\n  margin-right: auto; }\n  .nav a {\n    display: block;\n    font-family: \"Dosis\", sans-serif;\n    font-size: 30px;\n    color: white;\n    text-decoration: none;\n    animation-name: inActiveLink;\n    animation-duration: 1s;\n    margin: 15px;\n    margin-top: 30px;\n    margin-left: 0px; }\n  .nav .active {\n    animation-name: activeLink;\n    animation-duration: 1s;\n    color: #00a896; }\n\n#footerlinks a {\n  display: inline-block;\n  cursor: pointer;\n  margin: 10px; }\n\n#footerlinks a img {\n  height: 30px; }\n\n#footerlinks {\n  position: absolute;\n  width: 90%;\n  text-align: center;\n  align-items: center;\n  bottom: 15px; }\n\n.project-main {\n  z-index: -1; }\n\n@keyframes expand {\n  from {\n    height: 0px;\n    opacity: 0; }\n  to {\n    height: 230px;\n    opacity: 1; } }\n\n.showcase-container {\n  position: relative;\n  z-index: 5;\n  animation-name: expand;\n  animation-timing-function: ease;\n  animation-duration: 1s;\n  border-bottom: 4px solid lightGrey;\n  height: 230px;\n  opacity: 1; }\n  .showcase-container .showcase {\n    margin: 15px;\n    padding-bottom: 10px;\n    z-index: 6;\n    height: 225px; }\n    .showcase-container .showcase .showcase-title {\n      position: absolute;\n      bottom: 210px; }\n    .showcase-container .showcase .showcase-img {\n      display: inline-block;\n      position: absolute;\n      border: 2px solid lightGrey;\n      width: 250px;\n      bottom: 15px;\n      right: 30px;\n      z-index: 1; }\n    .showcase-container .showcase .showcase-description {\n      text-align: left;\n      position: absolute;\n      bottom: 150px;\n      left: 30px;\n      width: 55%;\n      font-family: \"Dosis\", sans-serif; }\n    .showcase-container .showcase .showcase-tech {\n      color: #05668D;\n      position: absolute;\n      bottom: 30px;\n      font-family: \"Dosis\", sans-serif;\n      margin: 15px; }\n    .showcase-container .showcase .showcase-tech-item {\n      margin: 5px; }\n    .showcase-container .showcase .showcase-github {\n      font-family: \"Dosis\", sans-serif;\n      position: absolute;\n      bottom: 10px;\n      left: 30px;\n      color: #8d0522;\n      text-decoration: none; }\n    .showcase-container .showcase .showcase-hide {\n      background-color: lightGrey;\n      color: white;\n      display: block;\n      position: absolute;\n      bottom: -20px;\n      width: 100px;\n      left: 44%;\n      border-radius: 0px 0px 20px 20px;\n      border-style: none; }\n\n@keyframes contract {\n  from {\n    height: 230px;\n    opacity: 1; }\n  to {\n    height: 0px;\n    opacity: 0; } }\n\n.contract {\n  animation-name: contract;\n  animation-timing-function: ease;\n  animation-duration: 1s;\n  animation-direction: forward;\n  animation-fill-mode: both; }\n\n.project-card-container {\n  width: 75%;\n  margin: auto;\n  position: relative;\n  justify-content: center;\n  display: flex;\n  flex-wrap: wrap;\n  background-color: white;\n  z-index: 99;\n  margin-top: 40px; }\n\n.project-card {\n  cursor: pointer;\n  background-color: white;\n  z-index: 99;\n  position: relative;\n  border: 2px lightGrey;\n  border-style: outset;\n  border-radius: 10px;\n  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;\n  width: 200px;\n  height: 200px;\n  margin: 20px; }\n  .project-card h5 {\n    padding-bottom: 2px;\n    margin-bottom: 3px;\n    border-bottom: 1px solid lightGrey; }\n  .project-card .thumbnail-img {\n    width: 100%;\n    height: 84%; }\n\n@keyframes dampen {\n  from {\n    box-shadow: 0 3px 3px rgba(0, 0, 0, 0.3), 0 0 50px rgba(0, 0, 0, 0.1) inset; }\n  to {\n    box-shadow: 2px 6px 10px rgba(0, 0, 0, 0.3), 30px 40px 50px rgba(0, 0, 0, 0.1) inset; } }\n\n.project-card:hover {\n  animation: dampen;\n  animation-duration: 0.5s;\n  animation-fill-mode: forwards;\n  cursor: pointer; }\n\n.timeline ul li {\n  list-style-type: none;\n  position: relative;\n  width: 6px;\n  margin: 0 auto;\n  padding-top: 50px;\n  background: #05668D; }\n\n.timeline ul li::after {\n  content: '';\n  position: absolute;\n  left: 50%;\n  bottom: 0;\n  transform: translateX(-50%);\n  width: 30px;\n  height: 30px;\n  border-radius: 50%;\n  background: inherit; }\n\n.timeline ul li div {\n  position: relative;\n  bottom: 0;\n  width: 300px;\n  padding: 15px;\n  background: #F45B69; }\n\n.timeline ul li div::before {\n  content: '';\n  position: absolute;\n  bottom: 7px;\n  width: 0;\n  height: 0;\n  border-style: solid; }\n\n.timeline ul li:nth-child(odd) div {\n  left: 35px; }\n\n.timeline ul li:nth-child(odd) div::before {\n  left: -15px;\n  border-width: 8px 16px 8px 0;\n  border-color: transparent #F45B69 transparent transparent; }\n\n.timeline ul li:nth-child(even) div {\n  left: -359px; }\n\n.timeline ul li:nth-child(even) div::before {\n  right: -15px;\n  border-width: 8px 0 8px 16px;\n  border-color: transparent transparent transparent #F45B69; }\n\nbody {\n  width: 100%;\n  height: 100vh; }\n\nh2 {\n  font-family: 'Cookie', cursive;\n  color: #737373;\n  text-shadow: 0px 2px 0px white;\n  font-weight: 400;\n  color: #00a896;\n  font-size: 150px;\n  margin-top: 40px;\n  text-align: center; }\n\nh1, h3, h4, h5, h6, p {\n  /*font-family: \"Dosis\", sans-serif;color:#737373;*/\n  font-family: \"Dosis\", sans-serif;\n  color: #05668D; }\n\nh1 {\n  margin: 30px;\n  margin-top: 10px;\n  font-size: 25px;\n  text-align: left; }\n\nh3 {\n  font-size: 16px;\n  margin: 20px; }\n\nh4 {\n  font-size: 20px;\n  margin: 50px; }\n\n.title {\n  font-size: 25px;\n  text-align: left; }\n\nh5 {\n  margin: 5px; }\n\nh6 {\n  font-size: 20px;\n  margin-bottom: 5px;\n  text-align: left; }\n\n.message {\n  width: 70%;\n  margin: auto; }\n  .message p {\n    font-size: 20px;\n    margin: 30px; }\n\n@media screen and (max-width: 800px) {\n  .width-holder {\n    z-index: 0;\n    width: 100%;\n    height: 100px; }\n  main {\n    position: relative;\n    z-index: 0;\n    background-color: white;\n    width: 100%; }\n  .homeNav {\n    display: inline-block; }\n  nav {\n    display: inline-block;\n    margin: auto;\n    width: 100%;\n    float: none;\n    height: 100px;\n    z-index: 999; }\n  .profileImg {\n    display: none; }\n  .hamburger-nav {\n    display: inline-block;\n    height: 50px;\n    margin-left: 20px;\n    margin-top: 20px; }\n  .nav {\n    position: absolute;\n    top: 10px;\n    left: 30%;\n    text-align: center; }\n    .nav a {\n      display: inline-block;\n      font-size: 25px;\n      color: white;\n      text-decoration: none;\n      animation-name: inActiveLink;\n      animation-duration: 0.5s;\n      margin: 15px;\n      margin-top: 30px;\n      margin-left: 0px; }\n    .nav .active {\n      animation-name: activeLink;\n      animation-duration: 0.5s;\n      color: #00a896; }\n  #footerlinks {\n    display: none; }\n  .title {\n    text-align: left; }\n  .timeline ul li div {\n    width: 100px; }\n  .showcase-img {\n    display: inline-block;\n    position: absolute;\n    height: 90%;\n    bottom: 15px;\n    right: 30px;\n    z-index: 1; }\n  @keyframes expand {\n    from {\n      height: 0px;\n      opacity: 0; }\n    to {\n      height: 350px;\n      opacity: 1; } }\n  @keyframes contract {\n    from {\n      height: 350px;\n      opacity: 1; }\n    to {\n      height: 0px;\n      opacity: 0; } }\n  .showcase-container {\n    height: 355px; }\n    .showcase-container .showcase {\n      height: 350px; }\n      .showcase-container .showcase .showcase-title {\n        bottom: 330px; }\n      .showcase-container .showcase .showcase-img {\n        display: inline-block;\n        position: absolute;\n        height: 150px;\n        bottom: 40px;\n        right: 70px;\n        z-index: 1; }\n      .showcase-container .showcase .showcase-description {\n        bottom: 270px;\n        left: 30px; }\n      .showcase-container .showcase .showcase-tech {\n        bottom: 160px; }\n      .showcase-container .showcase .showcase-tech-item {\n        margin: 5px; }\n      .showcase-container .showcase .showcase-github {\n        bottom: 10px;\n        left: 30px; }\n      .showcase-container .showcase .showcase-hide {\n        left: 37%; }\n  .project-card-container {\n    margin-top: 20px; } }\n", ""]);
 	
 	// exports
 

@@ -1,0 +1,152 @@
+@media screen and (max-width: $breakpoint)  {
+
+  .width-holder {
+    z-index: 0;
+    width: 100%;
+    height: 100px;
+  }
+
+  main{
+    position: relative;
+    z-index: 0;
+    background-color: white;
+    width: 100%;
+  }
+
+  .homeNav{
+    display: inline-block;
+  }
+  nav{
+    display: inline-block;
+    margin: auto;
+    width: 100%;
+    float: none;
+    height: 100px;
+    z-index: 999;
+  }
+
+  .profileImg{
+    display: none;
+  }
+
+  .hamburger-nav{
+    display:inline-block;
+    height: 50px;
+    margin-left: 20px;
+    margin-top: 20px;
+  }
+
+  .nav {
+    position: absolute;
+    top: 10px;
+    left: 30%;
+    text-align: center;
+    a {
+      display: inline-block;
+      font-size: 25px;
+      color: white;
+      text-decoration: none;
+      animation-name: inActiveLink;
+      animation-duration: 0.5s;
+      margin: 15px;
+      margin-top: 30px;
+      margin-left: 0px;
+    }
+    .active {
+      animation-name: activeLink;
+      animation-duration: 0.5s;
+      color: $seafoamColor;
+    }
+  }
+
+  #footerlinks {
+    display: none;
+  }
+
+  .title{
+    text-align: left;
+  }
+
+  .timeline ul li div {
+    width: 100px;
+  }
+
+  .showcase-img{
+    display: inline-block;
+    position: absolute;
+    height: 90%;
+    bottom: 15px;
+    right: 30px;
+    z-index: 1;
+  }
+
+  @keyframes expand {
+    from {
+      height: 0px;
+      opacity: 0;
+    }
+    to {
+      height: 350px;
+      opacity: 1;
+    }
+  }
+
+  @keyframes contract {
+    from {
+      height: 350px;
+      opacity: 1;
+    }
+    to {
+      height: 0px;
+      opacity: 0;
+    }
+  }
+
+  .showcase-container {
+
+    height: 355px;
+
+    .showcase {
+
+      height: 350px;
+
+      .showcase-title{
+        bottom: 330px;
+      }
+
+      .showcase-img{
+        display: inline-block;
+        position: absolute;
+        height: 150px;
+        bottom: 40px;
+        right: 70px;
+        z-index: 1;
+      }
+      .showcase-description{
+        bottom: 270px;
+        left: 30px;
+      }
+      .showcase-tech{
+        bottom: 160px;
+      }
+      .showcase-tech-item{
+        margin: 5px;
+      }
+      .showcase-github{
+        bottom: 10px;
+        left: 30px;
+      }
+      .showcase-hide{
+        left: 37%;
+      }
+
+    }
+  }
+
+  .project-card-container{
+    margin-top: 20px;
+  }
+
+
+
+}

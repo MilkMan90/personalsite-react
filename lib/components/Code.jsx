@@ -20,6 +20,7 @@ export default class Code extends Component {
   }
 
   chooseProject(project) {
+    Scroll.animateScroll.scrollToTop();
     this.setState({
       displayShowcase: true,
       projectToDisplay: project,
@@ -56,10 +57,11 @@ export default class Code extends Component {
       <div className='project-main'>
         {showcase}
         <div className='project-card-container'>
-          <ProjectCard project={Projects.gameTime} handleClick={() => this.chooseProject('gameTime')}/>
           <ProjectCard project={Projects.netwerker} handleClick={() => this.chooseProject('netwerker')}/>
           <ProjectCard project={Projects.weatherMe} handleClick={() => this.chooseProject('weatherMe')}/>
           <ProjectCard project={Projects.shootTheBreeze} handleClick={() => this.chooseProject('shootTheBreeze')}/>
+          <ProjectCard project={Projects.toDoBox} handleClick={() => this.chooseProject('toDoBox')}/>
+          <ProjectCard project={Projects.gameTime} handleClick={() => this.chooseProject('gameTime')}/>
           {/* <ProjectCard project={Projects.gameTime}/>
           <ProjectCard project={Projects.gameTime}/>
           <ProjectCard project={Projects.gameTime}/>

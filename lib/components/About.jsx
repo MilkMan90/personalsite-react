@@ -15,10 +15,35 @@ export default class About extends Component {
   }
 
   render() {
-    return(
-    <article className="timeline-container">
-      Insert Timeline Here YO
-    </article>
-    )
+    return (
+    <section className="timeline">
+      <ul>
+        <li>
+          <div>
+            <time>2016</time>
+            Turing School
+          </div>
+        </li>
+        <li>
+          <div>
+            <time>2016</time>
+            Turing School
+          </div>
+        </li>
+        <li>
+          <div>
+            <time>2016</time>
+            Turing School
+          </div>
+        </li>
+        <li>
+          <div>
+            <time>2016</time>
+            Turing School
+          </div>
+        </li>
+      </ul>
+    </section>
+  );
   }
 }
