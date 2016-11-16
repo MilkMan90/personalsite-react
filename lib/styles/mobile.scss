@@ -39,7 +39,8 @@
     display: inline-block;
   }
   nav{
-    display: inline-block;
+    display: block;
+    position: fixed;
     margin: auto;
     width: 100%;
     float: none;
@@ -52,16 +53,21 @@
   }
 
   .hamburger-nav{
-    display:inline-block;
+    display: inline-block;
+    float:left;
     height: 50px;
     margin-left: 20px;
     margin-top: 20px;
   }
 
   .nav {
+    align-items: center;
     position: absolute;
-    top: 10px;
-    left: 30%;
+    display: flex;
+    top: 8px;
+    justify-content: center;
+    left: 50%;
+    right: 50%;
     text-align: center;
     a {
       display: inline-block;
@@ -70,9 +76,10 @@
       text-decoration: none;
       animation-name: inActiveLink;
       animation-duration: 0.5s;
-      margin: 15px;
+      margin: 0px;
       margin-top: 30px;
-      margin-left: 0px;
+      margin-left: 10px;
+      margin-right: 10px;
     }
     .active {
       animation-name: activeLink;

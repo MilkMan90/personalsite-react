@@ -35,8 +35,8 @@ export default class Application extends Component {
               </NavLink>
             </div>
           <div className="nav">
-            <NavLink to="/About" >About</NavLink>
             <NavLink to="/code" >Code</NavLink>
+            <NavLink to="/about" >About</NavLink>
             <NavLink to="/blog" >Blog</NavLink>
           </div>
 
