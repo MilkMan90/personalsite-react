@@ -37,7 +37,8 @@
     .showcase-img{
       display: inline-block;
       position: absolute;
-      height: 90%;
+      border: 2px solid lightGrey;
+      width: 250px;
       bottom: 15px;
       right: 30px;
       z-index: 1;
@@ -46,9 +47,9 @@
     .showcase-description{
       text-align: left;
       position: absolute;
-      bottom: 170px;
+      bottom: 150px;
       left: 30px;
-      width: 60%;
+      width: 55%;
       font-family: "Dosis", sans-serif;
     }
 
@@ -78,8 +79,8 @@
       display: block;
       position: absolute;
       bottom: -20px;
-      left: 45%;
       width: 100px;
+      left: 44%;
       border-radius: 0px 0px 20px 20px;
       border-style: none;
     }
@@ -153,7 +154,7 @@
 
 .project-card:hover{
   animation: dampen;
-  animation-duration: 1.5s;
+  animation-duration: 0.5s;
   animation-fill-mode: forwards;
   cursor: pointer;
 }
