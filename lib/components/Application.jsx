@@ -1,7 +1,11 @@
 import React, { Component } from 'react'
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group' // ES6
 import { Router, Route, hashHistory } from 'react-router'
 import { Link } from 'react-router'
 import NavLink from './NavLink'
+import ContactForm from './Contactform'
+
+
 
 export default class Application extends Component {
   constructor() {
@@ -37,7 +41,8 @@ export default class Application extends Component {
           <div className="nav">
             <NavLink to="/code" >Code</NavLink>
             <NavLink to="/about" >About</NavLink>
-            <NavLink to="/blog" >Blog</NavLink>
+            <NavLink to="/contact">Contact</NavLink>
+            {/* <NavLink to="/blog" >Blog</NavLink> */}
           </div>
 
           <div id='footerlinks'>
@@ -51,7 +56,19 @@ export default class Application extends Component {
 
         <div className="width-holder"></div>
         <main>
-          {this.props.children}
+          <ReactCSSTransitionGroup
+            transitionName="newPage"
+            transitionAppear={true}
+            transitionAppearTimeout={1500}
+            transitionEnter={true}
+            transitionEnterTimeout={1500}
+            transitionLeave={false}
+            transitionLeaveTimeout={1500}
+          >
+            {React.cloneElement(this.props.children, {
+              key: location.pathname,
+            })}
+          </ReactCSSTransitionGroup>
         </main>
       </div>
     );
