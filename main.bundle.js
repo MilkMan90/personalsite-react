@@ -8191,21 +8191,25 @@
 	
 	var _reactRouter = __webpack_require__(489);
 	
-	var _Landing = __webpack_require__(565);
+	var _Landing = __webpack_require__(571);
 	
 	var _Landing2 = _interopRequireDefault(_Landing);
 	
-	var _About = __webpack_require__(570);
+	var _About = __webpack_require__(577);
 	
 	var _About2 = _interopRequireDefault(_About);
 	
-	var _Code = __webpack_require__(566);
+	var _Code = __webpack_require__(572);
 	
 	var _Code2 = _interopRequireDefault(_Code);
 	
-	var _Blog = __webpack_require__(571);
+	var _Blog = __webpack_require__(578);
 	
 	var _Blog2 = _interopRequireDefault(_Blog);
+	
+	var _MobileShowcase = __webpack_require__(576);
+	
+	var _MobileShowcase2 = _interopRequireDefault(_MobileShowcase);
 	
 	var _Contactform = __webpack_require__(545);
 	
@@ -8217,7 +8221,7 @@
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-	__webpack_require__(572);
+	__webpack_require__(579);
 	
 	(0, _reactDom.render)(_react2.default.createElement(
 	  _reactRouter.Router,
@@ -8228,6 +8232,7 @@
 	    _react2.default.createElement(_reactRouter.IndexRoute, { key: 'landing', component: _Landing2.default }),
 	    _react2.default.createElement(_reactRouter.Route, { key: 'about', path: '/about', component: _About2.default }),
 	    _react2.default.createElement(_reactRouter.Route, { key: 'code', path: '/code', component: _Code2.default }),
+	    _react2.default.createElement(_reactRouter.Route, { key: 'projects', path: '/code/:projectName', component: _MobileShowcase2.default }),
 	    _react2.default.createElement(_reactRouter.Route, { key: 'contact', path: '/contact', component: _Contactform2.default })
 	  )
 	), document.getElementById('application'));
@@ -29463,6 +29468,10 @@
 	
 	var _Contactform2 = _interopRequireDefault(_Contactform);
 	
+	var _reactResponsive = __webpack_require__(565);
+	
+	var _reactResponsive2 = _interopRequireDefault(_reactResponsive);
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -29498,6 +29507,30 @@
 	  }, {
 	    key: 'render',
 	    value: function render() {
+	      var footerLinks = _react2.default.createElement(
+	        'div',
+	        { id: 'footerlinks' },
+	        _react2.default.createElement(
+	          'a',
+	          { href: 'mailto:matthew.leo.kaufman@gmail.com?Subject=IveBeenLookingForYou', target: '_blank' },
+	          _react2.default.createElement('img', { src: './lib/imgs/icons/mail.svg', alt: 'mail' })
+	        ),
+	        _react2.default.createElement(
+	          'a',
+	          { href: 'https://github.com/MilkMan90', target: '_blank' },
+	          _react2.default.createElement('img', { src: './lib/imgs/icons/github.svg', alt: 'github' })
+	        ),
+	        _react2.default.createElement(
+	          'a',
+	          { href: 'https://twitter.com/theKaufMan?lang=en', target: '_blank' },
+	          _react2.default.createElement('img', { src: './lib/imgs/icons/twitter.svg', alt: 'twitter' })
+	        ),
+	        _react2.default.createElement(
+	          'a',
+	          { href: 'https://www.linkedin.com/in/matthew-kaufman-6725b734', target: '_blank' },
+	          _react2.default.createElement('img', { src: './lib/imgs/icons/linkedin2.png', alt: 'linkedin' })
+	        )
+	      );
 	      return _react2.default.createElement(
 	        'div',
 	        { className: 'Application' },
@@ -29535,28 +29568,9 @@
 	            )
 	          ),
 	          _react2.default.createElement(
-	            'div',
-	            { id: 'footerlinks' },
-	            _react2.default.createElement(
-	              'a',
-	              { href: 'mailto:matthew.leo.kaufman@gmail.com?Subject=IveBeenLookingForYou', target: '_blank' },
-	              _react2.default.createElement('img', { src: './lib/imgs/icons/mail.svg', alt: 'mail' })
-	            ),
-	            _react2.default.createElement(
-	              'a',
-	              { href: 'https://github.com/MilkMan90', target: '_blank' },
-	              _react2.default.createElement('img', { src: './lib/imgs/icons/github.svg', alt: 'github' })
-	            ),
-	            _react2.default.createElement(
-	              'a',
-	              { href: 'https://twitter.com/theKaufMan?lang=en', target: '_blank' },
-	              _react2.default.createElement('img', { src: './lib/imgs/icons/twitter.svg', alt: 'twitter' })
-	            ),
-	            _react2.default.createElement(
-	              'a',
-	              { href: 'https://www.linkedin.com/in/matthew-kaufman-6725b734', target: '_blank' },
-	              _react2.default.createElement('img', { src: './lib/imgs/icons/linkedin2.png', alt: 'linkedin' })
-	            )
+	            _reactResponsive2.default,
+	            { query: '(min-width: 800px)' },
+	            footerLinks
 	          )
 	        ),
 	        _react2.default.createElement('div', { className: 'width-holder' }),
@@ -29577,6 +29591,15 @@
 	            _react2.default.cloneElement(this.props.children, {
 	              key: location.pathname
 	            })
+	          ),
+	          _react2.default.createElement(
+	            _reactResponsive2.default,
+	            { query: '(max-width: 800px)' },
+	            _react2.default.createElement(
+	              'footer',
+	              null,
+	              footerLinks
+	            )
 	          )
 	        )
 	      );
@@ -36773,7 +36796,7 @@
 	          _react2.default.createElement(
 	            'h5',
 	            null,
-	            'Send me a message! Feedback about my page is always appreciated. \uD83D\uDE0D'
+	            'Send me a message! Feedback about my page is always appreciated.'
 	          ),
 	          _react2.default.createElement(
 	            'div',
@@ -38385,6 +38408,525 @@
 
 	'use strict';
 	
+	var React = __webpack_require__(299);
+	var matchMedia = __webpack_require__(566);
+	var hyphenate = __webpack_require__(568);
+	var mediaQuery = __webpack_require__(569);
+	var toQuery = __webpack_require__(570);
+	var assign = __webpack_require__(301);
+	
+	var defaultTypes = {
+	  component: React.PropTypes.node,
+	  query: React.PropTypes.string,
+	  values: React.PropTypes.shape(mediaQuery.matchers),
+	  children: React.PropTypes.oneOfType([React.PropTypes.node, React.PropTypes.function])
+	};
+	var mediaKeys = Object.keys(mediaQuery.all);
+	var excludedQueryKeys = Object.keys(defaultTypes);
+	var excludedPropKeys = excludedQueryKeys.concat(mediaKeys);
+	
+	function omit(object, keys){
+	  var newObject = assign({}, object);
+	  keys.forEach(function(key){
+	    delete newObject[key];
+	  });
+	  return newObject;
+	}
+	
+	var mq = React.createClass({
+	  displayName: 'MediaQuery',
+	
+	  getDefaultProps: function(){
+	    return {
+	      values: {}
+	    };
+	  },
+	
+	  getInitialState: function(){
+	    return {
+	      matches: false
+	    };
+	  },
+	
+	  componentWillMount: function(){
+	    this.updateQuery(this.props);
+	  },
+	
+	  componentWillReceiveProps: function(props){
+	    this.updateQuery(props);
+	  },
+	
+	  updateQuery: function(props){
+	    var values;
+	    if (props.query) {
+	      this.query = props.query;
+	    } else {
+	      this.query = toQuery(omit(props, excludedQueryKeys));
+	    }
+	
+	    if (!this.query) {
+	      throw new Error('Invalid or missing MediaQuery!');
+	    }
+	
+	    if (props.values) {
+	      values = Object.keys(props.values)
+	        .reduce(function(result, key){
+	          result[hyphenate(key)] = props.values[key];
+	          return result;
+	        }, {});
+	    }
+	
+	    if (this._mql) {
+	      this._mql.removeListener(this.updateMatches);
+	    }
+	
+	    this._mql = matchMedia(this.query, values);
+	    this._mql.addListener(this.updateMatches);
+	    this.updateMatches();
+	  },
+	
+	  componentWillUnmount: function(){
+	    this._mql.removeListener(this.updateMatches);
+	  },
+	
+	  updateMatches: function(){
+	    if (this._mql.matches === this.state.matches) {
+	      return;
+	    }
+	    this.setState({
+	      matches: this._mql.matches
+	    });
+	  },
+	
+	  render: function(){
+	    if(typeof this.props.children === 'function') {
+	      return this.props.children(this.state.matches);
+	    }
+	
+	    if (this.state.matches === false) {
+	      return null;
+	    }
+	    var props = omit(this.props, excludedPropKeys);
+	    var hasMergeProps = Object.keys(props).length > 0;
+	    var childrenCount = React.Children.count(this.props.children);
+	    var wrapChildren = this.props.component ||
+	      childrenCount > 1 ||
+	      typeof this.props.children === 'string' ||
+	      this.props.children === undefined;
+	    if (wrapChildren) {
+	      return React.createElement(
+	        this.props.component || 'div',
+	        props,
+	        this.props.children
+	      );
+	    } else if (hasMergeProps) {
+	      return React.cloneElement(
+	        this.props.children,
+	        props
+	      );
+	    } else if (childrenCount){
+	      return this.props.children;
+	    }
+	    else {
+	      return null;
+	    }
+	  }
+	});
+	
+	module.exports = mq;
+
+
+/***/ },
+/* 566 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	var staticMatch = __webpack_require__(567).match;
+	var dynamicMatch = typeof window !== 'undefined' ? window.matchMedia : null;
+	
+	// our fake MediaQueryList
+	function Mql(query, values){
+	  var self = this;
+	  if(dynamicMatch){
+	    var mql = dynamicMatch.call(window, query);
+	    this.matches = mql.matches;
+	    this.media = mql.media;
+	    // TODO: is there a time it makes sense to remove this listener?
+	    mql.addListener(update);
+	  } else {
+	    this.matches = staticMatch(query, values);
+	    this.media = query;
+	  }
+	
+	  this.addListener = addListener;
+	  this.removeListener = removeListener;
+	
+	  function addListener(listener){
+	    if(mql){
+	      mql.addListener(listener);
+	    }
+	  }
+	
+	  function removeListener(listener){
+	    if(mql){
+	      mql.removeListener(listener);
+	    }
+	  }
+	
+	  // update ourselves!
+	  function update(evt){
+	    self.matches = evt.matches;
+	    self.media = evt.media;
+	  }
+	}
+	
+	function matchMedia(query, values){
+	  return new Mql(query, values);
+	}
+	
+	module.exports = matchMedia;
+
+
+/***/ },
+/* 567 */
+/***/ function(module, exports) {
+
+	/*
+	Copyright (c) 2014, Yahoo! Inc. All rights reserved.
+	Copyrights licensed under the New BSD License.
+	See the accompanying LICENSE file for terms.
+	*/
+	
+	'use strict';
+	
+	exports.match = matchQuery;
+	exports.parse = parseQuery;
+	
+	// -----------------------------------------------------------------------------
+	
+	var RE_MEDIA_QUERY     = /(?:(only|not)?\s*([^\s\(\)]+)(?:\s*and)?\s*)?(.+)?/i,
+	    RE_MQ_EXPRESSION   = /\(\s*([^\s\:\)]+)\s*(?:\:\s*([^\s\)]+))?\s*\)/,
+	    RE_MQ_FEATURE      = /^(?:(min|max)-)?(.+)/,
+	    RE_LENGTH_UNIT     = /(em|rem|px|cm|mm|in|pt|pc)?$/,
+	    RE_RESOLUTION_UNIT = /(dpi|dpcm|dppx)?$/;
+	
+	function matchQuery(mediaQuery, values) {
+	    return parseQuery(mediaQuery).some(function (query) {
+	        var inverse = query.inverse;
+	
+	        // Either the parsed or specified `type` is "all", or the types must be
+	        // equal for a match.
+	        var typeMatch = query.type === 'all' || values.type === query.type;
+	
+	        // Quit early when `type` doesn't match, but take "not" into account.
+	        if ((typeMatch && inverse) || !(typeMatch || inverse)) {
+	            return false;
+	        }
+	
+	        var expressionsMatch = query.expressions.every(function (expression) {
+	            var feature  = expression.feature,
+	                modifier = expression.modifier,
+	                expValue = expression.value,
+	                value    = values[feature];
+	
+	            // Missing or falsy values don't match.
+	            if (!value) { return false; }
+	
+	            switch (feature) {
+	                case 'orientation':
+	                case 'scan':
+	                    return value.toLowerCase() === expValue.toLowerCase();
+	
+	                case 'width':
+	                case 'height':
+	                case 'device-width':
+	                case 'device-height':
+	                    expValue = toPx(expValue);
+	                    value    = toPx(value);
+	                    break;
+	
+	                case 'resolution':
+	                    expValue = toDpi(expValue);
+	                    value    = toDpi(value);
+	                    break;
+	
+	                case 'aspect-ratio':
+	                case 'device-aspect-ratio':
+	                case /* Deprecated */ 'device-pixel-ratio':
+	                    expValue = toDecimal(expValue);
+	                    value    = toDecimal(value);
+	                    break;
+	
+	                case 'grid':
+	                case 'color':
+	                case 'color-index':
+	                case 'monochrome':
+	                    expValue = parseInt(expValue, 10) || 1;
+	                    value    = parseInt(value, 10) || 0;
+	                    break;
+	            }
+	
+	            switch (modifier) {
+	                case 'min': return value >= expValue;
+	                case 'max': return value <= expValue;
+	                default   : return value === expValue;
+	            }
+	        });
+	
+	        return (expressionsMatch && !inverse) || (!expressionsMatch && inverse);
+	    });
+	}
+	
+	function parseQuery(mediaQuery) {
+	    return mediaQuery.split(',').map(function (query) {
+	        query = query.trim();
+	
+	        var captures    = query.match(RE_MEDIA_QUERY),
+	            modifier    = captures[1],
+	            type        = captures[2],
+	            expressions = captures[3] || '',
+	            parsed      = {};
+	
+	        parsed.inverse = !!modifier && modifier.toLowerCase() === 'not';
+	        parsed.type    = type ? type.toLowerCase() : 'all';
+	
+	        // Split expressions into a list.
+	        expressions = expressions.match(/\([^\)]+\)/g) || [];
+	
+	        parsed.expressions = expressions.map(function (expression) {
+	            var captures = expression.match(RE_MQ_EXPRESSION),
+	                feature  = captures[1].toLowerCase().match(RE_MQ_FEATURE);
+	
+	            return {
+	                modifier: feature[1],
+	                feature : feature[2],
+	                value   : captures[2]
+	            };
+	        });
+	
+	        return parsed;
+	    });
+	}
+	
+	// -- Utilities ----------------------------------------------------------------
+	
+	function toDecimal(ratio) {
+	    var decimal = Number(ratio),
+	        numbers;
+	
+	    if (!decimal) {
+	        numbers = ratio.match(/^(\d+)\s*\/\s*(\d+)$/);
+	        decimal = numbers[1] / numbers[2];
+	    }
+	
+	    return decimal;
+	}
+	
+	function toDpi(resolution) {
+	    var value = parseFloat(resolution),
+	        units = String(resolution).match(RE_RESOLUTION_UNIT)[1];
+	
+	    switch (units) {
+	        case 'dpcm': return value / 2.54;
+	        case 'dppx': return value * 96;
+	        default    : return value;
+	    }
+	}
+	
+	function toPx(length) {
+	    var value = parseFloat(length),
+	        units = String(length).match(RE_LENGTH_UNIT)[1];
+	
+	    switch (units) {
+	        case 'em' : return value * 16;
+	        case 'rem': return value * 16;
+	        case 'cm' : return value * 96 / 2.54;
+	        case 'mm' : return value * 96 / 2.54 / 10;
+	        case 'in' : return value * 96;
+	        case 'pt' : return value * 72;
+	        case 'pc' : return value * 72 / 12;
+	        default   : return value;
+	    }
+	}
+
+
+/***/ },
+/* 568 */
+/***/ function(module, exports) {
+
+	'use strict';
+	
+	var uppercasePattern = /[A-Z]/g;
+	var msPattern = /^ms-/;
+	var cache = {};
+	
+	function hyphenateStyleName(string) {
+	    return string in cache
+	    ? cache[string]
+	    : cache[string] = string
+	      .replace(uppercasePattern, '-$&')
+	      .toLowerCase()
+	      .replace(msPattern, '-ms-');
+	}
+	
+	module.exports = hyphenateStyleName;
+
+
+/***/ },
+/* 569 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var PropTypes = __webpack_require__(299).PropTypes;
+	var assign = __webpack_require__(301);
+	
+	var stringOrNumber = PropTypes.oneOfType([
+	  PropTypes.string,
+	  PropTypes.number
+	]);
+	
+	// properties that match media queries
+	var matchers = {
+	  orientation: PropTypes.oneOf([
+	    'portrait',
+	    'landscape'
+	  ]),
+	
+	  scan: PropTypes.oneOf([
+	    'progressive',
+	    'interlace'
+	  ]),
+	
+	  aspectRatio: PropTypes.string,
+	  deviceAspectRatio: PropTypes.string,
+	
+	  height: stringOrNumber,
+	  deviceHeight: stringOrNumber,
+	
+	  width: stringOrNumber,
+	  deviceWidth: stringOrNumber,
+	
+	  color: PropTypes.bool,
+	
+	  colorIndex: PropTypes.bool,
+	
+	  monochrome: PropTypes.bool,
+	  resolution: stringOrNumber
+	};
+	
+	// media features
+	var features = {
+	  minAspectRatio: PropTypes.string,
+	  maxAspectRatio: PropTypes.string,
+	  minDeviceAspectRatio: PropTypes.string,
+	  maxDeviceAspectRatio: PropTypes.string,
+	
+	  minHeight: stringOrNumber,
+	  maxHeight: stringOrNumber,
+	  minDeviceHeight: stringOrNumber,
+	  maxDeviceHeight: stringOrNumber,
+	
+	  minWidth: stringOrNumber,
+	  maxWidth: stringOrNumber,
+	  minDeviceWidth: stringOrNumber,
+	  maxDeviceWidth: stringOrNumber,
+	
+	  minColor: PropTypes.number,
+	  maxColor: PropTypes.number,
+	
+	  minColorIndex: PropTypes.number,
+	  maxColorIndex: PropTypes.number,
+	
+	  minMonochrome: PropTypes.number,
+	  maxMonochrome: PropTypes.number,
+	
+	  minResolution: stringOrNumber,
+	  maxResolution: stringOrNumber
+	};
+	
+	assign(features, matchers);
+	
+	// media types
+	var types = {
+	  all: PropTypes.bool,
+	  grid: PropTypes.bool,
+	  aural: PropTypes.bool,
+	  braille: PropTypes.bool,
+	  handheld: PropTypes.bool,
+	  print: PropTypes.bool,
+	  projection: PropTypes.bool,
+	  screen: PropTypes.bool,
+	  tty: PropTypes.bool,
+	  tv: PropTypes.bool,
+	  embossed: PropTypes.bool
+	};
+	
+	var all = {};
+	assign(all, types);
+	assign(all, features);
+	
+	// add the type property
+	assign(matchers, { type: Object.keys(types) });
+	
+	module.exports = {
+	  all: all,
+	  types: types,
+	  matchers: matchers,
+	  features: features
+	};
+
+
+/***/ },
+/* 570 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	var hyphenate = __webpack_require__(568);
+	var mq = __webpack_require__(569);
+	
+	function negate(cond) {
+	  return 'not ' + cond;
+	}
+	
+	function keyVal(k, v) {
+	  var realKey = hyphenate(k);
+	
+	  // px shorthand
+	  if (typeof v === 'number') {
+	    v = v+'px';
+	  }
+	  if (v === true) {
+	    return k;
+	  }
+	  if (v === false) {
+	    return negate(k);
+	  }
+	  return '('+realKey+': '+v+')';
+	}
+	
+	function join(conds) {
+	  return conds.join(' and ');
+	}
+	
+	module.exports = function(obj){
+	  var rules = [];
+	  Object.keys(mq.all).forEach(function(k){
+	    var v = obj[k];
+	    if (v != null) {
+	      rules.push(keyVal(k, v));
+	    }
+	  });
+	  return join(rules);
+	};
+
+
+/***/ },
+/* 571 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
@@ -38399,7 +38941,7 @@
 	
 	var _reactScroll2 = _interopRequireDefault(_reactScroll);
 	
-	var _Code = __webpack_require__(566);
+	var _Code = __webpack_require__(572);
 	
 	var _Code2 = _interopRequireDefault(_Code);
 	
@@ -38466,7 +39008,7 @@
 	exports.default = Landing;
 
 /***/ },
-/* 566 */
+/* 572 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -38485,13 +39027,23 @@
 	
 	var _reactScroll2 = _interopRequireDefault(_reactScroll);
 	
-	var _Projects = __webpack_require__(567);
+	var _reactResponsive = __webpack_require__(565);
 	
-	var _ProjectCard = __webpack_require__(568);
+	var _reactResponsive2 = _interopRequireDefault(_reactResponsive);
+	
+	var _Projects = __webpack_require__(573);
+	
+	var _ProjectCard = __webpack_require__(574);
 	
 	var _ProjectCard2 = _interopRequireDefault(_ProjectCard);
 	
-	var _Showcase = __webpack_require__(569);
+	var _Showcase = __webpack_require__(575);
+	
+	var _MobileShowcase = __webpack_require__(576);
+	
+	var _MobileShowcase2 = _interopRequireDefault(_MobileShowcase);
+	
+	var _reactRouter = __webpack_require__(489);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
@@ -38514,7 +39066,7 @@
 	
 	    _this.state = {
 	      displayShowcase: false,
-	      projectToDisplay: ''
+	      projectToDisplay: 'gameTime'
 	    };
 	    return _this;
 	  }
@@ -38544,48 +39096,60 @@
 	      var _this2 = this;
 	
 	      var showcase = void 0;
-	      var currentProject = void 0;
-	
+	      var mobileShowcase = void 0;
 	      var visibleClass = void 0;
+	
 	      if (this.state.displayShowcase) {
 	        visibleClass = 'showcase-container';
 	      } else {
 	        visibleClass = 'showcase-container contract';
 	      }
+	
 	      if (this.state.projectToDisplay) {
-	        currentProject = _react2.default.createElement(
-	          'div',
-	          null,
-	          _react2.default.createElement(_Showcase.Showcase, { projectInfo: _Projects.Projects[this.state.projectToDisplay], handleHide: this.hideShowcase.bind(this) })
-	        );
 	        showcase = _react2.default.createElement(
 	          'div',
 	          { className: visibleClass },
-	          currentProject
+	          _react2.default.createElement(
+	            'div',
+	            null,
+	            _react2.default.createElement(_Showcase.Showcase, { mobile: 'false', projectInfo: _Projects.Projects[this.state.projectToDisplay], handleHide: this.hideShowcase.bind(this) })
+	          )
 	        );
 	      }
+	
+	      var projectCards = _react2.default.createElement(
+	        'div',
+	        { className: 'project-card-container' },
+	        _react2.default.createElement(_ProjectCard2.default, { project: _Projects.Projects.netwerker, projectName: 'netwerker', handleClick: function handleClick() {
+	            return _this2.chooseProject('netwerker');
+	          } }),
+	        _react2.default.createElement(_ProjectCard2.default, { project: _Projects.Projects.weatherMe, projectName: 'weatherMe', handleClick: function handleClick() {
+	            return _this2.chooseProject('weatherMe');
+	          } }),
+	        _react2.default.createElement(_ProjectCard2.default, { project: _Projects.Projects.shootTheBreeze, projectName: 'shootTheBreeze', handleClick: function handleClick() {
+	            return _this2.chooseProject('shootTheBreeze');
+	          } }),
+	        _react2.default.createElement(_ProjectCard2.default, { project: _Projects.Projects.toDoBox, projectName: 'toDoBox', handleClick: function handleClick() {
+	            return _this2.chooseProject('toDoBox');
+	          } }),
+	        _react2.default.createElement(_ProjectCard2.default, { project: _Projects.Projects.gameTime, projectName: 'gameTime', handleClick: function handleClick() {
+	            return _this2.chooseProject('gameTime');
+	          } })
+	      );
+	
 	      return _react2.default.createElement(
 	        'div',
 	        { className: 'project-main' },
-	        showcase,
 	        _react2.default.createElement(
-	          'div',
-	          { className: 'project-card-container' },
-	          _react2.default.createElement(_ProjectCard2.default, { project: _Projects.Projects.netwerker, handleClick: function handleClick() {
-	              return _this2.chooseProject('netwerker');
-	            } }),
-	          _react2.default.createElement(_ProjectCard2.default, { project: _Projects.Projects.weatherMe, handleClick: function handleClick() {
-	              return _this2.chooseProject('weatherMe');
-	            } }),
-	          _react2.default.createElement(_ProjectCard2.default, { project: _Projects.Projects.shootTheBreeze, handleClick: function handleClick() {
-	              return _this2.chooseProject('shootTheBreeze');
-	            } }),
-	          _react2.default.createElement(_ProjectCard2.default, { project: _Projects.Projects.toDoBox, handleClick: function handleClick() {
-	              return _this2.chooseProject('toDoBox');
-	            } }),
-	          _react2.default.createElement(_ProjectCard2.default, { project: _Projects.Projects.gameTime, handleClick: function handleClick() {
-	              return _this2.chooseProject('gameTime');
-	            } })
+	          _reactResponsive2.default,
+	          { query: '(min-width: 800px)' },
+	          showcase,
+	          projectCards
+	        ),
+	        _react2.default.createElement(
+	          _reactResponsive2.default,
+	          { query: '(max-width: 800px)' },
+	          projectCards
 	        )
 	      );
 	    }
@@ -38597,7 +39161,7 @@
 	exports.default = Code;
 
 /***/ },
-/* 567 */
+/* 573 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -38615,7 +39179,6 @@
 	    tech: ['JavaScript', 'HTML5 Canvas'],
 	    githubURL: 'https://github.com/MilkMan90/game-time'
 	  },
-	
 	  netwerker: {
 	    imgURL: '/lib/imgs/netwerkerThumb.png',
 	    hostURL: 'https://netwerker-3d622.firebaseapp.com/',
@@ -38624,7 +39187,6 @@
 	    tech: ['JavaScript', 'React', 'Firebase'],
 	    githubURL: 'https://github.com/MilkMan90/netwerker'
 	  },
-	
 	  weatherMe: {
 	    imgURL: '/lib/imgs/weatherMeThumb.png',
 	    hostURL: 'https://milkman90.github.io/weathrly/',
@@ -38633,7 +39195,6 @@
 	    tech: ['JavaScript', 'React', 'Firebase'],
 	    githubURL: 'https://github.com/MilkMan90/weathrly'
 	  },
-	
 	  shootTheBreeze: {
 	    imgURL: '/lib/imgs/shootTheBreezeThumb.png',
 	    hostURL: 'https://shootthebreeze-8ee5f.firebaseapp.com',
@@ -38645,7 +39206,7 @@
 	  toDoBox: {
 	    imgURL: '/lib/imgs/2DoBox.png',
 	    hostURL: 'https://milkman90.github.io/2DoBox/',
-	    title: '2DoBox',
+	    title: '2DoList',
 	    description: 'A single page React app which stores To-Dos, allows for checking-off completion, sorting by importance, and limiting the number of tasks visible',
 	    tech: ['JavaScript', 'React'],
 	    githubURL: 'https://github.com/MilkMan90/2DoBox'
@@ -38653,7 +39214,7 @@
 	};
 
 /***/ },
-/* 568 */
+/* 574 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -38672,6 +39233,12 @@
 	
 	var _reactScroll2 = _interopRequireDefault(_reactScroll);
 	
+	var _reactResponsive = __webpack_require__(565);
+	
+	var _reactResponsive2 = _interopRequireDefault(_reactResponsive);
+	
+	var _reactRouter = __webpack_require__(489);
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -38683,19 +39250,13 @@
 	var ProjectCard = function (_Component) {
 	  _inherits(ProjectCard, _Component);
 	
-	  function ProjectCard(props) {
+	  function ProjectCard() {
 	    _classCallCheck(this, ProjectCard);
 	
-	    var _this = _possibleConstructorReturn(this, (ProjectCard.__proto__ || Object.getPrototypeOf(ProjectCard)).call(this, props));
-	
-	    _this.state = {};
-	    return _this;
+	    return _possibleConstructorReturn(this, (ProjectCard.__proto__ || Object.getPrototypeOf(ProjectCard)).apply(this, arguments));
 	  }
 	
 	  _createClass(ProjectCard, [{
-	    key: 'componentDidMount',
-	    value: function componentDidMount() {}
-	  }, {
 	    key: 'render',
 	    value: function render() {
 	      var _this2 = this;
@@ -38709,15 +39270,43 @@
 	
 	      return _react2.default.createElement(
 	        'div',
-	        { className: 'project-card', onClick: function onClick() {
-	            return _this2.props.handleClick();
-	          } },
+	        null,
 	        _react2.default.createElement(
-	          'h5',
-	          null,
-	          title
+	          _reactResponsive2.default,
+	          { query: '(min-width: 800px)' },
+	          _react2.default.createElement(
+	            'div',
+	            { className: 'project-card', onClick: function onClick() {
+	                return _this2.props.handleClick();
+	              } },
+	            _react2.default.createElement(
+	              'h5',
+	              null,
+	              title
+	            ),
+	            _react2.default.createElement('img', { className: 'thumbnail-img', src: imgURL })
+	          )
 	        ),
-	        _react2.default.createElement('img', { className: 'thumbnail-img', src: imgURL })
+	        _react2.default.createElement(
+	          _reactResponsive2.default,
+	          { query: '(max-width: 800px)' },
+	          _react2.default.createElement(
+	            _reactRouter.Link,
+	            { to: 'code/' + this.props.projectName, onClick: function onClick() {
+	                return _this2.props.handleClick();
+	              } },
+	            _react2.default.createElement(
+	              'div',
+	              { className: 'project-card' },
+	              _react2.default.createElement(
+	                'h5',
+	                null,
+	                title
+	              ),
+	              _react2.default.createElement('img', { className: 'thumbnail-img', src: imgURL })
+	            )
+	          )
+	        )
 	      );
 	    }
 	  }]);
@@ -38728,7 +39317,7 @@
 	exports.default = ProjectCard;
 
 /***/ },
-/* 569 */
+/* 575 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -38742,6 +39331,7 @@
 	var Showcase = exports.Showcase = function Showcase(_ref) {
 	  var projectInfo = _ref.projectInfo;
 	  var handleHide = _ref.handleHide;
+	  var mobile = _ref.mobile;
 	  var description = projectInfo.description;
 	  var githubURL = projectInfo.githubURL;
 	  var hostURL = projectInfo.hostURL;
@@ -38800,7 +39390,109 @@
 	};
 
 /***/ },
-/* 570 */
+/* 576 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	var _react = __webpack_require__(299);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	var _Projects = __webpack_require__(573);
+	
+	var _reactRouter = __webpack_require__(489);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	var MobileShowcase = function (_Component) {
+	  _inherits(MobileShowcase, _Component);
+	
+	  function MobileShowcase() {
+	    _classCallCheck(this, MobileShowcase);
+	
+	    return _possibleConstructorReturn(this, (MobileShowcase.__proto__ || Object.getPrototypeOf(MobileShowcase)).apply(this, arguments));
+	  }
+	
+	  _createClass(MobileShowcase, [{
+	    key: 'render',
+	    value: function render() {
+	      var projectInfo = _Projects.Projects[this.props.params.projectName];
+	      var description = projectInfo.description;
+	      var githubURL = projectInfo.githubURL;
+	      var hostURL = projectInfo.hostURL;
+	      var imgURL = projectInfo.imgURL;
+	      var tech = projectInfo.tech;
+	      var title = projectInfo.title;
+	
+	
+	      var techList = [];
+	
+	      tech.forEach(function (techName, index) {
+	        techList.push(_react2.default.createElement(
+	          'li',
+	          { key: index, className: 'showcase-tech-item' },
+	          techName
+	        ));
+	      });
+	
+	      return _react2.default.createElement(
+	        'div',
+	        { className: 'mobile-showcase' },
+	        _react2.default.createElement(
+	          'h6',
+	          { className: 'showcase-title' },
+	          title
+	        ),
+	        _react2.default.createElement(
+	          'a',
+	          { target: '_blank', href: hostURL },
+	          _react2.default.createElement('img', { className: 'showcase-img', src: imgURL })
+	        ),
+	        _react2.default.createElement(
+	          'p',
+	          { className: 'showcase-description' },
+	          description
+	        ),
+	        _react2.default.createElement(
+	          'ul',
+	          { className: 'showcase-tech' },
+	          'Built with:',
+	          techList
+	        ),
+	        _react2.default.createElement(
+	          'a',
+	          { className: 'showcase-github', target: '_blank', href: githubURL },
+	          'View On Github'
+	        ),
+	        _react2.default.createElement(
+	          'button',
+	          { className: 'showcase-hide', onClick: _reactRouter.browserHistory.goBack },
+	          _react2.default.createElement('img', { src: '../lib/imgs/back.svg' })
+	        )
+	      );
+	    }
+	  }]);
+	
+	  return MobileShowcase;
+	}(_react.Component);
+	
+	exports.default = MobileShowcase;
+
+/***/ },
+/* 577 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -38819,6 +39511,10 @@
 	
 	var _reactScroll2 = _interopRequireDefault(_reactScroll);
 	
+	var _reactResponsive = __webpack_require__(565);
+	
+	var _reactResponsive2 = _interopRequireDefault(_reactResponsive);
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -38833,151 +39529,154 @@
 	  function About() {
 	    _classCallCheck(this, About);
 	
-	    var _this = _possibleConstructorReturn(this, (About.__proto__ || Object.getPrototypeOf(About)).call(this));
-	
-	    _this.state = {};
-	    return _this;
+	    return _possibleConstructorReturn(this, (About.__proto__ || Object.getPrototypeOf(About)).apply(this, arguments));
 	  }
 	
 	  _createClass(About, [{
-	    key: 'componentDidMount',
-	    value: function componentDidMount() {}
-	  }, {
 	    key: 'render',
 	    value: function render() {
 	      return _react2.default.createElement(
-	        'section',
-	        { className: 'timeline' },
+	        'div',
+	        null,
 	        _react2.default.createElement(
-	          'ul',
-	          null,
+	          _reactResponsive2.default,
+	          { query: '(max-width: 800px)' },
+	          _react2.default.createElement('img', { className: 'about-profileImg', src: './lib/imgs/headshot.jpg', alt: 'its me - Matt!' })
+	        ),
+	        _react2.default.createElement(
+	          'section',
+	          { className: 'timeline' },
 	          _react2.default.createElement(
-	            'li',
+	            'ul',
 	            null,
 	            _react2.default.createElement(
-	              'div',
+	              'li',
 	              null,
 	              _react2.default.createElement(
-	                'time',
+	                'div',
 	                null,
-	                'August 2016 '
-	              ),
-	              _react2.default.createElement(
-	                'p',
-	                null,
-	                'Turing School of Software and Design Front End Engineering Program'
-	              ),
-	              _react2.default.createElement(
-	                'p',
-	                { className: 'location' },
-	                'Denver, CO'
+	                _react2.default.createElement(
+	                  'time',
+	                  null,
+	                  'August 2016 '
+	                ),
+	                _react2.default.createElement(
+	                  'p',
+	                  null,
+	                  'Turing School of Software and Design Front End Engineering Program'
+	                ),
+	                _react2.default.createElement(
+	                  'p',
+	                  { className: 'location' },
+	                  'Denver, CO'
+	                )
 	              )
-	            )
-	          ),
-	          _react2.default.createElement(
-	            'li',
-	            null,
+	            ),
 	            _react2.default.createElement(
-	              'div',
+	              'li',
 	              null,
 	              _react2.default.createElement(
-	                'time',
+	                'div',
 	                null,
-	                'October 2014'
-	              ),
-	              _react2.default.createElement(
-	                'p',
-	                null,
-	                'Controls Software Applications Engineer'
-	              ),
-	              _react2.default.createElement(
-	                'p',
-	                null,
-	                'Progressive Machine and Design'
-	              ),
-	              _react2.default.createElement(
-	                'p',
-	                { className: 'location' },
-	                'Rochester, NY'
+	                _react2.default.createElement(
+	                  'time',
+	                  null,
+	                  'October 2014'
+	                ),
+	                _react2.default.createElement(
+	                  'p',
+	                  null,
+	                  'Controls Software Applications Engineer'
+	                ),
+	                _react2.default.createElement(
+	                  'p',
+	                  null,
+	                  'Progressive Machine and Design'
+	                ),
+	                _react2.default.createElement(
+	                  'p',
+	                  { className: 'location' },
+	                  'Rochester, NY'
+	                )
 	              )
-	            )
-	          ),
-	          _react2.default.createElement(
-	            'li',
-	            null,
+	            ),
 	            _react2.default.createElement(
-	              'div',
+	              'li',
 	              null,
 	              _react2.default.createElement(
-	                'time',
+	                'div',
 	                null,
-	                'May 2013'
-	              ),
-	              _react2.default.createElement(
-	                'p',
-	                null,
-	                'Automation Engineer'
-	              ),
-	              _react2.default.createElement(
-	                'p',
-	                null,
-	                'Distech Systems'
-	              ),
-	              _react2.default.createElement(
-	                'p',
-	                { className: 'location' },
-	                'Rochester, NY'
+	                _react2.default.createElement(
+	                  'time',
+	                  null,
+	                  'May 2013'
+	                ),
+	                _react2.default.createElement(
+	                  'p',
+	                  null,
+	                  'Automation Engineer'
+	                ),
+	                _react2.default.createElement(
+	                  'p',
+	                  null,
+	                  'Distech Systems'
+	                ),
+	                _react2.default.createElement(
+	                  'p',
+	                  { className: 'location' },
+	                  'Rochester, NY'
+	                )
 	              )
-	            )
-	          ),
-	          _react2.default.createElement(
-	            'li',
-	            null,
+	            ),
 	            _react2.default.createElement(
-	              'div',
+	              'li',
 	              null,
 	              _react2.default.createElement(
-	                'time',
+	                'div',
 	                null,
-	                'May 2013'
-	              ),
-	              _react2.default.createElement(
-	                'p',
-	                null,
-	                'Graduated from Binghamton University - State University of New York'
-	              ),
-	              _react2.default.createElement(
-	                'p',
-	                null,
-	                'Bachelor of Science in Computer Engineering'
-	              ),
-	              _react2.default.createElement(
-	                'p',
-	                { className: 'location' },
-	                'Binghamton, NY'
+	                _react2.default.createElement(
+	                  'time',
+	                  null,
+	                  'May 2013'
+	                ),
+	                _react2.default.createElement(
+	                  'p',
+	                  null,
+	                  'Graduated from Binghamton University - State University of New York'
+	                ),
+	                _react2.default.createElement(
+	                  'p',
+	                  null,
+	                  'Bachelor of Science in Computer Engineering'
+	                ),
+	                _react2.default.createElement(
+	                  'p',
+	                  { className: 'location' },
+	                  'Binghamton, NY'
+	                )
 	              )
-	            )
-	          ),
-	          _react2.default.createElement(
-	            'li',
-	            null,
+	            ),
 	            _react2.default.createElement(
-	              'div',
+	              'li',
 	              null,
 	              _react2.default.createElement(
-	                'time',
+	                'div',
 	                null,
-	                'June 2008'
-	              ),
-	              _react2.default.createElement(
-	                'p',
-	                null,
-	                'Graduated from Honeoye Falls Lima High School'
-	              ),
-	              _react2.default.createElement(
-	                'p',
-	                { className: 'location' },
-	                'Honeoye Falls, NY'
+	                _react2.default.createElement(
+	                  'time',
+	                  null,
+	                  'June 2008'
+	                ),
+	                _react2.default.createElement(
+	                  'p',
+	                  null,
+	                  'Graduated from Honeoye Falls Lima High School'
+	                ),
+	                _react2.default.createElement(
+	                  'p',
+	                  { className: 'location' },
+	                  'Honeoye Falls, NY'
+	                )
 	              )
 	            )
 	          )
@@ -38992,7 +39691,7 @@
 	exports.default = About;
 
 /***/ },
-/* 571 */
+/* 578 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -39048,16 +39747,16 @@
 	exports.default = Blog;
 
 /***/ },
-/* 572 */
+/* 579 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 	
 	// load the styles
-	var content = __webpack_require__(573);
+	var content = __webpack_require__(580);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
-	var update = __webpack_require__(575)(content, {});
+	var update = __webpack_require__(582)(content, {});
 	if(content.locals) module.exports = content.locals;
 	// Hot Module Replacement
 	if(false) {
@@ -39074,21 +39773,21 @@
 	}
 
 /***/ },
-/* 573 */
+/* 580 */
 /***/ function(module, exports, __webpack_require__) {
 
-	exports = module.exports = __webpack_require__(574)();
+	exports = module.exports = __webpack_require__(581)();
 	// imports
 	exports.push([module.id, "@import url(https://fonts.googleapis.com/css?family=Cookie|Dosis|Mogra);", ""]);
 	
 	// module
-	exports.push([module.id, "/* http://meyerweb.com/eric/tools/css/reset/\n   v2.0 | 20110126\n   License: none (public domain)\n*/\nhtml, body, div, span, applet, object, iframe,\nh1, h2, h3, h4, h5, h6, p, blockquote, pre,\na, abbr, acronym, address, big, cite, code,\ndel, dfn, em, img, ins, kbd, q, s, samp,\nsmall, strike, strong, sub, sup, tt, var,\nb, u, i, center,\ndl, dt, dd, ol, ul, li,\nfieldset, form, label, legend,\ntable, caption, tbody, tfoot, thead, tr, th, td,\narticle, aside, canvas, details, embed,\nfigure, figcaption, footer, header, hgroup,\nmenu, nav, output, ruby, section, summary,\ntime, mark, audio, video {\n  margin: 0;\n  padding: 0;\n  border: 0;\n  font-size: 100%;\n  font: inherit;\n  vertical-align: baseline; }\n\n/* HTML5 display-role reset for older browsers */\narticle, aside, details, figcaption, figure,\nfooter, header, hgroup, menu, nav, section {\n  display: block; }\n\nbody {\n  line-height: 1; }\n\nol, ul {\n  list-style: none; }\n\nblockquote, q {\n  quotes: none; }\n\nblockquote:before, blockquote:after,\nq:before, q:after {\n  content: '';\n  content: none; }\n\ntable {\n  border-collapse: collapse;\n  border-spacing: 0; }\n\nnav {\n  display: flex;\n  position: fixed;\n  flex-direction: column;\n  border-right: solid 1px;\n  align-items: center;\n  background-color: #05668D;\n  width: 23.5%;\n  float: left;\n  height: 100%;\n  z-index: 999; }\n\n.width-holder {\n  z-index: 0;\n  width: 23.5%;\n  float: left;\n  height: 100vh; }\n\nmain {\n  z-index: 0;\n  background-color: white;\n  display: inline-block;\n  width: 76.4%; }\n\n.profileImg {\n  border-radius: 200px;\n  height: 120px;\n  display: block;\n  margin-top: 30px;\n  margin-bottom: 20px;\n  border-style: none; }\n\n.hamburger-nav {\n  display: none; }\n\n@keyframes activeLink {\n  from {\n    border-bottom: 2px double #05668D; }\n  to {\n    border-bottom: 2px double lightGrey; } }\n\n@keyframes inActiveLink {\n  from {\n    border-bottom: 2px double lightGrey; }\n  to {\n    border-bottom: 2px double #05668D; } }\n\n.nav {\n  margin-left: auto;\n  margin-right: auto; }\n  .nav a {\n    display: block;\n    font-family: \"Dosis\", sans-serif;\n    font-size: 30px;\n    color: white;\n    text-decoration: none;\n    animation-name: inActiveLink;\n    animation-duration: 1s;\n    animation-fill-mode: forwards;\n    margin: 15px;\n    margin-top: 30px;\n    margin-left: 0px;\n    border-bottom: 3px solid #05668D; }\n  .nav a:hover {\n    border-bottom: 3px white;\n    border-style: double; }\n  .nav .active {\n    animation-name: activeLink;\n    animation-duration: 1s; }\n\n#footerlinks a {\n  display: inline-block;\n  cursor: pointer;\n  margin: 10px; }\n  #footerlinks a :hover {\n    border-bottom: 3px solid #05668D; }\n\n#footerlinks a img {\n  height: 30px; }\n\n#footerlinks {\n  position: absolute;\n  width: 90%;\n  text-align: center;\n  align-items: center;\n  bottom: 15px; }\n\n.project-main {\n  z-index: -1; }\n\n@keyframes expand {\n  from {\n    height: 0px;\n    opacity: 0; }\n  to {\n    height: 230px;\n    opacity: 1; } }\n\n.showcase-container {\n  position: relative;\n  z-index: 5;\n  animation-name: expand;\n  animation-timing-function: ease;\n  animation-duration: 1s;\n  border-bottom: 4px solid lightGrey;\n  height: 230px;\n  opacity: 1; }\n  .showcase-container .showcase {\n    margin: 15px;\n    padding-bottom: 10px;\n    z-index: 6;\n    height: 225px; }\n    .showcase-container .showcase .showcase-title {\n      position: absolute;\n      bottom: 210px; }\n    .showcase-container .showcase .showcase-img {\n      display: inline-block;\n      position: absolute;\n      border: 2px solid lightGrey;\n      width: 250px;\n      bottom: 15px;\n      right: 30px;\n      z-index: 1; }\n    .showcase-container .showcase .showcase-description {\n      text-align: left;\n      position: absolute;\n      bottom: 150px;\n      left: 30px;\n      width: 55%;\n      font-family: \"Dosis\", sans-serif; }\n    .showcase-container .showcase .showcase-tech {\n      color: #05668D;\n      position: absolute;\n      bottom: 30px;\n      font-family: \"Dosis\", sans-serif;\n      margin: 15px; }\n    .showcase-container .showcase .showcase-tech-item {\n      margin: 5px; }\n    .showcase-container .showcase .showcase-github {\n      font-family: \"Dosis\", sans-serif;\n      position: absolute;\n      bottom: 10px;\n      left: 30px;\n      color: #8d0522;\n      text-decoration: none; }\n    .showcase-container .showcase .showcase-hide {\n      background-color: lightGrey;\n      color: white;\n      display: block;\n      position: absolute;\n      bottom: -20px;\n      width: 100px;\n      left: 44%;\n      border-radius: 0px 0px 20px 20px;\n      border-style: none; }\n\n@keyframes contract {\n  from {\n    height: 230px;\n    opacity: 1; }\n  to {\n    height: 0px;\n    opacity: 0; } }\n\n.contract {\n  animation-name: contract;\n  animation-timing-function: ease;\n  animation-duration: 1s;\n  animation-direction: forward;\n  animation-fill-mode: both; }\n\n.project-card-container {\n  width: 80%;\n  margin: auto;\n  position: relative;\n  justify-content: center;\n  display: flex;\n  flex-wrap: wrap;\n  background-color: white;\n  z-index: 99;\n  margin-top: 40px; }\n\n.project-card {\n  cursor: pointer;\n  background-color: white;\n  z-index: 99;\n  position: relative;\n  border: 2px lightGrey;\n  border-style: outset;\n  border-radius: 10px;\n  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;\n  width: 200px;\n  height: 200px;\n  margin: 20px; }\n  .project-card h5 {\n    padding-bottom: 2px;\n    margin-bottom: 3px;\n    border-bottom: 1px solid lightGrey; }\n  .project-card .thumbnail-img {\n    width: 100%;\n    height: 84%; }\n\n@keyframes dampen {\n  from {\n    box-shadow: 0 3px 3px rgba(0, 0, 0, 0.3), 0 0 50px rgba(0, 0, 0, 0.1) inset; }\n  to {\n    box-shadow: 2px 6px 10px rgba(0, 0, 0, 0.3), 30px 40px 50px rgba(0, 0, 0, 0.1) inset; } }\n\n.project-card:hover {\n  animation: dampen;\n  animation-duration: 0.5s;\n  animation-fill-mode: forwards;\n  cursor: pointer; }\n\n.timeline ul li {\n  list-style-type: none;\n  position: relative;\n  width: 6px;\n  margin: 0 auto;\n  padding-top: 25px;\n  background: #05668D; }\n\n.timeline ul li::after {\n  content: '';\n  position: absolute;\n  left: 50%;\n  bottom: 0;\n  transform: translateX(-50%);\n  width: 30px;\n  height: 30px;\n  border-radius: 50%;\n  background: #8d2c05; }\n\n.timeline ul li div {\n  position: relative;\n  bottom: 0;\n  width: 300px;\n  padding: 15px;\n  background: lightGrey; }\n\n.timeline ul li div::before {\n  content: '';\n  position: absolute;\n  bottom: 7px;\n  width: 0;\n  height: 0;\n  border-style: solid; }\n\n.timeline ul li:nth-child(odd) div {\n  left: 35px; }\n\n.timeline ul li:nth-child(odd) div::before {\n  left: -15px;\n  border-width: 8px 16px 8px 0;\n  border-color: transparent lightGrey transparent transparent; }\n\n.timeline ul li:nth-child(even) div {\n  left: -359px; }\n\n.timeline ul li:nth-child(even) div::before {\n  right: -15px;\n  border-width: 8px 0 8px 16px;\n  border-color: transparent transparent transparent lightGrey; }\n\n.timeline div {\n  color: #058d70; }\n  .timeline div p {\n    color: #05668D; }\n\n.contact-me-container {\n  width: 80%;\n  margin: auto;\n  margin-top: 100px;\n  margin-bottom: 20px; }\n\n.contactForm {\n  padding: 15px;\n  font-family: \"Dosis\", sans-serif;\n  width: 100%;\n  border: 2px solid #05668D; }\n\n.input-group {\n  position: relative;\n  display: inline-block;\n  margin-top: 10px;\n  margin-bottom: 30px;\n  width: 50%; }\n\n.input-group2 {\n  position: relative;\n  margin-bottom: 25px; }\n\n.contact-name {\n  display: inline-block;\n  width: 80%; }\n\n.contact-email {\n  display: inline-block;\n  width: 80%; }\n\n.contact-message {\n  margin: auto;\n  width: 98%;\n  height: 100px; }\n\n.contact-submit {\n  display: block;\n  width: 90%;\n  height: 40px;\n  margin: auto;\n  margin-bottom: 20px;\n  background-color: #668d05;\n  font-family: \"Dosis\", sans-serif;\n  font-size: 20px;\n  color: white; }\n\n.show-form-button {\n  display: block;\n  width: 50%;\n  height: 40px;\n  margin: auto;\n  margin-bottom: 20px;\n  font-size: 20px;\n  background-color: #668d05;\n  font-family: \"Dosis\", sans-serif;\n  color: white; }\n\n.success-message {\n  font-family: \"Dosis\", sans-serif;\n  color: #8d2c05;\n  text-align: center;\n  margin-bottom: 10px; }\n\ninput {\n  font-family: \"Dosis\", sans-serif;\n  font-size: 18px;\n  padding: 10px 10px 10px 5px;\n  display: block;\n  width: 300px;\n  border: none;\n  border-bottom: 1px solid #757575; }\n\ninput:focus {\n  outline: none; }\n\nlabel {\n  color: #999;\n  font-size: 18px;\n  font-weight: normal;\n  position: absolute;\n  pointer-events: none;\n  left: 5px;\n  top: 10px;\n  transition: 0.2s ease all;\n  -moz-transition: 0.2s ease all;\n  -webkit-transition: 0.2s ease all; }\n\ninput:focus ~ label, input:valid ~ label {\n  top: -10px;\n  font-size: 14px;\n  color: #5264AE; }\n\ntextarea:focus ~ label, textarea:valid ~ label {\n  top: -20px;\n  font-size: 14px;\n  color: #5264AE; }\n\n.contactTransition-enter {\n  opacity: 0.01; }\n\n.contactTransition-enter.contactTransition-enter-active {\n  opacity: 1;\n  transition: opacity 1000ms ease-in; }\n\n.contactTransition-appear {\n  opacity: 0.01; }\n\n.contactTransition-appear.contactTransition-appear-active {\n  opacity: 1;\n  transition: opacity 1500ms ease; }\n\nbody {\n  width: 100%;\n  height: 100vh; }\n\nh2 {\n  font-family: 'Cookie', cursive;\n  color: #737373;\n  text-shadow: 0px 2px 0px white;\n  font-weight: 400;\n  color: #058d70;\n  font-size: 150px;\n  margin-top: 40px;\n  text-align: center; }\n\nh1, h3, h4, h5, h6, p {\n  /*font-family: \"Dosis\", sans-serif;color:#737373;*/\n  font-family: \"Dosis\", sans-serif;\n  color: #05668D; }\n\nh1 {\n  margin: 30px;\n  line-height: 25px;\n  margin-top: 10px;\n  font-size: 25px;\n  text-align: left; }\n\nh3 {\n  font-size: 16px;\n  margin: 20px; }\n\nh4 {\n  font-size: 20px;\n  margin: 50px; }\n\nh5 {\n  margin-bottom: 20px; }\n\n.title {\n  font-size: 25px;\n  text-align: left; }\n\nh5 {\n  margin: 5px; }\n\nh6 {\n  font-size: 20px;\n  margin-bottom: 5px;\n  text-align: left; }\n\n.message {\n  width: 70%;\n  margin: auto; }\n  .message p {\n    line-height: 25px;\n    font-size: 20px;\n    margin: 30px; }\n\n.newPage-enter {\n  opacity: 0.01; }\n\n.newPage-enter.newPage-enter-active {\n  opacity: 1;\n  transition: opacity 1500ms ease; }\n\n.newPage-appear {\n  opacity: 0.01; }\n\n.newPage-appear.newPage-appear-active {\n  opacity: 1;\n  transition: opacity 1000ms ease; }\n\n@media screen and (max-width: 1040px) {\n  .timeline ul li {\n    margin: 0 auto;\n    margin-right: auto;\n    margin-left: 20%; }\n  .timeline ul li:nth-child(even) div {\n    left: 35px; }\n  .timeline ul li:nth-child(even) div::before {\n    left: -15px;\n    border-width: 8px 16px 8px 0;\n    border-color: transparent lightGrey transparent transparent; } }\n\n@media screen and (max-width: 800px) {\n  .width-holder {\n    z-index: 0;\n    width: 100%;\n    height: 100px; }\n  main {\n    position: relative;\n    z-index: 0;\n    background-color: white;\n    width: 100%; }\n  .homeNav {\n    display: inline-block; }\n  nav {\n    display: block;\n    position: fixed;\n    margin: auto;\n    width: 100%;\n    float: none;\n    height: 100px;\n    z-index: 999; }\n  .profileImg {\n    display: none; }\n  .hamburger-nav {\n    display: inline-block;\n    float: left;\n    height: 50px;\n    margin-left: 20px;\n    margin-top: 20px; }\n  .nav {\n    align-items: center;\n    position: absolute;\n    display: flex;\n    top: 8px;\n    justify-content: center;\n    left: 50%;\n    right: 50%;\n    text-align: center; }\n    .nav a {\n      display: inline-block;\n      font-size: 25px;\n      color: white;\n      text-decoration: none;\n      animation-name: inActiveLink;\n      animation-duration: 0.5s;\n      margin: 0px;\n      margin-top: 30px;\n      margin-left: 10px;\n      margin-right: 10px; }\n    .nav .active {\n      animation-name: activeLink;\n      animation-duration: 0.5s;\n      color: #058d70; }\n  #footerlinks {\n    display: none; }\n  .title {\n    text-align: left; }\n  .timeline ul li {\n    margin: 0 auto;\n    margin-right: auto;\n    margin-left: 15%; }\n  .timeline ul li div {\n    width: 250px; }\n  .showcase-img {\n    display: inline-block;\n    position: absolute;\n    height: 90%;\n    bottom: 15px;\n    right: 30px;\n    z-index: 1; }\n  @keyframes expand {\n    from {\n      height: 0px;\n      opacity: 0; }\n    to {\n      height: 350px;\n      opacity: 1; } }\n  @keyframes contract {\n    from {\n      height: 350px;\n      opacity: 1; }\n    to {\n      height: 0px;\n      opacity: 0; } }\n  .showcase-container {\n    height: 355px; }\n    .showcase-container .showcase {\n      height: 350px; }\n      .showcase-container .showcase .showcase-title {\n        bottom: 330px; }\n      .showcase-container .showcase .showcase-img {\n        display: inline-block;\n        position: absolute;\n        height: 150px;\n        bottom: 40px;\n        right: 70px;\n        z-index: 1; }\n      .showcase-container .showcase .showcase-description {\n        bottom: 270px;\n        left: 30px; }\n      .showcase-container .showcase .showcase-tech {\n        bottom: 160px; }\n      .showcase-container .showcase .showcase-tech-item {\n        margin: 5px; }\n      .showcase-container .showcase .showcase-github {\n        bottom: 10px;\n        left: 30px; }\n      .showcase-container .showcase .showcase-hide {\n        left: 37%; }\n  .project-card-container {\n    margin-top: 20px; } }\n", ""]);
+	exports.push([module.id, "/* http://meyerweb.com/eric/tools/css/reset/\n   v2.0 | 20110126\n   License: none (public domain)\n*/\nhtml, body, div, span, applet, object, iframe,\nh1, h2, h3, h4, h5, h6, p, blockquote, pre,\na, abbr, acronym, address, big, cite, code,\ndel, dfn, em, img, ins, kbd, q, s, samp,\nsmall, strike, strong, sub, sup, tt, var,\nb, u, i, center,\ndl, dt, dd, ol, ul, li,\nfieldset, form, label, legend,\ntable, caption, tbody, tfoot, thead, tr, th, td,\narticle, aside, canvas, details, embed,\nfigure, figcaption, footer, header, hgroup,\nmenu, nav, output, ruby, section, summary,\ntime, mark, audio, video {\n  margin: 0;\n  padding: 0;\n  border: 0;\n  font-size: 100%;\n  font: inherit;\n  vertical-align: baseline; }\n\n/* HTML5 display-role reset for older browsers */\narticle, aside, details, figcaption, figure,\nfooter, header, hgroup, menu, nav, section {\n  display: block; }\n\nbody {\n  line-height: 1; }\n\nol, ul {\n  list-style: none; }\n\nblockquote, q {\n  quotes: none; }\n\nblockquote:before, blockquote:after,\nq:before, q:after {\n  content: '';\n  content: none; }\n\ntable {\n  border-collapse: collapse;\n  border-spacing: 0; }\n\nnav {\n  display: flex;\n  position: fixed;\n  flex-direction: column;\n  border-right: solid 1px;\n  align-items: center;\n  background-color: #05668D;\n  width: 23.5%;\n  float: left;\n  height: 100%;\n  z-index: 999; }\n\n.width-holder {\n  z-index: 0;\n  width: 23.5%;\n  float: left;\n  height: 100vh; }\n\nmain {\n  z-index: 0;\n  background-color: white;\n  display: inline-block;\n  width: 76.4%; }\n\n.profileImg {\n  border-radius: 200px;\n  height: 120px;\n  display: block;\n  margin-top: 30px;\n  margin-bottom: 20px;\n  border-style: none; }\n\n.hamburger-nav {\n  display: none; }\n\n@keyframes activeLink {\n  from {\n    border-bottom: 2px double #05668D; }\n  to {\n    border-bottom: 2px double lightGrey; } }\n\n@keyframes inActiveLink {\n  from {\n    border-bottom: 2px double lightGrey; }\n  to {\n    border-bottom: 2px double #05668D; } }\n\n.nav {\n  margin-left: auto;\n  margin-right: auto; }\n  .nav a {\n    display: block;\n    font-family: \"Dosis\", sans-serif;\n    font-size: 30px;\n    color: white;\n    text-decoration: none;\n    animation-name: inActiveLink;\n    animation-duration: 1s;\n    animation-fill-mode: forwards;\n    margin: 15px;\n    margin-top: 30px;\n    margin-left: 0px;\n    border-bottom: 3px solid #05668D; }\n  .nav a:hover {\n    border-bottom: 3px white;\n    border-style: double; }\n  .nav .active {\n    animation-name: activeLink;\n    animation-duration: 1s; }\n\n#footerlinks a {\n  display: inline-block;\n  cursor: pointer;\n  margin: 10px; }\n  #footerlinks a :hover {\n    border-bottom: 3px solid #05668D; }\n\n#footerlinks a img {\n  height: 30px; }\n\n#footerlinks {\n  position: absolute;\n  width: 90%;\n  text-align: center;\n  align-items: center;\n  bottom: 15px; }\n\n.project-main {\n  z-index: -1; }\n\n@keyframes expand {\n  from {\n    height: 0px;\n    opacity: 0; }\n  to {\n    height: 230px;\n    opacity: 1; } }\n\n.showcase-container {\n  position: relative;\n  z-index: 5;\n  animation-name: expand;\n  animation-timing-function: ease;\n  animation-duration: 1s;\n  border-bottom: 4px solid lightGrey;\n  height: 230px;\n  opacity: 1; }\n  .showcase-container .showcase {\n    margin: 15px;\n    padding-bottom: 10px;\n    z-index: 6;\n    height: 225px; }\n    .showcase-container .showcase .showcase-title {\n      position: absolute;\n      bottom: 210px; }\n    .showcase-container .showcase .showcase-img {\n      display: inline-block;\n      position: absolute;\n      border: 2px solid lightGrey;\n      width: 250px;\n      bottom: 15px;\n      right: 30px;\n      z-index: 1; }\n    .showcase-container .showcase .showcase-description {\n      text-align: left;\n      position: absolute;\n      bottom: 150px;\n      left: 30px;\n      width: 55%;\n      font-family: \"Dosis\", sans-serif; }\n    .showcase-container .showcase .showcase-tech {\n      color: #05668D;\n      position: absolute;\n      bottom: 30px;\n      font-family: \"Dosis\", sans-serif;\n      margin: 15px; }\n    .showcase-container .showcase .showcase-tech-item {\n      margin: 5px; }\n    .showcase-container .showcase .showcase-github {\n      font-family: \"Dosis\", sans-serif;\n      position: absolute;\n      bottom: 10px;\n      left: 30px;\n      color: #8d0522;\n      text-decoration: none; }\n    .showcase-container .showcase .showcase-hide {\n      background-color: lightGrey;\n      color: white;\n      display: block;\n      position: absolute;\n      bottom: -20px;\n      width: 100px;\n      left: 44%;\n      border-radius: 0px 0px 20px 20px;\n      border-style: none; }\n\n@keyframes contract {\n  from {\n    height: 230px;\n    opacity: 1; }\n  to {\n    height: 0px;\n    opacity: 0; } }\n\n.contract {\n  animation-name: contract;\n  animation-timing-function: ease;\n  animation-duration: 1s;\n  animation-direction: forward;\n  animation-fill-mode: both; }\n\n.project-card-container {\n  width: 80%;\n  margin: auto;\n  position: relative;\n  justify-content: center;\n  display: flex;\n  flex-wrap: wrap;\n  background-color: white;\n  z-index: 99;\n  margin-top: 40px; }\n\n.project-card {\n  cursor: pointer;\n  background-color: white;\n  z-index: 99;\n  position: relative;\n  border: 2px lightGrey;\n  border-style: outset;\n  border-radius: 10px;\n  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;\n  width: 250px;\n  height: 250px;\n  margin: 20px; }\n  .project-card h5 {\n    padding-bottom: 2px;\n    margin-bottom: 3px;\n    border-bottom: 1px solid lightGrey; }\n  .project-card .thumbnail-img {\n    width: 100%;\n    height: 84%; }\n\n@keyframes dampen {\n  from {\n    box-shadow: 0 3px 3px rgba(0, 0, 0, 0.3), 0 0 50px rgba(0, 0, 0, 0.1) inset; }\n  to {\n    box-shadow: 2px 6px 10px rgba(0, 0, 0, 0.3), 30px 40px 50px rgba(0, 0, 0, 0.1) inset; } }\n\n.project-card:hover {\n  animation: dampen;\n  animation-duration: 0.5s;\n  animation-fill-mode: forwards;\n  cursor: pointer; }\n\n.timeline ul li {\n  list-style-type: none;\n  position: relative;\n  width: 6px;\n  margin: 0 auto;\n  padding-top: 25px;\n  background: #05668D; }\n\n.timeline ul li::after {\n  content: '';\n  position: absolute;\n  left: 50%;\n  bottom: 0;\n  transform: translateX(-50%);\n  width: 30px;\n  height: 30px;\n  border-radius: 50%;\n  background: #8d2c05; }\n\n.timeline ul li div {\n  position: relative;\n  bottom: 0;\n  width: 300px;\n  padding: 15px;\n  background: lightGrey; }\n\n.timeline ul li div::before {\n  content: '';\n  position: absolute;\n  bottom: 7px;\n  width: 0;\n  height: 0;\n  border-style: solid; }\n\n.timeline ul li:nth-child(odd) div {\n  left: 35px; }\n\n.timeline ul li:nth-child(odd) div::before {\n  left: -15px;\n  border-width: 8px 16px 8px 0;\n  border-color: transparent lightGrey transparent transparent; }\n\n.timeline ul li:nth-child(even) div {\n  left: -359px; }\n\n.timeline ul li:nth-child(even) div::before {\n  right: -15px;\n  border-width: 8px 0 8px 16px;\n  border-color: transparent transparent transparent lightGrey; }\n\n.timeline div {\n  color: #058d70; }\n  .timeline div p {\n    color: #05668D; }\n\n.contact-me-container {\n  width: 100%;\n  margin: auto;\n  margin-top: 100px;\n  margin-bottom: 20px; }\n\n.contactForm {\n  padding: 15px;\n  font-family: \"Dosis\", sans-serif;\n  border: 2px solid #05668D; }\n\n.input-group {\n  position: relative;\n  display: inline-block;\n  margin-top: 10px;\n  margin-bottom: 30px;\n  width: 46%; }\n\n.input-group2 {\n  position: relative;\n  margin-bottom: 25px; }\n\n.contact-name {\n  display: inline-block;\n  width: 80%; }\n\n.contact-email {\n  display: inline-block;\n  width: 80%; }\n\n.contact-message {\n  margin: auto;\n  width: 90%;\n  height: 100px; }\n\n.contact-submit {\n  display: block;\n  width: 75%;\n  height: 40px;\n  margin: auto;\n  margin-bottom: 20px;\n  background-color: #668d05;\n  font-family: \"Dosis\", sans-serif;\n  font-size: 20px;\n  color: white; }\n\n.show-form-button {\n  display: block;\n  width: 50%;\n  height: 40px;\n  margin: auto;\n  margin-bottom: 20px;\n  font-size: 20px;\n  background-color: #668d05;\n  font-family: \"Dosis\", sans-serif;\n  color: white; }\n\n.success-message {\n  font-family: \"Dosis\", sans-serif;\n  color: #8d2c05;\n  text-align: center;\n  margin-bottom: 10px; }\n\ninput {\n  font-family: \"Dosis\", sans-serif;\n  font-size: 18px;\n  padding: 10px 10px 10px 5px;\n  display: block;\n  width: 300px;\n  border: none;\n  border-bottom: 1px solid #757575; }\n\ninput:focus {\n  outline: none; }\n\nlabel {\n  color: #999;\n  font-size: 18px;\n  font-weight: normal;\n  position: absolute;\n  pointer-events: none;\n  left: 5px;\n  top: 10px;\n  transition: 0.2s ease all;\n  -moz-transition: 0.2s ease all;\n  -webkit-transition: 0.2s ease all; }\n\ninput:focus ~ label, input:valid ~ label {\n  top: -10px;\n  font-size: 14px;\n  color: #5264AE; }\n\ntextarea:focus ~ label, textarea:valid ~ label {\n  top: -20px;\n  font-size: 14px;\n  color: #5264AE; }\n\n.contactTransition-enter {\n  opacity: 0.01; }\n\n.contactTransition-enter.contactTransition-enter-active {\n  opacity: 1;\n  transition: opacity 1000ms ease-in; }\n\n.contactTransition-appear {\n  opacity: 0.01; }\n\n.contactTransition-appear.contactTransition-appear-active {\n  opacity: 1;\n  transition: opacity 1500ms ease; }\n\nbody {\n  width: 100%;\n  height: 100vh; }\n\nh2 {\n  font-family: 'Cookie', cursive;\n  color: #737373;\n  text-shadow: 0px 2px 0px white;\n  font-weight: 400;\n  color: #058d70;\n  font-size: 150px;\n  margin-top: 40px;\n  text-align: center; }\n\nh1, h3, h4, h5, h6, p {\n  /*font-family: \"Dosis\", sans-serif;color:#737373;*/\n  font-family: \"Dosis\", sans-serif;\n  color: #05668D; }\n\nh1 {\n  margin: 30px;\n  line-height: 25px;\n  margin-top: 10px;\n  font-size: 25px;\n  text-align: left; }\n\nh3 {\n  font-size: 16px;\n  margin: 20px; }\n\nh4 {\n  font-size: 20px;\n  margin: 50px; }\n\nh5 {\n  margin-bottom: 20px; }\n\n.title {\n  font-size: 25px;\n  text-align: left; }\n\nh5 {\n  margin: 5px; }\n\nh6 {\n  font-size: 20px;\n  margin-bottom: 5px;\n  text-align: left; }\n\n.message {\n  width: 70%;\n  margin: auto; }\n  .message p {\n    line-height: 25px;\n    font-size: 20px;\n    margin: 30px; }\n\n.newPage-enter {\n  opacity: 0.01; }\n\n.newPage-enter.newPage-enter-active {\n  opacity: 1;\n  transition: opacity 1500ms ease; }\n\n.newPage-appear {\n  opacity: 0.01; }\n\n.newPage-appear.newPage-appear-active {\n  opacity: 1;\n  transition: opacity 1000ms ease; }\n\n@media screen and (max-width: 1040px) {\n  .timeline ul li {\n    margin: 0 auto;\n    margin-right: auto;\n    margin-left: 20%; }\n  .timeline ul li:nth-child(even) div {\n    left: 35px; }\n  .timeline ul li:nth-child(even) div::before {\n    left: -15px;\n    border-width: 8px 16px 8px 0;\n    border-color: transparent lightGrey transparent transparent; } }\n\n@media screen and (max-width: 800px) {\n  .width-holder {\n    z-index: 0;\n    width: 100%;\n    height: 100px; }\n  main {\n    position: relative;\n    z-index: 0;\n    background-color: white;\n    width: 100%; }\n  .homeNav {\n    display: inline-block; }\n  nav {\n    display: block;\n    position: fixed;\n    margin: auto;\n    width: 100%;\n    float: none;\n    height: 100px;\n    z-index: 999; }\n  .profileImg {\n    display: none; }\n  .hamburger-nav {\n    display: inline-block;\n    float: left;\n    height: 50px;\n    margin-left: 20px;\n    margin-top: 20px; }\n  .nav {\n    align-items: center;\n    position: absolute;\n    display: flex;\n    top: 8px;\n    justify-content: center;\n    left: 50%;\n    right: 50%;\n    text-align: center; }\n    .nav a {\n      display: inline-block;\n      font-size: 25px;\n      color: white;\n      text-decoration: none;\n      animation-name: inActiveLink;\n      animation-duration: 0.5s;\n      margin: 0px;\n      margin-top: 30px;\n      margin-left: 10px;\n      margin-right: 10px; }\n    .nav .active {\n      animation-name: activeLink;\n      animation-duration: 0.5s;\n      color: #058d70; }\n  .about-profileImg {\n    border-radius: 200px;\n    display: block;\n    height: 200px;\n    margin: 30px auto 30px auto; }\n  .title {\n    text-align: left; }\n  .timeline ul li {\n    margin: 0 auto;\n    margin-right: auto;\n    margin-left: 15%; }\n  .timeline ul li div {\n    width: 250px; }\n  @keyframes expand {\n    from {\n      height: 0px;\n      opacity: 0; }\n    to {\n      height: 350px;\n      opacity: 1; } }\n  @keyframes contract {\n    from {\n      height: 350px;\n      opacity: 1; }\n    to {\n      height: 0px;\n      opacity: 0; } }\n  .mobile-showcase .showcase-title {\n    text-align: center;\n    margin-top: 20px;\n    font-size: 30px; }\n  .mobile-showcase .showcase-img {\n    display: block;\n    margin: 40px auto 20px auto;\n    width: 75%; }\n  .mobile-showcase .showcase-description {\n    margin: auto;\n    width: 80%; }\n  .mobile-showcase .showcase-tech {\n    position: relative;\n    width: 80%;\n    margin: 20px auto 20px auto; }\n  .mobile-showcase .showcase-tech-item {\n    position: relative;\n    margin: 10px;\n    width: 80%; }\n  .mobile-showcase .showcase-github {\n    display: block;\n    text-align: center; }\n  .mobile-showcase .showcase-hide {\n    position: absolute;\n    background-color: white;\n    border: none;\n    top: 10px;\n    left: 10px;\n    outline: none; }\n    .mobile-showcase .showcase-hide img {\n      width: 40px;\n      cursor: pointer; }\n  .project-card-container {\n    margin-top: 20px; }\n  .project-card {\n    margin: 10px; }\n  #footerlinks {\n    width: 100%; }\n  footer {\n    margin-top: 20px;\n    position: relative;\n    bottom: 0px;\n    width: 100%;\n    background-color: #05668D;\n    height: 80px; } }\n", ""]);
 	
 	// exports
 
 
 /***/ },
-/* 574 */
+/* 581 */
 /***/ function(module, exports) {
 
 	/*
@@ -39144,7 +39843,7 @@
 
 
 /***/ },
-/* 575 */
+/* 582 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/*

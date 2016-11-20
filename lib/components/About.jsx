@@ -1,21 +1,16 @@
 import React, { Component } from 'react'
 import Scroll from 'react-scroll'
+import MediaQuery from 'react-responsive'
 
 
 export default class About extends Component {
-  constructor() {
-    super();
-    this.state = {
-
-    }
-  }
-
-  componentDidMount() {
-
-  }
 
   render() {
     return (
+    <div>
+    <MediaQuery query="(max-width: 800px)">
+      <img className='about-profileImg' src="./lib/imgs/headshot.jpg" alt="its me - Matt!" />
+    </MediaQuery>
     <section className="timeline">
       <ul>
         <li>
@@ -59,6 +54,7 @@ export default class About extends Component {
         </li>
       </ul>
     </section>
+    </div>
   );
   }
 }

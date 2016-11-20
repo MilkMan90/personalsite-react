@@ -55,7 +55,7 @@ export default class ContactForm extends Component {
     if (this.state.showForm) {
       contactDisplay = (
         <form className='contactForm' key='1'>
-          <h5>Send me a message! Feedback about my page is always appreciated. 😍</h5>
+          <h5>Send me a message! Feedback about my page is always appreciated.</h5>
           <div className='input-group'>
             <input type="text" ref='name' className='contact-name' onChange={() => this.clearSuccessMessage()}required/>
             <label>Name</label>
@@ -89,6 +89,7 @@ export default class ContactForm extends Component {
         {successMessage}
         {contactDisplay}
       </ReactCSSTransitionGroup>
+            {/* <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSe1prZV6ofOcFVTlHJmwfm8XRehfO3NGG_hHfZ8eWyzmd80EQ/viewform?embedded=true" width="760" height="500" frameborder="0" marginheight="0" marginwidth="0">Loading...</iframe> */}
       </div>
     );
   }
