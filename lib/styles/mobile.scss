@@ -1,0 +1,201 @@
+@media screen and (max-width: $breakpoint1)  {
+
+  .timeline ul li {
+    margin: 0 auto;
+    margin-right: auto;
+    margin-left: 20%;
+  }
+
+  .timeline ul li:nth-child(even) div {
+    left: 35px;
+  }
+
+  .timeline ul li:nth-child(even) div::before {
+    left: -15px;
+    border-width: 8px 16px 8px 0;
+    border-color: transparent $cardColor transparent transparent;
+  }
+
+}
+
+
+
+@media screen and (max-width: $breakpoint)  {
+
+  .width-holder {
+    z-index: 0;
+    width: 100%;
+    height: 100px;
+  }
+
+  main{
+    position: relative;
+    z-index: 0;
+    background-color: white;
+    width: 100%;
+  }
+
+  .homeNav{
+    display: inline-block;
+  }
+
+  nav{
+    display: block;
+    position: fixed;
+    margin: auto;
+    width: 100%;
+    float: none;
+    height: 100px;
+    z-index: 999;
+  }
+
+  .profileImg{
+    display: none;
+  }
+
+  .hamburger-nav{
+    display: inline-block;
+    float:left;
+    height: 50px;
+    margin-left: 20px;
+    margin-top: 20px;
+  }
+
+  .nav {
+    align-items: center;
+    position: absolute;
+    display: flex;
+    top: 8px;
+    justify-content: center;
+    left: 50%;
+    right: 50%;
+    text-align: center;
+    a {
+      display: inline-block;
+      font-size: 25px;
+      color: white;
+      text-decoration: none;
+      animation-name: inActiveLink;
+      animation-duration: 0.5s;
+      margin: 0px;
+      margin-top: 30px;
+      margin-left: 10px;
+      margin-right: 10px;
+    }
+    .active {
+      animation-name: activeLink;
+      animation-duration: 0.5s;
+      color: $seafoamColor;
+    }
+  }
+
+  .about-profileImg {
+    border-radius: 200px;
+    display: block;
+    height: 200px;
+    margin: 30px auto 30px auto;
+  }
+  .title{
+    text-align: left;
+  }
+
+  .timeline ul li {
+    margin: 0 auto;
+    margin-right: auto;
+    margin-left: 15%;
+  }
+
+  .timeline ul li div {
+    width: 250px;
+  }
+
+
+  @keyframes expand {
+    from {
+      height: 0px;
+      opacity: 0;
+    }
+    to {
+      height: 350px;
+      opacity: 1;
+    }
+  }
+
+  @keyframes contract {
+    from {
+      height: 350px;
+      opacity: 1;
+    }
+    to {
+      height: 0px;
+      opacity: 0;
+    }
+  }
+
+  .mobile-showcase {
+
+      .showcase-title{
+        text-align: center;
+        margin-top: 20px;
+        font-size: 30px;
+      }
+
+      .showcase-img{
+        display: block;
+        margin: 40px auto 20px auto;
+        width: 75%;
+      }
+      .showcase-description{
+        margin: auto;
+        width: 80%
+      }
+
+      .showcase-tech{
+        position: relative;
+        width: 80%;
+        margin: 20px auto 20px auto;
+      }
+      .showcase-tech-item{
+        position: relative;
+        margin: 10px;
+        width: 80%;
+      }
+      .showcase-github{
+        display: block;
+        text-align: center;
+      }
+      .showcase-hide{
+        position: absolute;
+        background-color: white;
+        border: none;
+        top: 10px;
+        left: 10px;
+        outline: none;
+        img{
+          width: 40px;
+          cursor: pointer;
+        }
+      }
+    }
+
+  .project-card-container{
+    margin-top: 20px;
+  }
+
+  .project-card {
+    margin: 10px;
+  }
+
+  #footerlinks{
+    width: 100%;
+  }
+
+  footer{
+    margin-top: 20px;
+    position: relative;
+    bottom: 0px;
+    width: 100%;
+    background-color: $sidebarColor;
+    height: 80px;
+  }
+}

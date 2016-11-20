@@ -1,0 +1,128 @@
+.contact-me-container{
+  width: 100%;
+  margin: auto;
+  margin-top: 100px;
+  margin-bottom: 20px;
+}
+
+.contactForm {
+  padding: 30px;
+  font-family: "Dosis", sans-serif;
+  border: 2px solid $sidebarColor;
+}
+
+.input-group {
+  position:relative;
+  display: inline-block;
+  margin-top: 10px;
+  margin-bottom:30px;
+  width: 46%;
+}
+
+.input-group2{
+  position:relative;
+  margin-bottom:25px;
+}
+
+.contact-name{
+  display: inline-block;
+  width: 80%;
+}
+
+.contact-email{
+  display: inline-block;
+  width: 80%;
+}
+
+.contact-message{
+  margin: auto;
+  width: 90%;
+  height: 100px;
+}
+
+.contact-submit{
+  display: block;
+  width: 75%;
+  height: 40px;
+  margin: auto;
+  margin-bottom: 20px;
+  background-color: #668d05;
+  font-family: "Dosis", sans-serif;
+  font-size: 20px;
+  color: white;
+}
+
+.show-form-button{
+  display: block;
+  width: 50%;
+  height: 40px;
+  margin: auto;
+  margin-bottom: 20px;
+  font-size: 20px;
+  background-color: #668d05;
+  font-family: "Dosis", sans-serif;
+  color: white;
+}
+
+.success-message{
+  font-family: "Dosis", sans-serif;
+  color: complement($sidebarColor);
+  text-align: center;
+  margin-bottom: 10px;
+}
+input {
+  font-family: "Dosis", sans-serif;
+  font-size:18px;
+  padding:10px 10px 10px 5px;
+  display:block;
+  width:300px;
+  border:none;
+  border-bottom:1px solid #757575;
+}
+
+input:focus {
+  outline:none;
+}
+
+label {
+  color:#999;
+  font-size:18px;
+  font-weight:normal;
+  position:absolute;
+  pointer-events:none;
+  left:5px;
+  top:10px;
+  transition:0.2s ease all;
+  -moz-transition:0.2s ease all;
+  -webkit-transition:0.2s ease all;
+}
+
+input:focus ~ label, input:valid ~ label  {
+  top:-10px;
+  font-size:14px;
+  color:#5264AE;
+}
+
+textarea:focus ~ label, textarea:valid ~ label  {
+  top:-20px;
+  font-size:14px;
+  color:#5264AE;
+}
+
+.contactTransition-enter {
+  opacity: 0.01;
+}
+
+.contactTransition-enter.contactTransition-enter-active {
+  opacity: 1;
+  transition: opacity 1000ms ease-in;
+}
+
+.contactTransition-appear {
+  opacity: 0.01;
+}
+
+.contactTransition-appear.contactTransition-appear-active {
+  opacity: 1;
+  transition: opacity 1500ms ease;
+}

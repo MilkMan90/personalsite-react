@@ -1,0 +1,85 @@
+.profileImg{
+  border-radius: 200px;
+  height: 120px;
+  display: block;
+  margin-top: 30px;
+  margin-bottom: 20px;
+  border-style: none;
+}
+
+.profileImg:hover{
+
+}
+
+.hamburger-nav{
+  display: none;
+}
+
+@keyframes activeLink {
+  from {
+    border-bottom: 2px double $sidebarColor;
+  }
+  to {
+    border-bottom: 2px double lightGrey;
+  }
+}
+
+@keyframes inActiveLink {
+  from {
+    border-bottom: 2px double lightGrey;
+  }
+  to {
+    border-bottom: 2px double $sidebarColor;
+  }
+}
+
+
+
+.nav {
+  margin-left: auto;
+  margin-right: auto;
+  a {
+    display: block;
+    font-family: "Dosis", sans-serif;
+    font-size: 30px;
+    color: white;
+    text-decoration: none;
+    animation-name: inActiveLink;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+    margin: 15px;
+    margin-top: 30px;
+    margin-left: 0px;
+    border-bottom: 3px solid $sidebarColor;
+  }
+  a:hover{
+    border-bottom: 3px white;
+    border-style: double;
+  }
+  .active {
+    animation-name: activeLink;
+    animation-duration: 1s;
+  }
+
+}
+
+#footerlinks a {
+  display: inline-block;
+  cursor: pointer;
+  margin: 10px;
+  :hover{
+    border-bottom: 3px solid $sidebarColor;
+  }
+}
+
+#footerlinks a img {
+  height: 30px;
+}
+
+#footerlinks {
+  position: absolute;
+  width:90%;
+  text-align: center;
+  align-items: center;
+  bottom: 15px;
+}
