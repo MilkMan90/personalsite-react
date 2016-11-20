@@ -1,7 +1,7 @@
 const React = require('react')
 const ReactDOM = require('react-dom')
 
-export const Showcase = ({projectInfo, handleHide}) => {
+export const Showcase = ({ projectInfo, handleHide, mobile }) => {
   const { description, githubURL, hostURL, imgURL, tech, title } = projectInfo;
 
   let techList = [];

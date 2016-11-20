@@ -7,27 +7,33 @@
   border-style: none;
 }
 
+.profileImg:hover{
+
+}
+
 .hamburger-nav{
   display: none;
 }
 
 @keyframes activeLink {
   from {
-    color: white;
+    border-bottom: 2px double $sidebarColor;
   }
   to {
-    color: $seafoamColor;
+    border-bottom: 2px double lightGrey;
   }
 }
 
 @keyframes inActiveLink {
   from {
-    color: $seafoamColor;
+    border-bottom: 2px double lightGrey;
   }
   to {
-    color: white;
+    border-bottom: 2px double $sidebarColor;
   }
 }
+
+
 
 .nav {
   margin-left: auto;
@@ -40,21 +46,30 @@
     text-decoration: none;
     animation-name: inActiveLink;
     animation-duration: 1s;
+    animation-fill-mode: forwards;
     margin: 15px;
     margin-top: 30px;
     margin-left: 0px;
+    border-bottom: 3px solid $sidebarColor;
+  }
+  a:hover{
+    border-bottom: 3px white;
+    border-style: double;
   }
   .active {
     animation-name: activeLink;
     animation-duration: 1s;
-    color: $seafoamColor;
   }
+
 }
 
 #footerlinks a {
   display: inline-block;
   cursor: pointer;
   margin: 10px;
+  :hover{
+    border-bottom: 3px solid $sidebarColor;
+  }
 }
 
 #footerlinks a img {
