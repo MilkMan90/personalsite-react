@@ -13,7 +13,7 @@ export default class Landing extends Component {
       <p>I love to spread joy by solving challenging problems, creating memorable user experiences, and giving back to community to shape a better world.</p>
       {/* <h3>I build web applications are inspired by the belief in the power of worldy connection. My creations push boundaries to spread love, open minds, ease suffering, and inspire social action.</h3> */}
       <p>Thank you for visiting.</p>
-      <ContactForm showForm='false'/>
+      {/* <ContactForm showForm='false'/> */}
     </article>
     )
   }
