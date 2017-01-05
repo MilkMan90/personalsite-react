@@ -3,7 +3,10 @@
   text-align: center;
   margin-bottom: 25px;
   padding-bottom: 5px;
-  border-bottom: 2px solid $sidebarColor;
+  font-size: 30px;
+  font-weight: bold;
+  color: complement($sidebarColor);
+  border-bottom: 2px solid complement($sidebarColor);
 }
 .timeline ul li {
   list-style-type: none;

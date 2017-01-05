@@ -47,49 +47,47 @@ export default class ContactForm extends Component {
   }
 
   render() {
-    // let successMessage;
-    // let contactDisplay;
-    // if (this.state.submitSuccess) {
-    //   successMessage = <div className="success-message">Message Sent - Thanks!</div>;
-    // }
-    // if (this.state.showForm) {
-    //   contactDisplay = (
-    //     <form className='contactForm' key='1'>
-    //       <h5>Send me a message! Feedback about my page is always appreciated.</h5>
-    //       <div className='input-group'>
-    //         <input type="text" ref='name' className='contact-name' onChange={() => this.clearSuccessMessage()}required/>
-    //         <label>Name</label>
-    //       </div>
-    //       <div className='input-group'>
-    //         <input type="text" ref='email' className='contact-email' onChange={() => this.clearSuccessMessage()} required/>
-    //         <label>Email</label>
-    //       </div>
-    //       <div className='input-group2'>
-    //         <textarea type="text" ref='message' className='contact-message' onChange={() => this.clearSuccessMessage()} required></textarea>
-    //         <label>Message</label>
-    //       </div>
-    //       <button type='submit' className='contact-submit' onClick={ (e) => { this.submitContactForm(e); }}>Send</button>
-    //     </form>
-    //   );
-    // } else {
-    //   contactDisplay = <button className='show-form-button' key='show-form-button' onClick={(e) => {
-    //     this.toggleShowForm(e);
-    //   }} >Say Hi!</button>;
-    // }
+    let successMessage;
+    let contactDisplay;
+    if (this.state.submitSuccess) {
+      successMessage = <div className="success-message">Message Sent - Thanks!</div>;
+    }
+    if (this.state.showForm) {
+      contactDisplay = (
+        <form className='contactForm' key='1'>
+          <h5>Contact me about opportunities or to just say hi!</h5>
+          <div className='input-group'>
+            <input type="text" ref='name' className='contact-name' onChange={() => this.clearSuccessMessage()}required/>
+            <label>Name</label>
+          </div>
+          <div className='input-group'>
+            <input type="text" ref='email' className='contact-email' onChange={() => this.clearSuccessMessage()} required/>
+            <label>Email</label>
+          </div>
+          <div className='input-group2'>
+            <textarea type="text" ref='message' className='contact-message' onChange={() => this.clearSuccessMessage()} required></textarea>
+            <label>Message</label>
+          </div>
+          <button type='submit' className='contact-submit' onClick={ (e) => { this.submitContactForm(e); }}>Send</button>
+        </form>
+      );
+    } else {
+      contactDisplay = <button className='show-form-button' key='show-form-button' onClick={(e) => {
+        this.toggleShowForm(e);
+      }} >Say Hi!</button>;
+    }
     return (
       <div className='contact-me-container'>
-
-        {/* <ReactCSSTransitionGroup
-        transitionName="contactTransition"
-        transitionAppear={true}
-        transitionLeave={false}
-        transitionAppearTimeout={1500}
-        transitionEnterTimeout={1000}
-      >
-        {successMessage}
-        {contactDisplay}
-      </ReactCSSTransitionGroup> */}
-            <iframe className = "google-form" src="https://docs.google.com/forms/d/e/1FAIpQLSe1prZV6ofOcFVTlHJmwfm8XRehfO3NGG_hHfZ8eWyzmd80EQ/viewform?embedded=true" width="760" height="500" frameborder="0" marginheight="0" marginwidth="0">Loading...</iframe>
+        <ReactCSSTransitionGroup
+          transitionName="contactTransition"
+          transitionAppear={true}
+          transitionLeave={false}
+          transitionAppearTimeout={1500}
+          transitionEnterTimeout={1000}
+        >
+          {successMessage}
+          {contactDisplay}
+        </ReactCSSTransitionGroup>
       </div>
     );
   }

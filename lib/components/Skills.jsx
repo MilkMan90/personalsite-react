@@ -1,17 +1,24 @@
 import React, { Component } from 'react'
-import Scroll from 'react-scroll'
 import MediaQuery from 'react-responsive'
 
 export default class Skills extends Component {
   render() {
     return (
       <div className="skills-container">
+        <div className="skills-about">
+          <h4>About</h4>
+          <p>
+            I love people and especially making them happy. A human first and a passionate, energetic and fun-loving software engineer second, I thrive from solving challenging problems while also creating memorable and magical user-experiences. Routinely and confidently launching myself into the unknown, I'm always pushing my limits, and working collaboratively towards a brighter future for all.
+          </p>
+        </div>
         <h4>Skills</h4>
         <section className="skills-box">
           <ul className="skills js-skills">
             <h6>JavaScript</h6>
             <li>ES6</li>
             <li>React</li>
+            <li>Ember</li>
+            <li>Node</li>
             <li>Redux</li>
             <li>Router</li>
             <li>Webpack</li>

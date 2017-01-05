@@ -33,6 +33,9 @@
     width: 100%;
   }
 
+  h2{
+    font-size: 100px;
+  }
   .homeNav {
     display: inline-block;
   }
@@ -100,13 +103,12 @@
   .timeline ul li {
     margin: 0 auto;
     margin-right: auto;
-    margin-left: 15%;
+    margin-left: 5%;
   }
 
   .timeline ul li div {
-    width: 250px;
+    width: 240px;
   }
-
 
   @keyframes expand {
     from {

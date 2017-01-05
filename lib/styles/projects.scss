@@ -98,7 +98,6 @@
   }
 }
 
-
 .contract {
   animation-name: contract;
   animation-timing-function: ease;
@@ -106,7 +105,6 @@
   animation-direction: forward;
   animation-fill-mode: both;
 }
-
 
 .project-card-container {
   width: 95%;
@@ -117,7 +115,7 @@
   flex-wrap: wrap;
   background-color: white;
   z-index: 99;
-  margin-top: 40px;
+  margin-top: 100px;
 }
 
 .project-card {
@@ -125,13 +123,10 @@
   background-color: white;
   z-index: 99;
   position: relative;
-  border: 2px lightGrey;
-  border-style: outset;
-  border-radius: 10px;
+  border: solid 1px darkGrey;
   box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
-  width: 230px;
-  height: 230px;
-  margin: 20px;
+  width: 200px;
+  height: 200px;
   h5 {
     padding-bottom: 2px;
     margin-bottom: 3px;
