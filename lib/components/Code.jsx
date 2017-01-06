@@ -8,14 +8,11 @@ import MobileShowcase from './MobileShowcase'
 
 import { Link } from 'react-router'
 
-// import ProjectGrid
-
-
 export default class Code extends Component {
   constructor() {
     super();
     this.state = {
-      displayShowcase: false,
+      displayShowcase: 0,
       projectToDisplay: 'gameTime',
     };
   }
@@ -27,13 +24,13 @@ export default class Code extends Component {
   chooseProject(project) {
     Scroll.animateScroll.scrollToTop();
     this.setState({
-      displayShowcase: true,
+      displayShowcase: 1,
       projectToDisplay: project,
     });
   }
   hideShowcase() {
     this.setState({
-      displayShowcase: false,
+      displayShowcase: 2,
     });
   }
   render() {
@@ -41,10 +38,16 @@ export default class Code extends Component {
     let mobileShowcase;
     let visibleClass;
 
-    if (this.state.displayShowcase) {
-      visibleClass = 'showcase-container';
-    } else {
-      visibleClass = 'showcase-container contract';
+    switch (this.state.displayShowcase) {
+      case 0:
+        visibleClass = 'showcase-container hide';
+        break;
+      case 1:
+        visibleClass= 'showcase-container'
+        break;
+      case 2:
+        visibleClass= 'showcase-container contract'
+        break;
     }
 
     if (this.state.projectToDisplay) {
@@ -78,9 +81,6 @@ export default class Code extends Component {
 
         <MediaQuery query="(max-width: 800px)">
           {projectCards}
-          {/* <Link to={`code/${this.state.projectToDisplay}`} >
-          Test
-          </Link> */}
         </MediaQuery>
 
       </div>

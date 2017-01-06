@@ -7,6 +7,7 @@ export default class ContactForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      disableSubmit: true,
       database: '',
       submitSuccess: false,
       showForm: this.props.showForm || true,
@@ -31,6 +32,7 @@ export default class ContactForm extends Component {
     this.refs.message.value = '';
     this.setState({
       submitSuccess: true,
+      disableSubmit: true
     });
     this.toggleShowForm()
   }
@@ -41,6 +43,16 @@ export default class ContactForm extends Component {
     });
   }
   clearSuccessMessage() {
+    if(this.refs.name.value != '' && this.refs.email.value != '' && this.refs.message.value != ''){
+      this.setState({
+        disableSubmit: false
+      })
+    } else {
+      this.setState({
+        disableSubmit: true
+      })
+    }
+
     this.setState({
       submitSuccess: false,
     });
@@ -68,7 +80,7 @@ export default class ContactForm extends Component {
             <textarea type="text" ref='message' className='contact-message' onChange={() => this.clearSuccessMessage()} required></textarea>
             <label>Message</label>
           </div>
-          <button type='submit' className='contact-submit' onClick={ (e) => { this.submitContactForm(e); }}>Send</button>
+          <button type='submit' className='contact-submit' disabled={this.state.disableSubmit} onClick={ (e) => { this.submitContactForm(e); }}>Send</button>
         </form>
       );
     } else {

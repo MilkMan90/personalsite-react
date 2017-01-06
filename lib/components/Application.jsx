@@ -16,7 +16,7 @@ export default class Application extends Component {
   render() {
     const footerLinks = (
       <div id='footerlinks'>
-              <a href="mailto:matthew.leo.kaufman@gmail.com?Subject=IveBeenLookingForYou" target="_blank"><img src="./lib/imgs/icons/mail.svg" alt="mail" /></a>
+              <a href="mailto:matthew.leo.kaufman@gmail.com?Subject=Hi+Matt" target="_blank"><img src="./lib/imgs/icons/mail.svg" alt="mail" /></a>
               <a href="https://github.com/MilkMan90" target="_blank"><img src="./lib/imgs/icons/github.svg" alt="github" /></a>
               {/* <a href="https://www.facebook.com/matthewleokaufman"><img src="./lib/imgs/icons/facebook.svg" alt="facebook" /></a> */}
               <a href="https://twitter.com/theKaufMan?lang=en" target="_blank"><img src="./lib/imgs/icons/twitter.svg" alt="twitter" /></a>
