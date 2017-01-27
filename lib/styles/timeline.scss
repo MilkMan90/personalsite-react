@@ -1,11 +1,19 @@
 
-
+.timeline-title{
+  text-align: center;
+  margin-bottom: 25px;
+  padding-bottom: 5px;
+  font-size: 30px;
+  font-weight: bold;
+  color: complement($sidebarColor);
+  border-bottom: 2px solid complement($sidebarColor);
+}
 .timeline ul li {
   list-style-type: none;
   position: relative;
   width: 6px;
   margin: 0 auto;
-  padding-top: 50px;
+  padding-top: 25px;
   background: $sidebarColor;
 }
 
@@ -18,7 +26,7 @@
   width: 30px;
   height: 30px;
   border-radius: 50%;
-  background: inherit;
+  background: complement($sidebarColor);
 }
 
 .timeline ul li div {
@@ -26,7 +34,7 @@
   bottom: 0;
   width: 300px;
   padding: 15px;
-  background: #F45B69;
+  background: $cardColor;
 }
 
 .timeline ul li div::before {
@@ -45,7 +53,7 @@
 .timeline ul li:nth-child(odd) div::before {
   left: -15px;
   border-width: 8px 16px 8px 0;
-  border-color: transparent #F45B69 transparent transparent;
+  border-color: transparent $cardColor transparent transparent;
 }
 
 .timeline ul li:nth-child(even) div {
@@ -55,5 +63,12 @@
 .timeline ul li:nth-child(even) div::before {
   right: -15px;
   border-width: 8px 0 8px 16px;
-  border-color: transparent transparent transparent #F45B69;
+  border-color: transparent transparent transparent $cardColor;
+}
+
+.timeline div{
+  color: $seafoamColor;
+  p{
+    color: $sidebarColor;
+  }
 }

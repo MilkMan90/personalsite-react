@@ -3,7 +3,9 @@
 @import 'layout.scss';
 @import 'nav.scss';
 @import 'projects.scss';
+@import "skills.scss";
 @import 'timeline.scss';
+@import 'contactForm.scss';
 
 body{
   width: 100%;
@@ -26,6 +28,7 @@ h1, h3, h4, h5, h6, p {
 
 h1 {
   margin: 30px;
+  line-height: 25px;
   margin-top: 10px;
   font-size: 25px;
   text-align: left;
@@ -39,6 +42,10 @@ h3{
 h4{
   font-size: 20px;
   margin: 50px;
+}
+
+h5 {
+  margin-bottom: 20px;
 }
 
 .title{
@@ -60,9 +67,49 @@ h6{
   width: 70%;
   margin: auto;
   p{
+    line-height: 25px;
     font-size: 20px;
     margin: 30px;
   }
+}
+
+
+.newPage-enter {
+  opacity: 0.01;
+}
+
+.newPage-enter.newPage-enter-active {
+  opacity: 1;
+  transition: opacity 1500ms ease;
+}
+
+.newPage-appear {
+  opacity: 0.01;
+}
+
+.newPage-appear.newPage-appear-active {
+  opacity: 1;
+  transition: opacity 1000ms ease;
+}
+
+.link-to-work{
+  display: block;
+  text-align: center;
+  text-decoration: none;
+  font-size: 20px;
+  font-family: "Dosis", sans-serif;
+  border-radius: 30px;
+  padding: 10px;
+  width: 90%;
+  margin: auto;
+  margin-top: 60px;
+  background-color: complement($sidebarColor);
+  color: white;
+}
+
+.link-to-work:hover{
+  cursor: pointer;
+  background-color: lighten(complement($sidebarColor), 8);
 }
 
 @import 'mobile.scss';

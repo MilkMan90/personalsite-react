@@ -1,49 +1,18 @@
 import React, { Component } from 'react'
-import Scroll from 'react-scroll'
-
+import MediaQuery from 'react-responsive'
+import Timeline from './Timeline'
+import Skills from './Skills'
 
 export default class About extends Component {
-  constructor() {
-    super();
-    this.state = {
-
-    }
-  }
-
-  componentDidMount() {
-
-  }
-
   render() {
     return (
-    <section className="timeline">
-      <ul>
-        <li>
-          <div>
-            <time>2016</time>
-            Turing School
-          </div>
-        </li>
-        <li>
-          <div>
-            <time>2016</time>
-            Turing School
-          </div>
-        </li>
-        <li>
-          <div>
-            <time>2016</time>
-            Turing School
-          </div>
-        </li>
-        <li>
-          <div>
-            <time>2016</time>
-            Turing School
-          </div>
-        </li>
-      </ul>
-    </section>
+    <div>
+      <MediaQuery query="(max-width: 800px)">
+        <img className='about-profileImg' src="./lib/imgs/headshot.jpg" alt="its me - Matt!" />
+      </MediaQuery>
+      <Skills />
+      <Timeline />
+    </div>
   );
   }
 }
