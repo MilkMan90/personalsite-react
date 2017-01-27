@@ -29503,7 +29503,7 @@
 	        { id: 'footerlinks' },
 	        _react2.default.createElement(
 	          'a',
-	          { href: 'mailto:matthew.leo.kaufman@gmail.com?Subject=IveBeenLookingForYou', target: '_blank' },
+	          { href: 'mailto:matthew.leo.kaufman@gmail.com?Subject=Hi+Matt', target: '_blank' },
 	          _react2.default.createElement('img', { src: './lib/imgs/icons/mail.svg', alt: 'mail' })
 	        ),
 	        _react2.default.createElement(
@@ -36715,6 +36715,7 @@
 	    var _this = _possibleConstructorReturn(this, (ContactForm.__proto__ || Object.getPrototypeOf(ContactForm)).call(this, props));
 	
 	    _this.state = {
+	      disableSubmit: true,
 	      database: '',
 	      submitSuccess: false,
 	      showForm: _this.props.showForm || true
@@ -36748,7 +36749,8 @@
 	      this.refs.email.value = '';
 	      this.refs.message.value = '';
 	      this.setState({
-	        submitSuccess: true
+	        submitSuccess: true,
+	        disableSubmit: true
 	      });
 	      this.toggleShowForm();
 	    }
@@ -36762,6 +36764,16 @@
 	  }, {
 	    key: 'clearSuccessMessage',
 	    value: function clearSuccessMessage() {
+	      if (this.refs.name.value != '' && this.refs.email.value != '' && this.refs.message.value != '') {
+	        this.setState({
+	          disableSubmit: false
+	        });
+	      } else {
+	        this.setState({
+	          disableSubmit: true
+	        });
+	      }
+	
 	      this.setState({
 	        submitSuccess: false
 	      });
@@ -36827,7 +36839,7 @@
 	          ),
 	          _react2.default.createElement(
 	            'button',
-	            { type: 'submit', className: 'contact-submit', onClick: function onClick(e) {
+	            { type: 'submit', className: 'contact-submit', disabled: this.state.disableSubmit, onClick: function onClick(e) {
 	                _this2.submitContactForm(e);
 	              } },
 	            'Send'
@@ -38978,7 +38990,7 @@
 	        _react2.default.createElement(
 	          'h1',
 	          { className: 'title' },
-	          'A computer software engineer and front-end developer'
+	          'A computer software engineer specializing in the human-facing side of things'
 	        ),
 	        _react2.default.createElement(
 	          'p',
@@ -39050,9 +39062,6 @@
 	
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 	
-	// import ProjectGrid
-	
-	
 	var Code = function (_Component) {
 	  _inherits(Code, _Component);
 	
@@ -39062,7 +39071,7 @@
 	    var _this = _possibleConstructorReturn(this, (Code.__proto__ || Object.getPrototypeOf(Code)).call(this));
 	
 	    _this.state = {
-	      displayShowcase: false,
+	      displayShowcase: 0,
 	      projectToDisplay: 'gameTime'
 	    };
 	    return _this;
@@ -39076,7 +39085,7 @@
 	    value: function chooseProject(project) {
 	      _reactScroll2.default.animateScroll.scrollToTop();
 	      this.setState({
-	        displayShowcase: true,
+	        displayShowcase: 1,
 	        projectToDisplay: project
 	      });
 	    }
@@ -39084,7 +39093,7 @@
 	    key: 'hideShowcase',
 	    value: function hideShowcase() {
 	      this.setState({
-	        displayShowcase: false
+	        displayShowcase: 2
 	      });
 	    }
 	  }, {
@@ -39096,10 +39105,16 @@
 	      var mobileShowcase = void 0;
 	      var visibleClass = void 0;
 	
-	      if (this.state.displayShowcase) {
-	        visibleClass = 'showcase-container';
-	      } else {
-	        visibleClass = 'showcase-container contract';
+	      switch (this.state.displayShowcase) {
+	        case 0:
+	          visibleClass = 'showcase-container hide';
+	          break;
+	        case 1:
+	          visibleClass = 'showcase-container';
+	          break;
+	        case 2:
+	          visibleClass = 'showcase-container contract';
+	          break;
 	      }
 	
 	      if (this.state.projectToDisplay) {
@@ -39119,6 +39134,9 @@
 	        { className: 'project-card-container' },
 	        _react2.default.createElement(_ProjectCard2.default, { project: _Projects.Projects.weatherDux, projectName: 'weatherDux', handleClick: function handleClick() {
 	            return _this2.chooseProject('weatherDux');
+	          } }),
+	        _react2.default.createElement(_ProjectCard2.default, { project: _Projects.Projects.dashboard, projectName: 'dashboard', handleClick: function handleClick() {
+	            return _this2.chooseProject('dashboard');
 	          } }),
 	        _react2.default.createElement(_ProjectCard2.default, { project: _Projects.Projects.netwerker, projectName: 'netwerker', handleClick: function handleClick() {
 	            return _this2.chooseProject('netwerker');
@@ -39172,7 +39190,8 @@
 	var Projects = exports.Projects = {
 	
 	  gameTime: {
-	    imgURL: '/lib/imgs/phlying-phish.png',
+	    imgURL: '/lib/imgs/phlyingphish.png',
+	    gifURL: '/lib/imgs/phlyingphish.gif',
 	    hostURL: 'https://milkman90.github.io/game-time/',
 	    title: 'Phlying Phish',
 	    description: 'A side scrolling helicopters clone with the goal of eating mushroom powerups and getting the high score. Try to keep the jams going! Trey does not like to be interrupted.',
@@ -39180,7 +39199,8 @@
 	    githubURL: 'https://github.com/MilkMan90/game-time'
 	  },
 	  netwerker: {
-	    imgURL: '/lib/imgs/netwerkerThumb.png',
+	    imgURL: '/lib/imgs/netwerker.png',
+	    gifURL: '/lib/imgs/netwerker.gif',
 	    hostURL: 'https://netwerker-3d622.firebaseapp.com/',
 	    title: 'Netwerker',
 	    description: 'Save all the new people you meet into this networking app with a firebase backend. Each user logs in with their Google account and can save contacts to their own database which is automatically retrieved upon login',
@@ -39188,7 +39208,8 @@
 	    githubURL: 'https://github.com/MilkMan90/netwerker'
 	  },
 	  weatherMe: {
-	    imgURL: '/lib/imgs/weatherMeThumb.png',
+	    imgURL: '/lib/imgs/weatherme.png',
+	    gifURL: '/lib/imgs/weatherme.gif',
 	    hostURL: 'https://milkman90.github.io/weathrly/',
 	    title: 'WeatherMe',
 	    description: 'Built with react, WeatherMe is a sleek, responsive weather app utilizing the WundergroundAPI - view alerts and 24 hour weather in any area supported by the API.',
@@ -39196,7 +39217,8 @@
 	    githubURL: 'https://github.com/MilkMan90/weathrly'
 	  },
 	  shootTheBreeze: {
-	    imgURL: '/lib/imgs/shootTheBreezeThumb.png',
+	    imgURL: '/lib/imgs/shootthebreeze.png',
+	    gifURL: '/lib/imgs/shootthebreeze.gif',
 	    hostURL: 'https://shootthebreeze-8ee5f.firebaseapp.com',
 	    title: 'ShootTheBreeze',
 	    description: 'A real-time messaging app utilizing firebase storage and retrieval - a history of all messages/contributing users is kept in the database.',
@@ -39204,7 +39226,8 @@
 	    githubURL: 'https://github.com/MilkMan90/shoot-the-breeze'
 	  },
 	  toDoBox: {
-	    imgURL: '/lib/imgs/2DoBox.png',
+	    imgURL: '/lib/imgs/2dolist.png',
+	    gifURL: '/lib/imgs/2dolist.gif',
 	    hostURL: 'https://milkman90.github.io/2DoBox/',
 	    title: '2DoList',
 	    description: 'A single page React app which stores To-Dos, allows for checking-off completion, sorting by importance, and limiting the number of tasks visible',
@@ -39212,12 +39235,22 @@
 	    githubURL: 'https://github.com/MilkMan90/2DoBox'
 	  },
 	  weatherDux: {
-	    imgURL: '/lib/imgs/weatherDux.gif',
+	    gifURL: '/lib/imgs/weatherDux.gif',
+	    imgURL: '/lib/imgs/weatherDuxIcon.png',
 	    hostURL: 'https://hilarylewis92.github.io/weather-forecast/#/?_k=myzv4x',
 	    title: 'weatherDux',
 	    description: 'A single page React/Redux app that utilizes the WeatherUnderground API to retrive weather and pin it to the page to save for later',
 	    tech: ['JavaScript', 'React', 'Redux'],
 	    githubURL: 'https://github.com/MilkMan90/weather-forecast'
+	  },
+	  dashboard: {
+	    imgURL: '/lib/imgs/dashboard.png',
+	    gifURL: '/lib/imgs/dashboard.gif',
+	    hostURL: 'http://turingdashboard.herokuapp.com/',
+	    title: 'Turing Dashboard',
+	    description: 'A Dashboard powered by a Rails server for all things Turing operations',
+	    tech: ['JavaScript', 'React', 'Victory-D3'],
+	    githubURL: 'https://github.com/MilkMan90/turing_dashboard'
 	  }
 	};
 
@@ -39343,7 +39376,7 @@
 	  var description = projectInfo.description;
 	  var githubURL = projectInfo.githubURL;
 	  var hostURL = projectInfo.hostURL;
-	  var imgURL = projectInfo.imgURL;
+	  var gifURL = projectInfo.gifURL;
 	  var tech = projectInfo.tech;
 	  var title = projectInfo.title;
 	
@@ -39369,7 +39402,7 @@
 	    React.createElement(
 	      'a',
 	      { target: '_blank', href: hostURL },
-	      React.createElement('img', { className: 'showcase-img', src: imgURL })
+	      React.createElement('img', { className: 'showcase-img', src: gifURL })
 	    ),
 	    React.createElement(
 	      'p',
@@ -40127,7 +40160,7 @@
 	exports.push([module.id, "@import url(https://fonts.googleapis.com/css?family=Cookie|Dosis|Mogra);", ""]);
 	
 	// module
-	exports.push([module.id, "/* http://meyerweb.com/eric/tools/css/reset/\n   v2.0 | 20110126\n   License: none (public domain)\n*/\nhtml, body, div, span, applet, object, iframe,\nh1, h2, h3, h4, h5, h6, p, blockquote, pre,\na, abbr, acronym, address, big, cite, code,\ndel, dfn, em, img, ins, kbd, q, s, samp,\nsmall, strike, strong, sub, sup, tt, var,\nb, u, i, center,\ndl, dt, dd, ol, ul, li,\nfieldset, form, label, legend,\ntable, caption, tbody, tfoot, thead, tr, th, td,\narticle, aside, canvas, details, embed,\nfigure, figcaption, footer, header, hgroup,\nmenu, nav, output, ruby, section, summary,\ntime, mark, audio, video {\n  margin: 0;\n  padding: 0;\n  border: 0;\n  font-size: 100%;\n  font: inherit;\n  vertical-align: baseline; }\n\n/* HTML5 display-role reset for older browsers */\narticle, aside, details, figcaption, figure,\nfooter, header, hgroup, menu, nav, section {\n  display: block; }\n\nbody {\n  line-height: 1; }\n\nol, ul {\n  list-style: none; }\n\nblockquote, q {\n  quotes: none; }\n\nblockquote:before, blockquote:after,\nq:before, q:after {\n  content: '';\n  content: none; }\n\ntable {\n  border-collapse: collapse;\n  border-spacing: 0; }\n\nnav {\n  display: flex;\n  position: fixed;\n  flex-direction: column;\n  border-right: solid 1px;\n  align-items: center;\n  background-color: #05668D;\n  width: 23.5%;\n  float: left;\n  height: 100%;\n  z-index: 999; }\n\n.width-holder {\n  z-index: 0;\n  width: 23.5%;\n  float: left;\n  height: 100vh; }\n\nmain {\n  z-index: 0;\n  background-color: white;\n  display: inline-block;\n  width: 76.4%; }\n\n.profileImg {\n  border-radius: 200px;\n  height: 120px;\n  display: block;\n  margin-top: 30px;\n  margin-bottom: 20px;\n  border-style: none; }\n\n.hamburger-nav {\n  display: none; }\n\n@keyframes activeLink {\n  from {\n    border-bottom: 2px double #05668D; }\n  to {\n    border-bottom: 2px double lightGrey; } }\n\n@keyframes inActiveLink {\n  from {\n    border-bottom: 2px double lightGrey; }\n  to {\n    border-bottom: 2px double #05668D; } }\n\n.nav {\n  margin-left: auto;\n  margin-right: auto; }\n  .nav a {\n    display: block;\n    font-family: \"Dosis\", sans-serif;\n    font-size: 30px;\n    color: white;\n    text-decoration: none;\n    animation-name: inActiveLink;\n    animation-duration: 1s;\n    animation-fill-mode: forwards;\n    margin: 15px;\n    margin-top: 30px;\n    margin-left: 0px;\n    border-bottom: 3px solid #05668D; }\n  .nav a:hover {\n    border-bottom: 3px white;\n    border-style: double; }\n  .nav .active {\n    animation-name: activeLink;\n    animation-duration: 1s; }\n\n#footerlinks a {\n  display: inline-block;\n  cursor: pointer;\n  margin: 10px; }\n  #footerlinks a :hover {\n    border-bottom: 3px solid #05668D; }\n\n#footerlinks a img {\n  height: 30px; }\n\n#footerlinks {\n  position: absolute;\n  width: 90%;\n  text-align: center;\n  align-items: center;\n  bottom: 15px; }\n\n.project-main {\n  z-index: -1; }\n\n@keyframes expand {\n  from {\n    height: 0px;\n    opacity: 0; }\n  to {\n    height: 230px;\n    opacity: 1; } }\n\n.showcase-container {\n  position: relative;\n  z-index: 5;\n  animation-name: expand;\n  animation-timing-function: ease;\n  animation-duration: 1s;\n  border-bottom: 4px solid lightGrey;\n  height: 230px;\n  opacity: 1; }\n  .showcase-container .showcase {\n    margin: 15px;\n    padding-bottom: 10px;\n    z-index: 6;\n    height: 225px; }\n    .showcase-container .showcase .showcase-title {\n      position: absolute;\n      bottom: 210px; }\n    .showcase-container .showcase .showcase-img {\n      display: inline-block;\n      position: absolute;\n      border: 2px solid lightGrey;\n      width: 250px;\n      bottom: 15px;\n      right: 30px;\n      z-index: 1; }\n    .showcase-container .showcase .showcase-description {\n      text-align: left;\n      position: absolute;\n      bottom: 150px;\n      left: 30px;\n      width: 55%;\n      font-family: \"Dosis\", sans-serif; }\n    .showcase-container .showcase .showcase-tech {\n      color: #05668D;\n      position: absolute;\n      bottom: 30px;\n      font-family: \"Dosis\", sans-serif;\n      margin: 15px; }\n    .showcase-container .showcase .showcase-tech-item {\n      margin: 5px; }\n    .showcase-container .showcase .showcase-github {\n      font-family: \"Dosis\", sans-serif;\n      position: absolute;\n      bottom: 10px;\n      left: 30px;\n      color: #8d0522;\n      text-decoration: none; }\n    .showcase-container .showcase .showcase-hide {\n      background-color: lightGrey;\n      color: white;\n      display: block;\n      position: absolute;\n      bottom: -20px;\n      width: 100px;\n      left: 44%;\n      border-radius: 0px 0px 20px 20px;\n      border-style: none; }\n\n@keyframes contract {\n  from {\n    height: 230px;\n    opacity: 1; }\n  to {\n    height: 0px;\n    opacity: 0; } }\n\n.contract {\n  animation-name: contract;\n  animation-timing-function: ease;\n  animation-duration: 1s;\n  animation-direction: forward;\n  animation-fill-mode: both; }\n\n.project-card-container {\n  width: 95%;\n  margin: auto;\n  position: relative;\n  justify-content: center;\n  display: flex;\n  flex-wrap: wrap;\n  background-color: white;\n  z-index: 99;\n  margin-top: 100px; }\n\n.project-card {\n  cursor: pointer;\n  background-color: white;\n  z-index: 99;\n  position: relative;\n  border: solid 1px darkGrey;\n  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;\n  width: 200px;\n  height: 200px; }\n  .project-card h5 {\n    padding-bottom: 2px;\n    margin-bottom: 3px;\n    border-bottom: 1px solid lightGrey; }\n  .project-card .thumbnail-img {\n    width: 100%;\n    height: 84%; }\n\n@keyframes dampen {\n  from {\n    box-shadow: 0 3px 3px rgba(0, 0, 0, 0.3), 0 0 50px rgba(0, 0, 0, 0.1) inset; }\n  to {\n    box-shadow: 2px 6px 10px rgba(0, 0, 0, 0.3), 30px 40px 50px rgba(0, 0, 0, 0.1) inset; } }\n\n.project-card:hover {\n  animation: dampen;\n  animation-duration: 0.5s;\n  animation-fill-mode: forwards;\n  cursor: pointer; }\n\n.skills-container h4 {\n  text-align: center;\n  margin-bottom: 10px;\n  padding-bottom: 5px;\n  font-size: 30px;\n  font-weight: bold;\n  color: #8d2c05;\n  border-bottom: 2px solid #8d2c05; }\n\n.skills-about p {\n  line-height: 30px;\n  margin: auto;\n  display: block;\n  width: 60%;\n  size: 25px; }\n\n.skills-box {\n  margin: auto;\n  width: 90%;\n  display: flex;\n  flex-wrap: wrap;\n  justify-content: center; }\n\n.skills {\n  display: inline-block;\n  width: auto;\n  border: 2px solid #05668D;\n  margin: 15px;\n  padding: 15px; }\n  .skills li {\n    margin-left: 10px;\n    list-style: circle; }\n\n.timeline-title {\n  text-align: center;\n  margin-bottom: 25px;\n  padding-bottom: 5px;\n  font-size: 30px;\n  font-weight: bold;\n  color: #8d2c05;\n  border-bottom: 2px solid #8d2c05; }\n\n.timeline ul li {\n  list-style-type: none;\n  position: relative;\n  width: 6px;\n  margin: 0 auto;\n  padding-top: 25px;\n  background: #05668D; }\n\n.timeline ul li::after {\n  content: '';\n  position: absolute;\n  left: 50%;\n  bottom: 0;\n  transform: translateX(-50%);\n  width: 30px;\n  height: 30px;\n  border-radius: 50%;\n  background: #8d2c05; }\n\n.timeline ul li div {\n  position: relative;\n  bottom: 0;\n  width: 300px;\n  padding: 15px;\n  background: lightGrey; }\n\n.timeline ul li div::before {\n  content: '';\n  position: absolute;\n  bottom: 7px;\n  width: 0;\n  height: 0;\n  border-style: solid; }\n\n.timeline ul li:nth-child(odd) div {\n  left: 35px; }\n\n.timeline ul li:nth-child(odd) div::before {\n  left: -15px;\n  border-width: 8px 16px 8px 0;\n  border-color: transparent lightGrey transparent transparent; }\n\n.timeline ul li:nth-child(even) div {\n  left: -359px; }\n\n.timeline ul li:nth-child(even) div::before {\n  right: -15px;\n  border-width: 8px 0 8px 16px;\n  border-color: transparent transparent transparent lightGrey; }\n\n.timeline div {\n  color: #058d70; }\n  .timeline div p {\n    color: #05668D; }\n\n.contact-me-container {\n  width: 75%;\n  margin: auto;\n  margin-top: 40px;\n  margin-bottom: 20px; }\n\n.contactForm {\n  padding: 30px;\n  font-family: \"Dosis\", sans-serif;\n  border: 2px solid #05668D; }\n\n.input-group {\n  position: relative;\n  display: inline-block;\n  margin-top: 10px;\n  margin-bottom: 30px;\n  width: 46%; }\n\n.input-group2 {\n  position: relative;\n  margin-bottom: 25px; }\n\n.contact-name {\n  display: inline-block;\n  width: 80%; }\n\n.contact-email {\n  display: inline-block;\n  width: 80%; }\n\n.contact-message {\n  margin: auto;\n  width: 90%;\n  height: 100px; }\n\n.contact-submit {\n  display: block;\n  width: 75%;\n  height: 40px;\n  margin: auto;\n  margin-bottom: 20px;\n  background-color: #668d05;\n  font-family: \"Dosis\", sans-serif;\n  font-size: 20px;\n  color: white; }\n\n.show-form-button {\n  display: block;\n  width: 50%;\n  height: 40px;\n  margin: auto;\n  margin-bottom: 20px;\n  font-size: 20px;\n  background-color: #668d05;\n  font-family: \"Dosis\", sans-serif;\n  color: white; }\n\n.success-message {\n  font-family: \"Dosis\", sans-serif;\n  color: #8d2c05;\n  text-align: center;\n  margin-bottom: 10px; }\n\ninput {\n  font-family: \"Dosis\", sans-serif;\n  font-size: 18px;\n  padding: 10px 10px 10px 5px;\n  display: block;\n  width: 300px;\n  border: none;\n  border-bottom: 1px solid #757575; }\n\ninput:focus {\n  outline: none; }\n\nlabel {\n  color: #999;\n  font-size: 18px;\n  font-weight: normal;\n  position: absolute;\n  pointer-events: none;\n  left: 5px;\n  top: 10px;\n  transition: 0.2s ease all;\n  -moz-transition: 0.2s ease all;\n  -webkit-transition: 0.2s ease all; }\n\ninput:focus ~ label, input:valid ~ label {\n  top: -10px;\n  font-size: 14px;\n  color: #5264AE; }\n\ntextarea:focus ~ label, textarea:valid ~ label {\n  top: -20px;\n  font-size: 14px;\n  color: #5264AE; }\n\n.contactTransition-enter {\n  opacity: 0.01; }\n\n.contactTransition-enter.contactTransition-enter-active {\n  opacity: 1;\n  transition: opacity 1000ms ease-in; }\n\n.contactTransition-appear {\n  opacity: 0.01; }\n\n.contactTransition-appear.contactTransition-appear-active {\n  opacity: 1;\n  transition: opacity 1500ms ease; }\n\n.google-form {\n  width: 75%;\n  display: block;\n  margin: auto;\n  margin-top: 20px; }\n\nbody {\n  width: 100%;\n  height: 100vh; }\n\nh2 {\n  font-family: 'Cookie', cursive;\n  color: #737373;\n  text-shadow: 0px 2px 0px white;\n  font-weight: 400;\n  color: #058d70;\n  font-size: 150px;\n  margin-top: 40px;\n  text-align: center; }\n\nh1, h3, h4, h5, h6, p {\n  /*font-family: \"Dosis\", sans-serif;color:#737373;*/\n  font-family: \"Dosis\", sans-serif;\n  color: #05668D; }\n\nh1 {\n  margin: 30px;\n  line-height: 25px;\n  margin-top: 10px;\n  font-size: 25px;\n  text-align: left; }\n\nh3 {\n  font-size: 16px;\n  margin: 20px; }\n\nh4 {\n  font-size: 20px;\n  margin: 50px; }\n\nh5 {\n  margin-bottom: 20px; }\n\n.title {\n  font-size: 25px;\n  text-align: left; }\n\nh5 {\n  margin: 5px; }\n\nh6 {\n  font-size: 20px;\n  margin-bottom: 5px;\n  text-align: left; }\n\n.message {\n  width: 70%;\n  margin: auto; }\n  .message p {\n    line-height: 25px;\n    font-size: 20px;\n    margin: 30px; }\n\n.newPage-enter {\n  opacity: 0.01; }\n\n.newPage-enter.newPage-enter-active {\n  opacity: 1;\n  transition: opacity 1500ms ease; }\n\n.newPage-appear {\n  opacity: 0.01; }\n\n.newPage-appear.newPage-appear-active {\n  opacity: 1;\n  transition: opacity 1000ms ease; }\n\n.link-to-work {\n  display: block;\n  text-align: center;\n  text-decoration: none;\n  font-size: 20px;\n  font-family: \"Dosis\", sans-serif;\n  border-radius: 30px;\n  padding: 10px;\n  width: 90%;\n  margin: auto;\n  margin-top: 60px;\n  background-color: #8d2c05;\n  color: white; }\n\n.link-to-work:hover {\n  cursor: pointer;\n  background-color: #b43806; }\n\n@media screen and (max-width: 1040px) {\n  .timeline ul li {\n    margin: 0 auto;\n    margin-right: auto;\n    margin-left: 20%; }\n  .timeline ul li:nth-child(even) div {\n    left: 35px; }\n  .timeline ul li:nth-child(even) div::before {\n    left: -15px;\n    border-width: 8px 16px 8px 0;\n    border-color: transparent lightGrey transparent transparent; } }\n\n@media screen and (max-width: 800px) {\n  .width-holder {\n    z-index: 0;\n    width: 100%;\n    height: 100px; }\n  main {\n    position: relative;\n    z-index: 0;\n    background-color: white;\n    width: 100%; }\n  h2 {\n    font-size: 100px; }\n  .homeNav {\n    display: inline-block; }\n  nav {\n    display: block;\n    position: fixed;\n    margin: auto;\n    width: 100%;\n    float: none;\n    height: 100px;\n    z-index: 999; }\n  .profileImg {\n    display: none; }\n  .hamburger-nav {\n    display: inline-block;\n    float: left;\n    height: 40px;\n    margin-left: 20px;\n    margin-top: 25px; }\n  .nav {\n    align-items: center;\n    position: absolute;\n    display: flex;\n    top: 8px;\n    justify-content: center;\n    left: 50%;\n    right: 50%;\n    text-align: center; }\n    .nav a {\n      display: inline-block;\n      font-size: 22px;\n      color: white;\n      text-decoration: none;\n      animation-name: inActiveLink;\n      animation-duration: 0.5s;\n      margin: 0px;\n      margin-top: 30px;\n      margin-left: 10px;\n      margin-right: 10px; }\n    .nav .active {\n      animation-name: activeLink;\n      animation-duration: 0.5s;\n      color: #058d70; }\n  .about-profileImg {\n    border-radius: 200px;\n    display: block;\n    height: 200px;\n    margin: 30px auto 20px auto; }\n  .title {\n    text-align: left; }\n  .timeline ul li {\n    margin: 0 auto;\n    margin-right: auto;\n    margin-left: 5%; }\n  .timeline ul li div {\n    width: 240px; }\n  @keyframes expand {\n    from {\n      height: 0px;\n      opacity: 0; }\n    to {\n      height: 350px;\n      opacity: 1; } }\n  @keyframes contract {\n    from {\n      height: 350px;\n      opacity: 1; }\n    to {\n      height: 0px;\n      opacity: 0; } }\n  .mobile-showcase .showcase-title {\n    text-align: center;\n    margin-top: 20px;\n    font-size: 30px; }\n  .mobile-showcase .showcase-img {\n    display: block;\n    margin: 40px auto 20px auto;\n    width: 75%; }\n  .mobile-showcase .showcase-description {\n    margin: auto;\n    width: 80%; }\n  .mobile-showcase .showcase-tech {\n    position: relative;\n    width: 80%;\n    margin: 20px auto 20px auto; }\n  .mobile-showcase .showcase-tech-item {\n    position: relative;\n    margin: 10px;\n    width: 80%; }\n  .mobile-showcase .showcase-github {\n    display: block;\n    text-align: center; }\n  .mobile-showcase .showcase-hide {\n    position: absolute;\n    background-color: white;\n    border: none;\n    top: 10px;\n    left: 10px;\n    outline: none; }\n    .mobile-showcase .showcase-hide img {\n      width: 40px;\n      cursor: pointer; }\n  .project-card-container {\n    margin-top: 20px; }\n  .project-card {\n    margin: 10px; }\n  #footerlinks {\n    width: 100%; }\n  footer {\n    margin-top: 20px;\n    position: relative;\n    bottom: 0px;\n    width: 100%;\n    background-color: #05668D;\n    height: 80px; } }\n", ""]);
+	exports.push([module.id, "/* http://meyerweb.com/eric/tools/css/reset/\n   v2.0 | 20110126\n   License: none (public domain)\n*/\nhtml, body, div, span, applet, object, iframe,\nh1, h2, h3, h4, h5, h6, p, blockquote, pre,\na, abbr, acronym, address, big, cite, code,\ndel, dfn, em, img, ins, kbd, q, s, samp,\nsmall, strike, strong, sub, sup, tt, var,\nb, u, i, center,\ndl, dt, dd, ol, ul, li,\nfieldset, form, label, legend,\ntable, caption, tbody, tfoot, thead, tr, th, td,\narticle, aside, canvas, details, embed,\nfigure, figcaption, footer, header, hgroup,\nmenu, nav, output, ruby, section, summary,\ntime, mark, audio, video {\n  margin: 0;\n  padding: 0;\n  border: 0;\n  font-size: 100%;\n  font: inherit;\n  vertical-align: baseline; }\n\n/* HTML5 display-role reset for older browsers */\narticle, aside, details, figcaption, figure,\nfooter, header, hgroup, menu, nav, section {\n  display: block; }\n\nbody {\n  line-height: 1; }\n\nol, ul {\n  list-style: none; }\n\nblockquote, q {\n  quotes: none; }\n\nblockquote:before, blockquote:after,\nq:before, q:after {\n  content: '';\n  content: none; }\n\ntable {\n  border-collapse: collapse;\n  border-spacing: 0; }\n\nnav {\n  display: flex;\n  position: fixed;\n  flex-direction: column;\n  border-right: solid 1px;\n  align-items: center;\n  background-color: #05668D;\n  width: 23.5%;\n  float: left;\n  height: 100%;\n  z-index: 999; }\n\n.width-holder {\n  z-index: 0;\n  width: 23.5%;\n  float: left;\n  height: 100vh; }\n\nmain {\n  z-index: 0;\n  background-color: white;\n  display: inline-block;\n  width: 76.4%; }\n\n.profileImg {\n  border-radius: 200px;\n  height: 120px;\n  display: block;\n  margin-top: 30px;\n  margin-bottom: 20px;\n  border-style: none; }\n\n.hamburger-nav {\n  display: none; }\n\n@keyframes activeLink {\n  from {\n    border-bottom: 2px double #05668D; }\n  to {\n    border-bottom: 2px double lightGrey; } }\n\n@keyframes inActiveLink {\n  from {\n    border-bottom: 2px double lightGrey; }\n  to {\n    border-bottom: 2px double #05668D; } }\n\n.nav {\n  margin-left: auto;\n  margin-right: auto; }\n  .nav a {\n    display: block;\n    font-family: \"Dosis\", sans-serif;\n    font-size: 30px;\n    color: white;\n    text-decoration: none;\n    animation-name: inActiveLink;\n    animation-duration: 1s;\n    animation-fill-mode: forwards;\n    margin: 15px;\n    margin-top: 30px;\n    margin-left: 0px;\n    border-bottom: 3px solid #05668D; }\n  .nav a:hover {\n    border-bottom: 3px white;\n    border-style: double; }\n  .nav .active {\n    animation-name: activeLink;\n    animation-duration: 1s; }\n\n#footerlinks a {\n  display: inline-block;\n  cursor: pointer;\n  margin: 10px; }\n  #footerlinks a :hover {\n    border-bottom: 3px solid #05668D; }\n\n#footerlinks a img {\n  height: 30px; }\n\n#footerlinks {\n  position: absolute;\n  width: 90%;\n  text-align: center;\n  align-items: center;\n  bottom: 15px; }\n\n.project-main {\n  z-index: -1; }\n\n@keyframes expand {\n  from {\n    height: 0px;\n    opacity: 0; }\n  to {\n    height: 230px;\n    opacity: 1; } }\n\n.showcase-container {\n  position: relative;\n  z-index: 5;\n  animation-name: expand;\n  animation-timing-function: ease;\n  animation-duration: 1s;\n  border-bottom: 4px solid lightGrey;\n  height: 230px;\n  opacity: 1; }\n  .showcase-container .showcase {\n    margin: 15px;\n    padding-bottom: 10px;\n    z-index: 6;\n    height: 225px; }\n    .showcase-container .showcase .showcase-title {\n      position: absolute;\n      bottom: 210px; }\n    .showcase-container .showcase .showcase-img {\n      display: inline-block;\n      position: absolute;\n      border: 2px solid lightGrey;\n      width: 250px;\n      bottom: 15px;\n      right: 30px;\n      z-index: 1; }\n    .showcase-container .showcase .showcase-description {\n      text-align: left;\n      position: absolute;\n      bottom: 150px;\n      left: 30px;\n      width: 55%;\n      font-family: \"Dosis\", sans-serif; }\n    .showcase-container .showcase .showcase-tech {\n      color: #05668D;\n      position: absolute;\n      bottom: 30px;\n      font-family: \"Dosis\", sans-serif;\n      margin: 15px; }\n    .showcase-container .showcase .showcase-tech-item {\n      margin: 5px; }\n    .showcase-container .showcase .showcase-github {\n      font-family: \"Dosis\", sans-serif;\n      position: absolute;\n      bottom: 10px;\n      left: 30px;\n      color: #8d0522;\n      text-decoration: none; }\n    .showcase-container .showcase .showcase-hide {\n      background-color: lightGrey;\n      color: white;\n      display: block;\n      position: absolute;\n      bottom: -20px;\n      width: 100px;\n      left: 44%;\n      border-radius: 0px 0px 20px 20px;\n      border-style: none; }\n\n@keyframes contract {\n  from {\n    height: 230px;\n    opacity: 1; }\n  to {\n    height: 0px;\n    opacity: 0; } }\n\n.contract {\n  animation-name: contract;\n  animation-timing-function: ease;\n  animation-duration: 1s;\n  animation-direction: forward;\n  animation-fill-mode: both; }\n\n.hide {\n  display: none; }\n\n.project-card-container {\n  width: 75%;\n  margin: auto;\n  position: relative;\n  justify-content: center;\n  display: flex;\n  flex-wrap: wrap;\n  background-color: white;\n  z-index: 99;\n  margin-top: 50px; }\n\n.project-card {\n  cursor: pointer;\n  background-color: white;\n  z-index: 99;\n  position: relative;\n  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;\n  width: 200px;\n  height: 200px; }\n  .project-card h5 {\n    text-align: center;\n    margin-bottom: 3px;\n    height: 20px; }\n  .project-card .thumbnail-img {\n    width: 100%;\n    height: 180px; }\n\n@keyframes dampen {\n  from {\n    box-shadow: 0 3px 3px rgba(0, 0, 0, 0.3), 0 0 50px rgba(0, 0, 0, 0.1) inset; }\n  to {\n    box-shadow: 2px 6px 10px rgba(0, 0, 0, 0.3), 30px 40px 50px rgba(0, 0, 0, 0.1) inset; } }\n\n.project-card:hover {\n  animation: dampen;\n  animation-duration: 0.5s;\n  animation-fill-mode: forwards;\n  cursor: pointer; }\n\n.skills-container h4 {\n  text-align: center;\n  margin-bottom: 10px;\n  padding-bottom: 5px;\n  font-size: 30px;\n  font-weight: bold;\n  color: #8d2c05;\n  border-bottom: 2px solid #8d2c05; }\n\n.skills-about p {\n  line-height: 30px;\n  margin: auto;\n  display: block;\n  width: 60%;\n  size: 25px; }\n\n.skills-box {\n  margin: auto;\n  width: 90%;\n  display: flex;\n  flex-wrap: wrap;\n  justify-content: center; }\n\n.skills {\n  display: inline-block;\n  width: auto;\n  border: 2px solid #05668D;\n  margin: 15px;\n  padding: 15px; }\n  .skills li {\n    margin-left: 10px;\n    list-style: circle; }\n\n.timeline-title {\n  text-align: center;\n  margin-bottom: 25px;\n  padding-bottom: 5px;\n  font-size: 30px;\n  font-weight: bold;\n  color: #8d2c05;\n  border-bottom: 2px solid #8d2c05; }\n\n.timeline ul li {\n  list-style-type: none;\n  position: relative;\n  width: 6px;\n  margin: 0 auto;\n  padding-top: 25px;\n  background: #05668D; }\n\n.timeline ul li::after {\n  content: '';\n  position: absolute;\n  left: 50%;\n  bottom: 0;\n  transform: translateX(-50%);\n  width: 30px;\n  height: 30px;\n  border-radius: 50%;\n  background: #8d2c05; }\n\n.timeline ul li div {\n  position: relative;\n  bottom: 0;\n  width: 300px;\n  padding: 15px;\n  background: lightGrey; }\n\n.timeline ul li div::before {\n  content: '';\n  position: absolute;\n  bottom: 7px;\n  width: 0;\n  height: 0;\n  border-style: solid; }\n\n.timeline ul li:nth-child(odd) div {\n  left: 35px; }\n\n.timeline ul li:nth-child(odd) div::before {\n  left: -15px;\n  border-width: 8px 16px 8px 0;\n  border-color: transparent lightGrey transparent transparent; }\n\n.timeline ul li:nth-child(even) div {\n  left: -359px; }\n\n.timeline ul li:nth-child(even) div::before {\n  right: -15px;\n  border-width: 8px 0 8px 16px;\n  border-color: transparent transparent transparent lightGrey; }\n\n.timeline div {\n  color: #058d70; }\n  .timeline div p {\n    color: #05668D; }\n\n.contact-me-container {\n  width: 75%;\n  margin: auto;\n  margin-top: 40px;\n  margin-bottom: 20px; }\n\n.contactForm {\n  padding: 30px;\n  font-family: \"Dosis\", sans-serif;\n  border: 2px solid #05668D; }\n\n.input-group {\n  position: relative;\n  display: inline-block;\n  margin-top: 10px;\n  margin-bottom: 30px;\n  width: 46%; }\n\n.input-group2 {\n  position: relative;\n  margin-bottom: 25px; }\n\n.contact-name {\n  display: inline-block;\n  width: 80%; }\n\n.contact-email {\n  display: inline-block;\n  width: 80%; }\n\n.contact-message {\n  margin: auto;\n  width: 90%;\n  height: 100px; }\n\n.contact-submit {\n  display: block;\n  width: 75%;\n  height: 40px;\n  margin: auto;\n  margin-bottom: 20px;\n  background-color: #8d2c05;\n  font-family: \"Dosis\", sans-serif;\n  font-size: 20px;\n  color: white; }\n\n.contact-submit:disabled {\n  background-color: lightGrey; }\n\n.show-form-button {\n  display: block;\n  width: 50%;\n  height: 40px;\n  margin: auto;\n  margin-bottom: 20px;\n  font-size: 20px;\n  background-color: #668d05;\n  font-family: \"Dosis\", sans-serif;\n  color: white; }\n\n.success-message {\n  font-family: \"Dosis\", sans-serif;\n  color: #8d2c05;\n  text-align: center;\n  margin-bottom: 10px; }\n\ninput {\n  font-family: \"Dosis\", sans-serif;\n  font-size: 18px;\n  padding: 10px 10px 10px 5px;\n  display: block;\n  width: 300px;\n  border: none;\n  border-bottom: 1px solid #757575; }\n\ninput:focus {\n  outline: none; }\n\nlabel {\n  color: #999;\n  font-size: 18px;\n  font-weight: normal;\n  position: absolute;\n  pointer-events: none;\n  left: 5px;\n  top: 10px;\n  transition: 0.2s ease all;\n  -moz-transition: 0.2s ease all;\n  -webkit-transition: 0.2s ease all; }\n\ninput:focus ~ label, input:valid ~ label {\n  top: -10px;\n  font-size: 14px;\n  color: #5264AE; }\n\ntextarea:focus ~ label, textarea:valid ~ label {\n  top: -20px;\n  font-size: 14px;\n  color: #5264AE; }\n\n.contactTransition-enter {\n  opacity: 0.01; }\n\n.contactTransition-enter.contactTransition-enter-active {\n  opacity: 1;\n  transition: opacity 1000ms ease-in; }\n\n.contactTransition-appear {\n  opacity: 0.01; }\n\n.contactTransition-appear.contactTransition-appear-active {\n  opacity: 1;\n  transition: opacity 1500ms ease; }\n\n.google-form {\n  width: 75%;\n  display: block;\n  margin: auto;\n  margin-top: 20px; }\n\nbody {\n  width: 100%;\n  height: 100vh; }\n\nh2 {\n  font-family: 'Cookie', cursive;\n  color: #737373;\n  text-shadow: 0px 2px 0px white;\n  font-weight: 400;\n  color: #058d70;\n  font-size: 150px;\n  margin-top: 40px;\n  text-align: center; }\n\nh1, h3, h4, h5, h6, p {\n  /*font-family: \"Dosis\", sans-serif;color:#737373;*/\n  font-family: \"Dosis\", sans-serif;\n  color: #05668D; }\n\nh1 {\n  margin: 30px;\n  line-height: 25px;\n  margin-top: 10px;\n  font-size: 25px;\n  text-align: left; }\n\nh3 {\n  font-size: 16px;\n  margin: 20px; }\n\nh4 {\n  font-size: 20px;\n  margin: 50px; }\n\nh5 {\n  margin-bottom: 20px; }\n\n.title {\n  font-size: 25px;\n  text-align: left; }\n\nh5 {\n  margin: 5px; }\n\nh6 {\n  font-size: 20px;\n  margin-bottom: 5px;\n  text-align: left; }\n\n.message {\n  width: 70%;\n  margin: auto; }\n  .message p {\n    line-height: 25px;\n    font-size: 20px;\n    margin: 30px; }\n\n.newPage-enter {\n  opacity: 0.01; }\n\n.newPage-enter.newPage-enter-active {\n  opacity: 1;\n  transition: opacity 1500ms ease; }\n\n.newPage-appear {\n  opacity: 0.01; }\n\n.newPage-appear.newPage-appear-active {\n  opacity: 1;\n  transition: opacity 1000ms ease; }\n\n.link-to-work {\n  display: block;\n  text-align: center;\n  text-decoration: none;\n  font-size: 20px;\n  font-family: \"Dosis\", sans-serif;\n  border-radius: 30px;\n  padding: 10px;\n  width: 90%;\n  margin: auto;\n  margin-top: 60px;\n  background-color: #8d2c05;\n  color: white; }\n\n.link-to-work:hover {\n  cursor: pointer;\n  background-color: #b43806; }\n\n@media screen and (max-width: 1040px) {\n  .timeline ul li {\n    margin: 0 auto;\n    margin-right: auto;\n    margin-left: 20%; }\n  .timeline ul li:nth-child(even) div {\n    left: 35px; }\n  .timeline ul li:nth-child(even) div::before {\n    left: -15px;\n    border-width: 8px 16px 8px 0;\n    border-color: transparent lightGrey transparent transparent; } }\n\n@media screen and (max-width: 800px) {\n  .width-holder {\n    z-index: 0;\n    width: 100%;\n    height: 100px; }\n  main {\n    position: relative;\n    z-index: 0;\n    background-color: white;\n    width: 100%; }\n  h2 {\n    font-size: 100px; }\n  .homeNav {\n    display: inline-block; }\n  nav {\n    display: block;\n    position: fixed;\n    margin: auto;\n    width: 100%;\n    float: none;\n    height: 100px;\n    z-index: 999; }\n  .profileImg {\n    display: none; }\n  .hamburger-nav {\n    display: inline-block;\n    float: left;\n    height: 40px;\n    margin-left: 20px;\n    margin-top: 25px; }\n  .nav {\n    align-items: center;\n    position: absolute;\n    display: flex;\n    top: 8px;\n    justify-content: center;\n    left: 50%;\n    right: 50%;\n    text-align: center; }\n    .nav a {\n      display: inline-block;\n      font-size: 22px;\n      color: white;\n      text-decoration: none;\n      animation-name: inActiveLink;\n      animation-duration: 0.5s;\n      margin: 0px;\n      margin-top: 30px;\n      margin-left: 10px;\n      margin-right: 10px; }\n    .nav .active {\n      animation-name: activeLink;\n      animation-duration: 0.5s;\n      color: #058d70; }\n  .about-profileImg {\n    border-radius: 200px;\n    display: block;\n    height: 200px;\n    margin: 30px auto 20px auto; }\n  .title {\n    text-align: left; }\n  .timeline ul li {\n    margin: 0 auto;\n    margin-right: auto;\n    margin-left: 5%; }\n  .timeline ul li div {\n    width: 240px; }\n  @keyframes expand {\n    from {\n      height: 0px;\n      opacity: 0; }\n    to {\n      height: 350px;\n      opacity: 1; } }\n  @keyframes contract {\n    from {\n      height: 350px;\n      opacity: 1; }\n    to {\n      height: 0px;\n      opacity: 0; } }\n  .mobile-showcase .showcase-title {\n    text-align: center;\n    margin-top: 20px;\n    font-size: 30px; }\n  .mobile-showcase .showcase-img {\n    display: block;\n    margin: 40px auto 20px auto;\n    width: 75%; }\n  .mobile-showcase .showcase-description {\n    margin: auto;\n    width: 80%; }\n  .mobile-showcase .showcase-tech {\n    position: relative;\n    width: 80%;\n    margin: 20px auto 20px auto; }\n  .mobile-showcase .showcase-tech-item {\n    position: relative;\n    margin: 10px;\n    width: 80%; }\n  .mobile-showcase .showcase-github {\n    display: block;\n    text-align: center; }\n  .mobile-showcase .showcase-hide {\n    position: absolute;\n    background-color: white;\n    border: none;\n    top: 10px;\n    left: 10px;\n    outline: none; }\n    .mobile-showcase .showcase-hide img {\n      width: 40px;\n      cursor: pointer; }\n  .project-card-container {\n    margin-top: 20px; }\n  .project-card {\n    margin: 10px; }\n  #footerlinks {\n    width: 100%; }\n  footer {\n    margin-top: 20px;\n    position: relative;\n    bottom: 0px;\n    width: 100%;\n    background-color: #05668D;\n    height: 80px; } }\n", ""]);
 	
 	// exports
 
