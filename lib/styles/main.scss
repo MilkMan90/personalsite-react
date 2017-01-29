@@ -3,6 +3,7 @@
 @import 'layout.scss';
 @import 'nav.scss';
 @import 'projects.scss';
+@import "skills.scss";
 @import 'timeline.scss';
 @import 'contactForm.scss';
 
@@ -91,5 +92,24 @@ h6{
   transition: opacity 1000ms ease;
 }
 
+.link-to-work{
+  display: block;
+  text-align: center;
+  text-decoration: none;
+  font-size: 20px;
+  font-family: "Dosis", sans-serif;
+  border-radius: 30px;
+  padding: 10px;
+  width: 90%;
+  margin: auto;
+  margin-top: 60px;
+  background-color: complement($sidebarColor);
+  color: white;
+}
+
+.link-to-work:hover{
+  cursor: pointer;
+  background-color: lighten(complement($sidebarColor), 8);
+}
 
 @import 'mobile.scss';

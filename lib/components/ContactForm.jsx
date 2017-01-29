@@ -7,6 +7,7 @@ export default class ContactForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      disableSubmit: true,
       database: '',
       submitSuccess: false,
       showForm: this.props.showForm || true,
@@ -31,6 +32,7 @@ export default class ContactForm extends Component {
     this.refs.message.value = '';
     this.setState({
       submitSuccess: true,
+      disableSubmit: true
     });
     this.toggleShowForm()
   }
@@ -41,6 +43,16 @@ export default class ContactForm extends Component {
     });
   }
   clearSuccessMessage() {
+    if(this.refs.name.value != '' && this.refs.email.value != '' && this.refs.message.value != ''){
+      this.setState({
+        disableSubmit: false
+      })
+    } else {
+      this.setState({
+        disableSubmit: true
+      })
+    }
+
     this.setState({
       submitSuccess: false,
     });
@@ -55,7 +67,7 @@ export default class ContactForm extends Component {
     if (this.state.showForm) {
       contactDisplay = (
         <form className='contactForm' key='1'>
-          <h5>Send me a message! Feedback about my page is always appreciated.</h5>
+          <h5>Contact me about opportunities or to just say hi!</h5>
           <div className='input-group'>
             <input type="text" ref='name' className='contact-name' onChange={() => this.clearSuccessMessage()}required/>
             <label>Name</label>
@@ -68,7 +80,7 @@ export default class ContactForm extends Component {
             <textarea type="text" ref='message' className='contact-message' onChange={() => this.clearSuccessMessage()} required></textarea>
             <label>Message</label>
           </div>
-          <button type='submit' className='contact-submit' onClick={ (e) => { this.submitContactForm(e); }}>Send</button>
+          <button type='submit' className='contact-submit' disabled={this.state.disableSubmit} onClick={ (e) => { this.submitContactForm(e); }}>Send</button>
         </form>
       );
     } else {
@@ -78,18 +90,16 @@ export default class ContactForm extends Component {
     }
     return (
       <div className='contact-me-container'>
-
-      <ReactCSSTransitionGroup
-        transitionName="contactTransition"
-        transitionAppear={true}
-        transitionLeave={false}
-        transitionAppearTimeout={1500}
-        transitionEnterTimeout={1000}
-      >
-        {successMessage}
-        {contactDisplay}
-      </ReactCSSTransitionGroup>
-            {/* <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSe1prZV6ofOcFVTlHJmwfm8XRehfO3NGG_hHfZ8eWyzmd80EQ/viewform?embedded=true" width="760" height="500" frameborder="0" marginheight="0" marginwidth="0">Loading...</iframe> */}
+        <ReactCSSTransitionGroup
+          transitionName="contactTransition"
+          transitionAppear={true}
+          transitionLeave={false}
+          transitionAppearTimeout={1500}
+          transitionEnterTimeout={1000}
+        >
+          {successMessage}
+          {contactDisplay}
+        </ReactCSSTransitionGroup>
       </div>
     );
   }
