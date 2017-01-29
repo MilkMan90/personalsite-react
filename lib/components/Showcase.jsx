@@ -2,7 +2,7 @@ const React = require('react')
 const ReactDOM = require('react-dom')
 
 export const Showcase = ({ projectInfo, handleHide, mobile }) => {
-  const { description, githubURL, hostURL, imgURL, tech, title } = projectInfo;
+  const { description, githubURL, hostURL, gifURL, tech, title } = projectInfo;
 
   let techList = [];
 
@@ -16,7 +16,7 @@ export const Showcase = ({ projectInfo, handleHide, mobile }) => {
     <div className='showcase'>
       <h6 className='showcase-title'>{title}</h6>
       <a target="_blank" href={hostURL}>
-        <img className='showcase-img' src={imgURL}/>
+        <img className='showcase-img' src={gifURL}/>
       </a>
       <p className='showcase-description'>{description}</p>
       <ul className='showcase-tech'>Built with:

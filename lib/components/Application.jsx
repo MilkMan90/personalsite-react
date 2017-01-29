@@ -6,8 +6,6 @@ import NavLink from './NavLink'
 import ContactForm from './Contactform'
 import MediaQuery from 'react-responsive'
 
-
-
 export default class Application extends Component {
   constructor() {
     super();
@@ -15,28 +13,16 @@ export default class Application extends Component {
       showHome: true
     };
   }
-  componentDidMount() {
-
-  }
-
-  addNewMessage() {
-
-  }
-
-  showHome(){
-
-  }
-
   render() {
     const footerLinks = (
       <div id='footerlinks'>
-              <a href="mailto:matthew.leo.kaufman@gmail.com?Subject=IveBeenLookingForYou" target="_blank"><img src="./lib/imgs/icons/mail.svg" alt="mail" /></a>
+              <a href="mailto:matthew.leo.kaufman@gmail.com?Subject=Hi+Matt" target="_blank"><img src="./lib/imgs/icons/mail.svg" alt="mail" /></a>
               <a href="https://github.com/MilkMan90" target="_blank"><img src="./lib/imgs/icons/github.svg" alt="github" /></a>
               {/* <a href="https://www.facebook.com/matthewleokaufman"><img src="./lib/imgs/icons/facebook.svg" alt="facebook" /></a> */}
               <a href="https://twitter.com/theKaufMan?lang=en" target="_blank"><img src="./lib/imgs/icons/twitter.svg" alt="twitter" /></a>
               <a href="https://www.linkedin.com/in/matthew-kaufman-6725b734" target="_blank"><img src="./lib/imgs/icons/linkedin2.png" alt="linkedin" /></a>
       </div>
-    )
+    );
     return (
       <div className="Application">
         <nav>
@@ -52,7 +38,6 @@ export default class Application extends Component {
             <NavLink to="/code" >Code</NavLink>
             <NavLink to="/about" >About</NavLink>
             <NavLink to="/contact">Contact</NavLink>
-            {/* <NavLink to="/blog" >Blog</NavLink> */}
           </div>
           <MediaQuery query="(min-width: 800px)">
           {footerLinks}

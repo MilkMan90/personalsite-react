@@ -1,0 +1,40 @@
+.skills-container{
+  h4 {
+    text-align: center;
+    margin-bottom: 10px;
+    padding-bottom: 5px;
+    font-size: 30px;
+    font-weight: bold;
+    color: complement($sidebarColor);
+    border-bottom: 2px solid complement($sidebarColor);
+  }
+}
+
+.skills-about{
+  p {
+    line-height: 30px;
+    margin: auto;
+    display: block;
+    width: 60%;
+    size: 25px;
+  }
+}
+.skills-box {
+  margin: auto;
+  width: 90%;
+  display: flex;
+  flex-wrap:wrap;
+  justify-content: center;
+}
+
+.skills {
+  display: inline-block;
+  width: auto;
+  border: 2px solid $sidebarColor;
+  margin: 15px;
+  padding: 15px;
+  li{
+    margin-left: 10px;
+    list-style: circle;
+  }
+}
