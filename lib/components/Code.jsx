@@ -62,6 +62,7 @@ export default class Code extends Component {
 
     const projectCards = (
       <div className='project-card-container'>
+        <ProjectCard project={Projects.pathways} projectName='pathways' handleClick={() => this.chooseProject('pathways')}/>
         <ProjectCard project={Projects.weatherDux} projectName='weatherDux' handleClick={() => this.chooseProject('weatherDux')}/>
         <ProjectCard project={Projects.dashboard} projectName='dashboard' handleClick={() => this.chooseProject('dashboard')}/>
         <ProjectCard project={Projects.netwerker} projectName='netwerker' handleClick={() => this.chooseProject('netwerker')}/>
